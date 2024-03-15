@@ -16,7 +16,7 @@ struct ContentView: View {
             VStack{
                 Text("New Delhi")
                     .foregroundStyle(.white)
-                    .font(.system(size: 32, weight: .medium, design: .default))
+                    .font(.system(size: 36, weight: .medium, design: .default))
                     .padding()
                 VStack(spacing: 5){
                     Text("MON")
@@ -39,7 +39,7 @@ struct ContentView: View {
                     WeatherDayView(day: "FRI", symbol: "cloud.rain.fill", temperature: 25)
                     WeatherDayView(day: "SAT", symbol: "cloud.sun.fill", temperature: 30)
                     
-                }.padding(.top, 60)
+                }.padding(.top, 70)
                 
                 Button{
                     isNight.toggle()
