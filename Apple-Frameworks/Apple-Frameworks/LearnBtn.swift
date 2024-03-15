@@ -19,5 +19,5 @@ struct LearnBtn: View {
 }
 
 #Preview {
-    LearnBtn(btnTitle:"Sample")
+    LearnBtn(btnTitle:"")
 }

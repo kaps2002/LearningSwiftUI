@@ -36,8 +36,10 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Frameworks ✨")
-            .sheet(isPresented: $viewModel.isShowingDetail, content: {
-                FrameworkDetailView(framework: viewModel.selectedFramework ?? MockData.sampleFramework)
+            .sheet(isPresented: $viewModel.isShowingDetail, 
+                   content: {
+                    FrameworkDetailView(framework: viewModel.selectedFramework ?? MockData.sampleFramework,
+                    isShowingDetail: $viewModel.isShowingDetail)
             })
         }
     }

@@ -10,6 +10,8 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var framework: Framework
+    @Binding var isShowingDetail: Bool
+    @State private var isshowingSafari = false
         
     var body: some View {
         ZStack {
@@ -21,13 +23,12 @@ struct FrameworkDetailView: View {
                 HStack{
                     Spacer()
                     
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button{
+                        isShowingDetail = false
+                    }label: {
                         Image(systemName: "xmark")
                             .imageScale(.large)
                             .frame(width: 40, height: 40)
-                    })
-                    .onTapGesture {
-                        
                     }
                 }
                 
@@ -37,10 +38,16 @@ struct FrameworkDetailView: View {
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
                 
-                Button{
-                } label:{
+                Button {
+                    isshowingSafari = true
+                } label: {
                     LearnBtn(btnTitle: "Learn More")
-                }.padding(.top, 40)
+                }
+                .padding(.top, 40)
+                .fullScreenCover(isPresented: $isshowingSafari, content: {
+                    SafariView(url: (URL(string: framework.urlString) ?? URL(string: "www.apple.com"))!)
+                })
+                
             }.padding(20)
         }
         
@@ -48,5 +55,5 @@ struct FrameworkDetailView: View {
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.sampleFramework)
+    FrameworkDetailView(framework: MockData.sampleFramework, isShowingDetail: .constant(false))
 }
