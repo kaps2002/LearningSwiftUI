@@ -16,6 +16,8 @@
 		931AAB382BA30DCE007D280C /* Apple_FrameworksUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931AAB372BA30DCE007D280C /* Apple_FrameworksUITestsLaunchTests.swift */; };
 		931AAB472BA310EB007D280C /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931AAB462BA310EB007D280C /* Framework.swift */; };
 		931AAB492BA322E7007D280C /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931AAB482BA322E7007D280C /* FrameworkDetailView.swift */; };
+		935C4A922BA41B9100FBDB28 /* LearnBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C4A912BA41B9100FBDB28 /* LearnBtn.swift */; };
+		935C4A942BA4243500FBDB28 /* FrameworkGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C4A932BA4243500FBDB28 /* FrameworkGridViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		931AAB372BA30DCE007D280C /* Apple_FrameworksUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple_FrameworksUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		931AAB462BA310EB007D280C /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		931AAB482BA322E7007D280C /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
+		935C4A912BA41B9100FBDB28 /* LearnBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnBtn.swift; sourceTree = "<group>"; };
+		935C4A932BA4243500FBDB28 /* FrameworkGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,9 @@
 			children = (
 				931AAB1A2BA30DC9007D280C /* Apple_FrameworksApp.swift */,
 				931AAB1C2BA30DC9007D280C /* ContentView.swift */,
+				935C4A932BA4243500FBDB28 /* FrameworkGridViewModel.swift */,
 				931AAB482BA322E7007D280C /* FrameworkDetailView.swift */,
+				935C4A912BA41B9100FBDB28 /* LearnBtn.swift */,
 				931AAB462BA310EB007D280C /* Framework.swift */,
 				931AAB1E2BA30DCE007D280C /* Assets.xcassets */,
 				931AAB202BA30DCE007D280C /* Preview Content */,
@@ -265,8 +271,10 @@
 			files = (
 				931AAB492BA322E7007D280C /* FrameworkDetailView.swift in Sources */,
 				931AAB1D2BA30DC9007D280C /* ContentView.swift in Sources */,
+				935C4A922BA41B9100FBDB28 /* LearnBtn.swift in Sources */,
 				931AAB472BA310EB007D280C /* Framework.swift in Sources */,
 				931AAB1B2BA30DC9007D280C /* Apple_FrameworksApp.swift in Sources */,
+				935C4A942BA4243500FBDB28 /* FrameworkGridViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

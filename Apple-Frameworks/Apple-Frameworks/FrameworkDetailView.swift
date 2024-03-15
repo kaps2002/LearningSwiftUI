@@ -8,28 +8,45 @@
 import SwiftUI
 
 struct FrameworkDetailView: View {
+    
     var framework: Framework
+        
     var body: some View {
-        VStack {
-            FrameworkTitle(framework: framework)
-            Text(framework.description)
-                .fontWeight(.medium)
+        ZStack {
+            Color.customgray
+                .ignoresSafeArea()
+                .foregroundColor(.white)
+            
+            VStack {
+                HStack{
+                    Spacer()
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image(systemName: "xmark")
+                            .imageScale(.large)
+                            .frame(width: 40, height: 40)
+                    })
+                    .onTapGesture {
+                        
+                    }
+                }
                 
-            Button{
+                FrameworkTitle(framework: framework)
+                    .padding()
+                Text(framework.description)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.white)
                 
-            } label:{
-                Text("Learn More")
-                    .frame(width: 300, height: 50)
-                    .foregroundStyle(.black)
-                    .background(.teal)
-                    .cornerRadius(10)
-                
-            }.padding(.top, 30)
-        }.padding()
+                Button{
+                } label:{
+                    LearnBtn(btnTitle: "Learn More")
+                }.padding(.top, 40)
+            }.padding(20)
+        }
+        
     }
 }
 
 #Preview {
     FrameworkDetailView(framework: MockData.sampleFramework)
-        .preferredColorScheme(.dark)
 }
