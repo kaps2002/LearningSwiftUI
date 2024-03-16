@@ -15,6 +15,7 @@
 		935C4ABF2BA464DB00FBDB28 /* BarCode_ScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C4ABE2BA464DB00FBDB28 /* BarCode_ScannerUITests.swift */; };
 		935C4AC12BA464DB00FBDB28 /* BarCode_ScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C4AC02BA464DB00FBDB28 /* BarCode_ScannerUITestsLaunchTests.swift */; };
 		935C4ACE2BA4788600FBDB28 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C4ACD2BA4788600FBDB28 /* Scanner.swift */; };
+		93903B072BA57DAF00305043 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93903B062BA57DAF00305043 /* ScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		935C4ABE2BA464DB00FBDB28 /* BarCode_ScannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCode_ScannerUITests.swift; sourceTree = "<group>"; };
 		935C4AC02BA464DB00FBDB28 /* BarCode_ScannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCode_ScannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		935C4ACD2BA4788600FBDB28 /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		93903B062BA57DAF00305043 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,10 @@
 			children = (
 				935C4AA32BA464D800FBDB28 /* BarCode_ScannerApp.swift */,
 				935C4AA52BA464D800FBDB28 /* ContentView.swift */,
+				935C4ACD2BA4788600FBDB28 /* Scanner.swift */,
+				93903B062BA57DAF00305043 /* ScannerView.swift */,
 				935C4AA72BA464DA00FBDB28 /* Assets.xcassets */,
 				935C4AA92BA464DA00FBDB28 /* Preview Content */,
-				935C4ACD2BA4788600FBDB28 /* Scanner.swift */,
 			);
 			path = "BarCode-Scanner";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				935C4AA62BA464D800FBDB28 /* ContentView.swift in Sources */,
+				93903B072BA57DAF00305043 /* ScannerView.swift in Sources */,
 				935C4ACE2BA4788600FBDB28 /* Scanner.swift in Sources */,
 				935C4AA42BA464D800FBDB28 /* BarCode_ScannerApp.swift in Sources */,
 			);
