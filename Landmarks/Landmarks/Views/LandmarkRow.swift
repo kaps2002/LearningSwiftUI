@@ -23,7 +23,5 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-    List(landmarks) { landmark in
-        LandmarkRow(landmark: landmark)
-    }
+    LandmarkRow(landmark: landmarks[0])
 }

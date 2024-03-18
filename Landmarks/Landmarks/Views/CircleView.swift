@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CircleView: View {
+    var landmark: Landmark
     var body: some View {
-        Image(.turtlerock)
+        landmark.image
             .resizable()
             .frame(width: 200, height: 200)
             .clipShape(Circle())
@@ -22,5 +23,5 @@ struct CircleView: View {
 }
 
 #Preview {
-    CircleView()
+    CircleView(landmark: landmarks[0])
 }
