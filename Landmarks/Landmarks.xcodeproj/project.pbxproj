@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930C33DE2BA878B200DD9215 /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930C33DD2BA878B200DD9215 /* FavouriteButton.swift */; };
 		9327212D2BA6177100C65359 /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327212C2BA6177100C65359 /* LandmarksApp.swift */; };
 		932721312BA6177300C65359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932721302BA6177300C65359 /* Assets.xcassets */; };
 		932721342BA6177300C65359 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932721332BA6177300C65359 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		930C33DD2BA878B200DD9215 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		932721292BA6177100C65359 /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9327212C2BA6177100C65359 /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		932721302BA6177300C65359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,9 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				932721572BA617C100C65359 /* ContentView.swift */,
-				932721582BA617C100C65359 /* LandmarkRow.swift */,
 				9346067A2BA7CC6600301815 /* LandmarkList.swift */,
+				932721582BA617C100C65359 /* LandmarkRow.swift */,
 				9346067C2BA7CF0500301815 /* LandmarkDetails.swift */,
+				930C33DD2BA878B200DD9215 /* FavouriteButton.swift */,
 				932721592BA617C100C65359 /* MapView.swift */,
 				932721562BA617C100C65359 /* CircleView.swift */,
 			);
@@ -312,6 +315,7 @@
 				9346067B2BA7CC6600301815 /* LandmarkList.swift in Sources */,
 				9327215D2BA617C100C65359 /* LandmarkRow.swift in Sources */,
 				9327212D2BA6177100C65359 /* LandmarksApp.swift in Sources */,
+				930C33DE2BA878B200DD9215 /* FavouriteButton.swift in Sources */,
 				932721642BA618F800C65359 /* Landmark.swift in Sources */,
 				932721652BA618F800C65359 /* ModelData.swift in Sources */,
 				9346067D2BA7CF0500301815 /* LandmarkDetails.swift in Sources */,
