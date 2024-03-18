@@ -35,4 +35,6 @@ struct Landmark: Hashable, Codable, Identifiable {
         var latitude: Double
         var longitude: Double
     }
+    
+    var isFavorite: Bool
 }
