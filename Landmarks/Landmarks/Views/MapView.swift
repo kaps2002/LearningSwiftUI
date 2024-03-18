@@ -22,5 +22,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(landmark: landmarks[0])
+    MapView(landmark: ModelData().landmarks[0])
 }

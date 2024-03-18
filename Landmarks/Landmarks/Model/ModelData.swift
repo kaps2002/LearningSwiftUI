@@ -6,9 +6,12 @@
 //
 
 import Foundation
-import SwiftUI
 
-var landmarks: [Landmark] = load("landmarkData.json")
+
+class ModelData: Observable {
+    var landmarks: [Landmark] = load("landmarkData.json")
+}
+
 
 func load<T: Decodable> (_ filename: String) -> T {
     let data: Data

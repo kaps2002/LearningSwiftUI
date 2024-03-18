@@ -10,9 +10,7 @@ import SwiftUI
 struct LandmarkRow: View {
     
     var landmark: Landmark
-    
-//    @State var isStarred = false
-//
+
     var body: some View {
         HStack {
             landmark.image
@@ -20,8 +18,16 @@ struct LandmarkRow: View {
                 .frame(width: 50, height: 50)
             Text(landmark.name)
             Spacer()
+//            Image(systemName: isstarred ? "star.fill" : "star")
+//                .symbolRenderingMode(.multicolor)
+//                .onTapGesture {
+//                    isstarred.toggle()
+//                }
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            } else {
+                Image(systemName: "star")
                     .foregroundColor(.yellow)
             }
         }
@@ -29,5 +35,9 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-    LandmarkRow(landmark: landmarks[0])
+    let landmarks = ModelData().landmarks
+    return Group {
+        LandmarkRow(landmark: landmarks[0])
+        LandmarkRow(landmark: landmarks[1])
+    }
 }

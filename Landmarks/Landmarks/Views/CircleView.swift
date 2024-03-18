@@ -23,5 +23,5 @@ struct CircleView: View {
 }
 
 #Preview {
-    CircleView(landmark: landmarks[0])
+    CircleView(landmark: ModelData().landmarks[0])
 }
