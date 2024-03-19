@@ -12,7 +12,7 @@ struct CircleView: View {
     var body: some View {
         landmark.image
             .resizable()
-            .frame(width: 200, height: 200)
+            .frame(width: 150, height: 150)
             .clipShape(Circle())
             .overlay {
                 Circle().stroke(.black, lineWidth: 4)

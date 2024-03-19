@@ -10,7 +10,7 @@ import SwiftUI
 struct LandmarkDetails: View {
     
     @Environment(ModelData.self) var modelData
-    
+    @State private var isShowingSlider = false
     var landmarkIndex: Int {
         modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
     }
@@ -21,45 +21,64 @@ struct LandmarkDetails: View {
         
         @Bindable var modelData = modelData
         
-        ScrollView {
-            
+        ZStack {
             MapView(landmark: landmark)
-                .frame(height: 400)
-            CircleView(landmark: landmark)
-                .offset(y: -130)
-                .padding(.bottom, -130)
-            ScrollView {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(landmark.name)
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        FavouriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
-                    }
-                    HStack {
-                        Text(landmark.park)
-                        Spacer()
-                        Text(landmark.state)
-                    }
-                    .font(.title3)
-                    .foregroundColor(.secondary)
-                    
-                    Divider()
-                    Text("Description")
-                        .font(.title2)
-                    Text(landmark.description)
-                }
-            }
-            .padding()
+                .edgesIgnoringSafeArea(.all)
             
-        }.edgesIgnoringSafeArea(.all)
-        Spacer()
+            VStack {
+                Spacer()
+                VStack {
+                    CircleView(landmark: landmark)
+                        .offset(y: -100)
+                        .padding(.bottom, -100)
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text(landmark.name)
+                                    .font(.title)
+                                    .fontWeight(.semibold)
+                                FavouriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                            }
+                            HStack {
+                                Text(landmark.park)
+                                Spacer()
+                                Text(landmark.state)
+                            }
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                            
+                            Divider()
+                            Text("Description")
+                                .font(.title2)
+                                .multilineTextAlignment(.leading)
+                            Text(landmark.description)
+                        }
+                    }
+                    .onTapGesture {
+                        isShowingSlider = true
+                    }
+                }
+                .padding()
+                .background(Color.white)
+                .frame(maxWidth: .infinity, maxHeight: 300)
+                
+            }
+            
+            
+            
+        }
+        .sheet(isPresented: $isShowingSlider) {
+            SliderView(isShowingSlider: self.$isShowingSlider, landmark: landmark)
+        }
+        
+        
     }
+    
 }
 
 #Preview {
     let modelData = ModelData()
-    return LandmarkDetails(landmark: modelData.landmarks[7])
+    return LandmarkDetails(landmark: modelData.landmarks[1])
         .environment(modelData)
     
 }
