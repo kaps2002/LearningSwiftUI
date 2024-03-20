@@ -44,10 +44,9 @@ struct SliderView: View {
                 ScrollView{
                     Text(landmark.description)
                 }
-                
             }
-            
-        }.padding()
+        }
+        .padding()
         .background(.white)
         .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
     }
@@ -57,5 +56,4 @@ struct SliderView: View {
     let modelData = ModelData()
     return SliderView(landmark: modelData.landmarks[7])
         .environment(modelData)
-    
 }
