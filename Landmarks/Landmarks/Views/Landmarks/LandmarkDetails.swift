@@ -60,7 +60,7 @@ struct LandmarkDetails: View {
                 }
                 .padding()
                 .background(Color.white)
-                .frame(maxWidth: .infinity, maxHeight: 300)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 
             }
             
