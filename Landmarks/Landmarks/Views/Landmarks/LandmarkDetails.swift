@@ -10,7 +10,11 @@ import SwiftUI
 struct LandmarkDetails: View {
     
     @Environment(ModelData.self) var modelData
-    @State private var isShowingSlider = false
+    
+    @State var offset: CGFloat = 0
+    @State var lastOffset: CGFloat = 0
+    @GestureState var gestureOffset: CGFloat = 0
+    
     var landmarkIndex: Int {
         modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
     }
@@ -22,63 +26,56 @@ struct LandmarkDetails: View {
         @Bindable var modelData = modelData
         
         ZStack {
-            MapView(landmark: landmark)
-                .edgesIgnoringSafeArea(.all)
-            
             VStack {
-                Spacer()
-                VStack {
-                    CircleView(landmark: landmark)
-                        .offset(y: -100)
-                        .padding(.bottom, -100)
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(landmark.name)
-                                    .font(.title)
-                                    .fontWeight(.semibold)
-                                FavouriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
-                            }
-                            HStack {
-                                Text(landmark.park)
-                                Spacer()
-                                Text(landmark.state)
-                            }
-                            .font(.title3)
-                            .foregroundColor(.secondary)
-                            
-                            Divider()
-                            Text("Description")
-                                .font(.title2)
-                                .multilineTextAlignment(.leading)
-                            Text(landmark.description)
-                        }
-                    }
-                    .onTapGesture {
-                        isShowingSlider = true
-                    }
-                }
-                .padding()
-                .background(Color.white)
-                .frame(maxWidth: .infinity, maxHeight: 200)
-                
+                MapView(landmark: landmark)
+                    .edgesIgnoringSafeArea(.all)
             }
             
-            
-            
-        }
-        .sheet(isPresented: $isShowingSlider) {
-            SliderView(isShowingSlider: self.$isShowingSlider, landmark: landmark)
+            GeometryReader { proxy -> AnyView in
+                let height = proxy.frame(in: .global).height
+                return AnyView(
+                    VStack {
+                        SliderView(landmark: landmark)
+                            .padding(.bottom, offset == -((height-100)/3) ? (height-100)/1.5 : 0)
+                            .ignoresSafeArea(edges: .bottom)
+                    }
+                    .offset(y: height - 270)
+                    .offset(y: -offset > 0 ? -offset <= (height - 100) ? offset: -(height - 100) : 0 )
+                    .gesture(
+                        DragGesture().updating($gestureOffset , body: { value, out , _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height - 270
+                            withAnimation{
+                                if -offset > 200 && -offset < maxHeight / 2 {
+                                    offset = -(maxHeight / 3)
+                                } else if -offset > maxHeight / 2 {
+                                    offset = -maxHeight
+                                }
+                                else {
+                                    offset = 0
+                                }
+                            }
+                            lastOffset = offset
+                        })
+                    )
+                )
+            }
         }
         
-        
+    }
+    func onChange() {
+        DispatchQueue.main.async {
+            self.offset = gestureOffset + lastOffset
+        }
     }
     
 }
 
 #Preview {
     let modelData = ModelData()
-    return LandmarkDetails(landmark: modelData.landmarks[1])
+    return LandmarkDetails(landmark: modelData.landmarks[5])
         .environment(modelData)
     
 }

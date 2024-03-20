@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SliderView: View {
     @Environment(ModelData.self) var modelData
-    @Binding var isShowingSlider: Bool // Binding to control the visibility of the slider screen
     
     var landmarkIndex: Int {
         modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
@@ -19,14 +18,15 @@ struct SliderView: View {
     
     var body: some View {
         @Bindable var modelData = modelData
-        ScrollView{
+        VStack{
             CircleView(landmark: landmark)
-                .offset(y: 10)
+                .padding(.top, 10)
             VStack(alignment: .leading) {
                 HStack {
                     Text(landmark.name)
                         .font(.title)
                         .fontWeight(.semibold)
+                    FavouriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
                 }
                 HStack {
                     Text(landmark.park)
@@ -39,17 +39,23 @@ struct SliderView: View {
                 Divider()
                 Text("Description")
                     .font(.title2)
-                Text(landmark.description)
+                    .fontWeight(.semibold)
+
+                ScrollView{
+                    Text(landmark.description)
+                }
+                
             }
             
         }.padding()
-        
+        .background(.white)
+        .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
     }
 }
 
 #Preview {
     let modelData = ModelData()
-    return SliderView(isShowingSlider: .constant(false), landmark: modelData.landmarks[7])
+    return SliderView(landmark: modelData.landmarks[7])
         .environment(modelData)
     
 }
