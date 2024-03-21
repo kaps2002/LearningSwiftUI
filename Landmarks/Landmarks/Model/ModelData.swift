@@ -22,6 +22,7 @@ class ModelData {
     var features: [Landmark] {
         landmarks.filter{ $0.isFeatured }
     }
+    var profile = Profile.default
 }
 
 
