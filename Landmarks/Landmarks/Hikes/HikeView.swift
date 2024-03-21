@@ -20,7 +20,6 @@ extension AnyTransition {
 struct HikeView: View {
     var hike: Hike
     @State private var showDetail = false
-
     var body: some View {
         
         VStack {
@@ -39,7 +38,6 @@ struct HikeView: View {
                 Button {
                     withAnimation {
                         showDetail.toggle()
-
                     }
                 } label: {
                     Label("Graph", systemImage: "chevron.right.circle")
