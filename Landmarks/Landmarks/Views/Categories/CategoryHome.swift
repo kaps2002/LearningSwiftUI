@@ -13,12 +13,16 @@ struct CategoryHome: View {
     
     var body: some View {
         NavigationSplitView {
-            List {
+            ScrollView {
+                modelData.features[1].image
+                    .resizable()
+                    .clipped()
+//                    .frame(width: 200, height: 200)
                 ForEach(modelData.categories.keys.sorted(), id:\.self) { key in
-                    Text(key)
+                    CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
             }
-            .navigationTitle("Featured")
+            .navigationTitle("Featured 🎊")
         } detail: {
             Text("Select a landmark")
         }
