@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryHome: View {
     
     @Environment(ModelData.self) var modelData
-    
+    @State private var showingProfile = false
     var body: some View {
         NavigationSplitView {
             ScrollView {
@@ -22,7 +22,21 @@ struct CategoryHome: View {
                     CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
             }
+            .listStyle(.inset)
             .navigationTitle("Featured 🎊")
+            .toolbar {
+                Button {
+                    showingProfile.toggle()
+                } label: {
+                    Label(
+                        title: { Text("User Profile") },
+                        icon: { Image(systemName: "person.crop.circle").symbolRenderingMode(.monochrome) }
+                    )
+                }
+            }.sheet(isPresented: $showingProfile, content: {
+                ProfileView()
+                    .environment(modelData)
+            })
         } detail: {
             Text("Select a landmark")
         }
