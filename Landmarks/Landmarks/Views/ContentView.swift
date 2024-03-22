@@ -30,6 +30,7 @@ struct ContentView: View {
                     )
                 }
                 .tag(Tab.featured)
+            
             LandmarkList()
                 .tabItem {
                     Label(
@@ -43,7 +44,6 @@ struct ContentView: View {
                 }
                 .tag(Tab.list)
         }
-        
     }
 }
 

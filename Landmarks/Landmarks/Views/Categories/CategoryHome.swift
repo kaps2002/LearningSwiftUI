@@ -30,7 +30,9 @@ struct CategoryHome: View {
                 } label: {
                     Label(
                         title: { Text("User Profile") },
-                        icon: { Image(systemName: "person.crop.circle").symbolRenderingMode(.monochrome) }
+                        icon: { 
+                            Image(systemName: "person.crop.circle")
+                        }
                     )
                 }
             }.sheet(isPresented: $showingProfile, content: {
