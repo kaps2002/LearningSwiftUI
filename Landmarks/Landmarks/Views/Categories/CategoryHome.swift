@@ -14,10 +14,8 @@ struct CategoryHome: View {
     var body: some View {
         NavigationSplitView {
             ScrollView {
-                modelData.features[1].image
-                    .resizable()
-                    .clipped()
-//                    .frame(width: 200, height: 200)
+                PageView(pages: modelData.features.map { FeatureCard( landmark: $0 ) })
+                    .listRowInsets(EdgeInsets())
                 ForEach(modelData.categories.keys.sorted(), id:\.self) { key in
                     CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }

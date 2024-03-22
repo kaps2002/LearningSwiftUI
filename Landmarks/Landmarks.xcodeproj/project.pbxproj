@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		930C33DE2BA878B200DD9215 /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930C33DD2BA878B200DD9215 /* FavouriteButton.swift */; };
+		93110AD92BAD4F8900996CE2 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93110AD82BAD4F8900996CE2 /* PageControl.swift */; };
 		9327212D2BA6177100C65359 /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327212C2BA6177100C65359 /* LandmarksApp.swift */; };
 		932721312BA6177300C65359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932721302BA6177300C65359 /* Assets.xcassets */; };
 		932721342BA6177300C65359 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932721332BA6177300C65359 /* Preview Assets.xcassets */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		930C33DD2BA878B200DD9215 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
+		93110AD82BAD4F8900996CE2 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		932721292BA6177100C65359 /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9327212C2BA6177100C65359 /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		932721302BA6177300C65359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			children = (
 				93635D7E2BACAD59008FB4CA /* PageView.swift */,
 				93635D792BACA973008FB4CA /* PageViewController.swift */,
+				93110AD82BAD4F8900996CE2 /* PageControl.swift */,
 				93635D7B2BACAC4B008FB4CA /* FeatureCard.swift */,
 			);
 			path = PageView;
@@ -462,6 +465,7 @@
 				93A90A822BAB11DA00714FFC /* HikeView.swift in Sources */,
 				93A90A6F2BAB06BA00714FFC /* RotateBadgeSymbol.swift in Sources */,
 				93A90A692BAADFC700714FFC /* BadgeBackground.swift in Sources */,
+				93110AD92BAD4F8900996CE2 /* PageControl.swift in Sources */,
 				932721642BA618F800C65359 /* Landmark.swift in Sources */,
 				93635D752BAC3B35008FB4CA /* HikeBadge.swift in Sources */,
 				93635D6B2BABFC40008FB4CA /* CategoryItem.swift in Sources */,
