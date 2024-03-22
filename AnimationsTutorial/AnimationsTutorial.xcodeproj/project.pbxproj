@@ -17,6 +17,8 @@
 		9360FD8C2BADA39D00A718F1 /* Ripples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD8B2BADA39D00A718F1 /* Ripples.swift */; };
 		9360FD8E2BADA40E00A718F1 /* AnimationBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD8D2BADA40E00A718F1 /* AnimationBinding.swift */; };
 		9360FD902BADA57400A718F1 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */; };
+		9360FD922BADAC1200A718F1 /* ColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD912BADAC1200A718F1 /* ColorAnimation.swift */; };
+		9360FD942BADB2DF00A718F1 /* HidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD932BADB2DF00A718F1 /* HidingAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		9360FD8B2BADA39D00A718F1 /* Ripples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ripples.swift; sourceTree = "<group>"; };
 		9360FD8D2BADA40E00A718F1 /* AnimationBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationBinding.swift; sourceTree = "<group>"; };
 		9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
+		9360FD912BADAC1200A718F1 /* ColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAnimation.swift; sourceTree = "<group>"; };
+		9360FD932BADB2DF00A718F1 /* HidingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				9360FD8B2BADA39D00A718F1 /* Ripples.swift */,
 				9360FD8D2BADA40E00A718F1 /* AnimationBinding.swift */,
 				9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */,
+				9360FD912BADAC1200A718F1 /* ColorAnimation.swift */,
+				9360FD932BADB2DF00A718F1 /* HidingAnimation.swift */,
 				9360FD652BAD872100A718F1 /* Assets.xcassets */,
 				9360FD672BAD872100A718F1 /* Preview Content */,
 			);
@@ -266,6 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9360FD922BADAC1200A718F1 /* ColorAnimation.swift in Sources */,
+				9360FD942BADB2DF00A718F1 /* HidingAnimation.swift in Sources */,
 				9360FD8E2BADA40E00A718F1 /* AnimationBinding.swift in Sources */,
 				9360FD8C2BADA39D00A718F1 /* Ripples.swift in Sources */,
 				9360FD642BAD871F00A718F1 /* ImplicitAnimations.swift in Sources */,
