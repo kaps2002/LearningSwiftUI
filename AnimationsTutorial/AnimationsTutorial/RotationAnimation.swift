@@ -20,7 +20,7 @@ struct RotationAnimation: View {
         .background(.red)
         .foregroundColor(.black)
         .clipShape(Circle())
-        .rotation3DEffect(.degrees(animationCount), axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(animationCount), axis: (x: 0, y: 0, z: 1.0))
     }
 }
 

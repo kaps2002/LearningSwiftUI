@@ -10,9 +10,10 @@ import SwiftUI
 struct ImplicitAnimations: View {
     
     @State private var animationCount1 = 1.0
+    @State private var animationCount2 = 1.0
 
     var body: some View {
-            //1. Zoom out
+        
             Button("tap me") {
                 animationCount1 += 1
             }
@@ -23,8 +24,8 @@ struct ImplicitAnimations: View {
             .blur(radius: (animationCount1 - 1))
             .animation(.linear, value: animationCount1)
             
-            
     }
+    
 }
 
 #Preview {
