@@ -19,6 +19,8 @@
 		938FA9D82BB299F100A5AE00 /* FlowerShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9D72BB299F100A5AE00 /* FlowerShapeView.swift */; };
 		938FA9DA2BB2A07600A5AE00 /* ImagePaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9D92BB2A07600A5AE00 /* ImagePaintView.swift */; };
 		938FA9DE2BB2D79B00A5AE00 /* SpecialEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9DD2BB2D79B00A5AE00 /* SpecialEffects.swift */; };
+		938FA9E02BB2E34500A5AE00 /* ShapesAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9DF2BB2E34500A5AE00 /* ShapesAnimations.swift */; };
+		938FA9E22BB2F14600A5AE00 /* SpiroGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9E12BB2F14600A5AE00 /* SpiroGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		938FA9D72BB299F100A5AE00 /* FlowerShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerShapeView.swift; sourceTree = "<group>"; };
 		938FA9D92BB2A07600A5AE00 /* ImagePaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaintView.swift; sourceTree = "<group>"; };
 		938FA9DD2BB2D79B00A5AE00 /* SpecialEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffects.swift; sourceTree = "<group>"; };
+		938FA9DF2BB2E34500A5AE00 /* ShapesAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesAnimations.swift; sourceTree = "<group>"; };
+		938FA9E12BB2F14600A5AE00 /* SpiroGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiroGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				938FA9D72BB299F100A5AE00 /* FlowerShapeView.swift */,
 				938FA9D92BB2A07600A5AE00 /* ImagePaintView.swift */,
 				938FA9DD2BB2D79B00A5AE00 /* SpecialEffects.swift */,
+				938FA9DF2BB2E34500A5AE00 /* ShapesAnimations.swift */,
+				938FA9E12BB2F14600A5AE00 /* SpiroGraphView.swift */,
 				933B26182BB0563C00D15015 /* Assets.xcassets */,
 				933B261A2BB0563D00D15015 /* Preview Content */,
 			);
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938FA9E02BB2E34500A5AE00 /* ShapesAnimations.swift in Sources */,
 				938FA9D62BB2930500A5AE00 /* InsettableShapes.swift in Sources */,
 				933B26172BB0563B00D15015 /* ContentView.swift in Sources */,
 				938FA9DA2BB2A07600A5AE00 /* ImagePaintView.swift in Sources */,
@@ -279,6 +286,7 @@
 				938FA9D82BB299F100A5AE00 /* FlowerShapeView.swift in Sources */,
 				933B26152BB0563B00D15015 /* DrawingSwiftUIApp.swift in Sources */,
 				933B263F2BB0710100D15015 /* PathVsShapes.swift in Sources */,
+				938FA9E22BB2F14600A5AE00 /* SpiroGraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

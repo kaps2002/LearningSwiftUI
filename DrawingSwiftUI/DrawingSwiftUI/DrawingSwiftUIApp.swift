@@ -11,7 +11,7 @@ import SwiftUI
 struct DrawingSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SpiroGraphView()
         }
     }
 }
