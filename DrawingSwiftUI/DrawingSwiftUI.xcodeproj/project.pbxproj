@@ -15,6 +15,7 @@
 		933B26302BB0563D00D15015 /* DrawingSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B262F2BB0563D00D15015 /* DrawingSwiftUIUITests.swift */; };
 		933B26322BB0563D00D15015 /* DrawingSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B26312BB0563D00D15015 /* DrawingSwiftUIUITestsLaunchTests.swift */; };
 		933B263F2BB0710100D15015 /* PathVsShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B263E2BB0710100D15015 /* PathVsShapes.swift */; };
+		938FA9D62BB2930500A5AE00 /* InsettableShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9D52BB2930500A5AE00 /* InsettableShapes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		933B262F2BB0563D00D15015 /* DrawingSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingSwiftUIUITests.swift; sourceTree = "<group>"; };
 		933B26312BB0563D00D15015 /* DrawingSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		933B263E2BB0710100D15015 /* PathVsShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathVsShapes.swift; sourceTree = "<group>"; };
+		938FA9D52BB2930500A5AE00 /* InsettableShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsettableShapes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				933B26142BB0563B00D15015 /* DrawingSwiftUIApp.swift */,
 				933B26162BB0563B00D15015 /* ContentView.swift */,
 				933B263E2BB0710100D15015 /* PathVsShapes.swift */,
+				938FA9D52BB2930500A5AE00 /* InsettableShapes.swift */,
 				933B26182BB0563C00D15015 /* Assets.xcassets */,
 				933B261A2BB0563D00D15015 /* Preview Content */,
 			);
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938FA9D62BB2930500A5AE00 /* InsettableShapes.swift in Sources */,
 				933B26172BB0563B00D15015 /* ContentView.swift in Sources */,
 				933B26152BB0563B00D15015 /* DrawingSwiftUIApp.swift in Sources */,
 				933B263F2BB0710100D15015 /* PathVsShapes.swift in Sources */,
