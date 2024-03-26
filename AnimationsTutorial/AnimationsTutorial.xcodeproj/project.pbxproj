@@ -22,6 +22,7 @@
 		9360FD902BADA57400A718F1 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */; };
 		9360FD922BADAC1200A718F1 /* ColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD912BADAC1200A718F1 /* ColorAnimation.swift */; };
 		9360FD942BADB2DF00A718F1 /* HidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360FD932BADB2DF00A718F1 /* HidingAnimation.swift */; };
+		938FA9DC2BB2BCC600A5AE00 /* RevolutionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FA9DB2BB2BCC600A5AE00 /* RevolutionAnimations.swift */; };
 		9390D0992BAF0D8200C8C2E4 /* Ripples2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390D0982BAF0D8200C8C2E4 /* Ripples2.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
 		9360FD912BADAC1200A718F1 /* ColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAnimation.swift; sourceTree = "<group>"; };
 		9360FD932BADB2DF00A718F1 /* HidingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingAnimation.swift; sourceTree = "<group>"; };
+		938FA9DB2BB2BCC600A5AE00 /* RevolutionAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutionAnimations.swift; sourceTree = "<group>"; };
 		9390D0982BAF0D8200C8C2E4 /* Ripples2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ripples2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				9390D0982BAF0D8200C8C2E4 /* Ripples2.swift */,
 				9354E5212BAF19B200FE160D /* DotLoading.swift */,
 				93546AE92BB03A6600066F1B /* GesturesAnimate.swift */,
+				938FA9DB2BB2BCC600A5AE00 /* RevolutionAnimations.swift */,
 				93546AEB2BB0449E00066F1B /* ViewModifiers.swift */,
 				9360FD8D2BADA40E00A718F1 /* AnimationBinding.swift */,
 				9360FD8F2BADA57400A718F1 /* RotationAnimation.swift */,
@@ -287,6 +290,7 @@
 				9360FD922BADAC1200A718F1 /* ColorAnimation.swift in Sources */,
 				9360FD942BADB2DF00A718F1 /* HidingAnimation.swift in Sources */,
 				9390D0992BAF0D8200C8C2E4 /* Ripples2.swift in Sources */,
+				938FA9DC2BB2BCC600A5AE00 /* RevolutionAnimations.swift in Sources */,
 				9360FD8E2BADA40E00A718F1 /* AnimationBinding.swift in Sources */,
 				9360FD8C2BADA39D00A718F1 /* Ripples.swift in Sources */,
 				9354E5222BAF19B200FE160D /* DotLoading.swift in Sources */,
