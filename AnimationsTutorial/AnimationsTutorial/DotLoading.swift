@@ -10,13 +10,18 @@ import SwiftUI
 struct DotLoading: View {
     @State private var isAnimating = false
     var body: some View {
-        VStack(spacing: 16) {
+        HStack(spacing: 16) {
             ForEach(1..<4) {index in
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 18, height: 18)
+                    .frame(width: 15, height: 15)
                     .opacity(isAnimating ? 1 : 0)
-                    .animation(Animation.easeInOut(duration: 0.75).repeatForever().delay(Double (index-1) / 4))
+                    .animation(
+                        Animation
+                            .easeInOut(duration: 0.9)
+                            .repeatForever()
+                            .delay(Double(index) / 4)
+                    )
             }
             
 //            Circle()
