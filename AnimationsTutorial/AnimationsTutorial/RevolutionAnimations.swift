@@ -23,7 +23,7 @@ struct RevolutionAnimations: View {
                 .resizable()
                 .foregroundColor(.green)
                 .frame(width: 50, height: 50)
-                .offset(x: 100, y: 100)
+                .offset(x: 0, y: -75)
                 .rotationEffect(.degrees(angle))
             
         }
