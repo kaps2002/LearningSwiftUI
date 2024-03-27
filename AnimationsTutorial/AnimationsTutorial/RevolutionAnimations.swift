@@ -10,10 +10,8 @@ import SwiftUI
 struct RevolutionAnimations: View {
     
     @State private var angle: Double = 0.0
-    let radius: CGFloat = 150.0
     var body: some View {
         ZStack {
-            
             Image(systemName: "sun.max.fill")
                 .resizable()
                 .symbolRenderingMode(.multicolor)
@@ -23,13 +21,13 @@ struct RevolutionAnimations: View {
                 .resizable()
                 .foregroundColor(.green)
                 .frame(width: 50, height: 50)
-                .offset(x: 0, y: -75)
+                .offset(x: 0, y: 135)
                 .rotationEffect(.degrees(angle))
             
         }
         .onAppear() {
             withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
-                self.angle = 360.0
+                angle = 360.0
             }
         }
     }
