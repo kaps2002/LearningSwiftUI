@@ -12,13 +12,14 @@ struct ProductDetails: View {
     var body: some View {
         VStack {
             AsyncImageView(productImage: product.image)
-                .frame(width: 300, height: 300)
+                .frame(width: 250, height: 250)
                 .padding()
             Text(product.title)
                 .fontWeight(.bold)
                 .font(.title3)
             Text(product.description)
                 .font(.subheadline)
+                .lineLimit(4)
                 .foregroundStyle(.secondary)
             
             HStack(spacing: 25) { // Adjust the spacing value as needed
@@ -48,7 +49,7 @@ struct ProductDetails: View {
                     VStack(alignment: .leading) {
                         Text("Total Price")
                             .foregroundStyle(.secondary)
-                        Text(String(product.price))
+                        Text("\u{20B9} \(String(product.price))")
                             .foregroundStyle(.primary)
                             .fontWeight(.bold)
                     }
@@ -73,8 +74,7 @@ struct ProductDetails: View {
             }
             .padding(.horizontal, 10)
         }
-        .padding()
-        
+        .padding(10)
     }
 }
 

@@ -17,7 +17,6 @@ class ProductViewModel {
         
         do {
             products = try await manager.request(url: Constant.API.productURL)
-            print(products)
         } catch {
             print(error)
         }
