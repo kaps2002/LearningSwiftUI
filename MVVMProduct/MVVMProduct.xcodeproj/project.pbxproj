@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		93005C6B2BB587F300A2B7C7 /* MVVMProductApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C6A2BB587F300A2B7C7 /* MVVMProductApp.swift */; };
-		93005C6D2BB587F300A2B7C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C6C2BB587F300A2B7C7 /* ContentView.swift */; };
+		93005C6D2BB587F300A2B7C7 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C6C2BB587F300A2B7C7 /* ProductView.swift */; };
 		93005C6F2BB587F500A2B7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93005C6E2BB587F500A2B7C7 /* Assets.xcassets */; };
 		93005C722BB587F500A2B7C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93005C712BB587F500A2B7C7 /* Preview Assets.xcassets */; };
 		93005C7C2BB587F500A2B7C7 /* MVVMProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C7B2BB587F500A2B7C7 /* MVVMProductTests.swift */; };
@@ -17,6 +17,7 @@
 		93005C9E2BB5893A00A2B7C7 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C9D2BB5893A00A2B7C7 /* ProductModel.swift */; };
 		93005CA02BB58D6400A2B7C7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005C9F2BB58D6400A2B7C7 /* APIManager.swift */; };
 		93005CA22BB591A900A2B7C7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93005CA12BB591A900A2B7C7 /* Constant.swift */; };
+		939C9EF92BB6A713002DB050 /* ProductRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939C9EF82BB6A713002DB050 /* ProductRowView.swift */; };
 		93BCCA1C2BB5DFFE001C6825 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCA1B2BB5DFFE001C6825 /* ProductViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,7 @@
 /* Begin PBXFileReference section */
 		93005C672BB587F300A2B7C7 /* MVVMProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93005C6A2BB587F300A2B7C7 /* MVVMProductApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProductApp.swift; sourceTree = "<group>"; };
-		93005C6C2BB587F300A2B7C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93005C6C2BB587F300A2B7C7 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		93005C6E2BB587F500A2B7C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93005C712BB587F500A2B7C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93005C772BB587F500A2B7C7 /* MVVMProductTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMProductTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +52,7 @@
 		93005C9D2BB5893A00A2B7C7 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		93005C9F2BB58D6400A2B7C7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93005CA12BB591A900A2B7C7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		939C9EF82BB6A713002DB050 /* ProductRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowView.swift; sourceTree = "<group>"; };
 		93BCCA1B2BB5DFFE001C6825 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				93005C6A2BB587F300A2B7C7 /* MVVMProductApp.swift */,
-				93005C6C2BB587F300A2B7C7 /* ContentView.swift */,
 				93005C9A2BB5888800A2B7C7 /* Helper */,
 				93005C992BB5887400A2B7C7 /* Constants */,
 				93005C942BB587FE00A2B7C7 /* Extensions */,
@@ -165,6 +166,8 @@
 		93005C972BB5882100A2B7C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				93005C6C2BB587F300A2B7C7 /* ProductView.swift */,
+				939C9EF82BB6A713002DB050 /* ProductRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,8 +337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93005CA02BB58D6400A2B7C7 /* APIManager.swift in Sources */,
-				93005C6D2BB587F300A2B7C7 /* ContentView.swift in Sources */,
+				93005C6D2BB587F300A2B7C7 /* ProductView.swift in Sources */,
 				93BCCA1C2BB5DFFE001C6825 /* ProductViewModel.swift in Sources */,
+				939C9EF92BB6A713002DB050 /* ProductRowView.swift in Sources */,
 				93005CA22BB591A900A2B7C7 /* Constant.swift in Sources */,
 				93005C9E2BB5893A00A2B7C7 /* ProductModel.swift in Sources */,
 				93005C6B2BB587F300A2B7C7 /* MVVMProductApp.swift in Sources */,

@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class ProductViewModel {
+@Observable
+class ProductViewModel {
     
     var products: [ProductModel] = []
     private let manager = APIManager()
@@ -15,8 +16,8 @@ final class ProductViewModel {
     func fetchProducts() async {
         
         do {
-            let responseProducts: [ProductModel] = try await manager.request(url: Constant.API.productURL)
-            print(responseProducts)
+            products = try await manager.request(url: Constant.API.productURL)
+            print(products)
         } catch {
             print(error)
         }
