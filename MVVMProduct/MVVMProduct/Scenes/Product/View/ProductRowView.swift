@@ -11,9 +11,9 @@ struct ProductRowView: View {
     let product: ProductModel
     var body: some View {
         HStack {
-            if let url = URL(string: product.image) {
-                productImage(url)
-            }
+            AsyncImageView(productImage: product.image)
+                .frame(width: 100, height: 100)
+
             VStack(alignment: .leading) {
                 Text(product.title)
                     .font(.headline)
@@ -55,15 +55,7 @@ struct ProductRowView: View {
         }
     }
     
-    func productImage(_ url: URL) -> some View {
-        AsyncImage(url: url) { image in
-            image.resizable()
-                .scaledToFit()
-        } placeholder: {
-            ProgressView()
-        }
-        .frame(width: 100, height: 100)
-    }
+    
 }
 
 #Preview {

@@ -13,10 +13,17 @@ struct ProductView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.products) { product in
-                ProductRowView(product: product)
+            List {
+                ForEach (viewModel.products) { product in
+                    NavigationLink {
+                        ProductDetails(product: product)
+                    } label : {
+                        ProductRowView(product: product)
+                    }
+                }
             }
-            .listStyle(.plain)
+            .listStyle(.inset)
+            
             .navigationTitle("Products")
         }
         .task {

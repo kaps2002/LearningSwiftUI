@@ -18,8 +18,9 @@ struct ProductModel: Identifiable, Decodable {
     
     struct Rating: Decodable {
         let rate: Float
-        let count: Int
+        let count: Float
     }
+
     
     static var sample: ProductModel {
         return ProductModel (
