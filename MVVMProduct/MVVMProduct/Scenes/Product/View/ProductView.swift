@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductView: View {
+    
     @State private var viewModel = ProductViewModel()
 
     var body: some View {
@@ -15,6 +16,7 @@ struct ProductView: View {
             List(viewModel.products) { product in
                 ProductRowView(product: product)
             }
+            .listStyle(.plain)
             .navigationTitle("Products")
         }
         .task {

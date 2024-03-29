@@ -12,26 +12,57 @@ struct ProductRowView: View {
     var body: some View {
         HStack {
             if let url = URL(string: product.image) {
-                AsyncImage(url: url) { image in
-                    image.resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 100, height: 100)
+                productImage(url)
             }
-            Spacer()
             VStack(alignment: .leading) {
                 Text(product.title)
                     .font(.headline)
                     .foregroundStyle(.primary)
-                Text(product.category)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text(product.category)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.yellow)
+                    Text(String(product.rating.rate))
+                        .fontWeight(.bold)
+                        .foregroundStyle(.yellow)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text(product.description)
+                        .lineLimit(2)
+                        .foregroundColor(.secondary)
+                    HStack {
+                        Text("\u{20B9} \(String(product.price))")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Button(action: {}, label: {
+                            Text("Buy")
+                                .foregroundStyle(.white)
+                                .frame(width: 50, height: 25)
+                                .background(.blue)
+                                .cornerRadius(15)
+                        })
+                    }
+                }
+                
             }
         }
-        .padding()
-        
+    }
+    
+    func productImage(_ url: URL) -> some View {
+        AsyncImage(url: url) { image in
+            image.resizable()
+                .scaledToFit()
+        } placeholder: {
+            ProgressView()
+        }
+        .frame(width: 100, height: 100)
     }
 }
 
