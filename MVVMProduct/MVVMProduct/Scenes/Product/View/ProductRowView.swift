@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct ProductRowView: View {
-
+    let product: ProductModel
     var body: some View {
         HStack {
-            if let url = URL(string: ProductModel.sample.image) {
+            if let url = URL(string: product.image) {
                 AsyncImage(url: url) { image in
                     image.resizable()
                         .scaledToFit()
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 150, height: 150)
+                .frame(width: 100, height: 100)
             }
+            Spacer()
             VStack(alignment: .leading) {
-                Text(ProductModel.sample.title)
+                Text(product.title)
                     .font(.headline)
                     .foregroundStyle(.primary)
-                Text(ProductModel.sample.category)
+                Text(product.category)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -35,5 +36,5 @@ struct ProductRowView: View {
 }
 
 #Preview {
-    ProductRowView()
+    ProductRowView(product: ProductModel.sample)
 }

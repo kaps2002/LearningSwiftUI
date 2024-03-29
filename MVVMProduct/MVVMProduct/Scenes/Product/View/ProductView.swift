@@ -12,10 +12,14 @@ struct ProductView: View {
 
     var body: some View {
         NavigationView {
-            ProductRowView()
-                .navigationTitle("Products")
+            List(viewModel.products) { product in
+                ProductRowView(product: product)
+            }
+            .navigationTitle("Products")
         }
-       
+        .task {
+            await viewModel.fetchProducts()
+        }
         
     }
 }
