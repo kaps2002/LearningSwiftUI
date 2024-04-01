@@ -21,20 +21,24 @@ struct ContentView: View {
             Button("Show Image") {
                 showingImage = true
             }
-            .sheet(isPresented: $showingImage, content: {
-                ImagePicker(image: $inputImage)
-            })
             
+            Button("Save Image"){
+                guard let inputImage = inputImage else {return}
+                let imageSaver = ImageSaver()
+                imageSaver.writetoAlbum(image: inputImage)
+            }
         }
-        .onChange(of: inputImage) { _ in
+        .sheet(isPresented: $showingImage, content: {
+            ImagePicker(image: $inputImage)
+        })
+        .onChange(of: inputImage) { old, new in
             loadImage()
         }
-        .padding()
     }
     func loadImage() {
         guard let inputImage = inputImage else {return}
-        
         image = Image(uiImage: inputImage)
+        
     }
 }
 
