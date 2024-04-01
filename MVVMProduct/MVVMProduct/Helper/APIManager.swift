@@ -30,5 +30,4 @@ final class APIManager {
         return try JSONDecoder().decode(T.self, from: data)
     }
     
-    
 }
