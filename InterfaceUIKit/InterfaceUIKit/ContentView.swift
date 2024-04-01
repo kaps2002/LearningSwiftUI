@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image: Image?
+    @State private var inputImage: UIImage?
+
     @State private var showingImage = false
     
     var body: some View {
@@ -20,11 +22,19 @@ struct ContentView: View {
                 showingImage = true
             }
             .sheet(isPresented: $showingImage, content: {
-                ImagePicker()
+                ImagePicker(image: $inputImage)
             })
             
         }
+        .onChange(of: inputImage) { _ in
+            loadImage()
+        }
         .padding()
+    }
+    func loadImage() {
+        guard let inputImage = inputImage else {return}
+        
+        image = Image(uiImage: inputImage)
     }
 }
 
