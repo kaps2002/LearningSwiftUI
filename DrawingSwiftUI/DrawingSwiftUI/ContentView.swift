@@ -26,7 +26,6 @@ struct ContentView: View {
         }
         .stroke(.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
         
-        
     }
 }
 
