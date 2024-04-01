@@ -11,7 +11,8 @@ struct Ripples2: View {
     @State private var scalSize: CGFloat = .zero
     @State private var isAnimating = false
 
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.1, on: .main, in: .default).autoconnect()
+    
     var body: some View {
         ZStack {
             Rectangle()

@@ -20,7 +20,7 @@ struct DotLoading: View {
                         Animation
                             .easeInOut(duration: 0.9)
                             .repeatForever()
-                            .delay(Double(index) / 4)
+                            .delay(Double(index - 1) / 4)
                     )
             }
             
