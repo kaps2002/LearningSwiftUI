@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct DataFlowApp: App {
     
-    @StateObject private var modelData = ModelData()
+    @StateObject var modelData = ModelData()
     
     var body: some Scene {
         WindowGroup {
