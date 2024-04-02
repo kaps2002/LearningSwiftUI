@@ -71,6 +71,7 @@ struct LoginView: View {
                     .background(Color("LightGray"))
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    
                     Text(isPasswordValid ? "" : "Password must contains atleast 8 Characters")
                         .font(.caption)
                         .foregroundStyle(.red)
@@ -112,6 +113,10 @@ struct LoginView: View {
             showingalert = true
             password = ""
             email = ""
+            isEmailValid = true
+            isPasswordValid = true
+            isSecured = true
+
         }
     }
     func isEmailValid (_ email: String) -> Bool {
