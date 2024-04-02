@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var filterIntensity = 0.0
     @State private var showingImage = false
     @State private var inputImage: UIImage?
+    @State private var processedImg: UIImage?
+
     @State private var currentFilter = CIFilter.sepiaTone()
     let context = CIContext()
     
@@ -70,11 +72,7 @@ struct ContentView: View {
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyFilter()
     }
-    func saveImage() {
-        guard let inputImage = inputImage else {return}
-        let imageSaver = ImageSaver()
-        imageSaver.writetoAlbum(image: inputImage)
-    }
+  
     func applyFilter() {
         currentFilter.intensity = Float(filterIntensity)
         
@@ -83,7 +81,13 @@ struct ContentView: View {
         if let cgimg = context.createCGImage(outputImg, from: outputImg.extent) {
             let uiImg = UIImage(cgImage: cgimg)
             image = Image(uiImage: uiImg)
+            processedImg = uiImg
         }
+    }
+    func saveImage() {
+        guard let processedImg = processedImg else {return}
+        let imageSaver = ImageSaver()
+        imageSaver.writetoAlbum(image: processedImg)
     }
 }
 
