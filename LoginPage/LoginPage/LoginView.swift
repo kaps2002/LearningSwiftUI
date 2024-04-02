@@ -36,8 +36,8 @@ struct LoginView: View {
                         .frame(height: 45)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                        .background(Color("LightGray"))
-                        .border(isEmailValid ? Color("LightGray") : Color.red)
+                        .background(Color("LightGrey"))
+                        .border(isEmailValid ? Color("LightGrey") : Color.red)
                     
                     Text(isEmailValid ? "" : "Please Enter the valid Email Address")
                         .font(.caption)
@@ -68,11 +68,11 @@ struct LoginView: View {
                     }
                     .border(isPasswordValid ? Color.clear : Color.red)
                     .frame(height: 45)
-                    .background(Color("LightGray"))
+                    .background(Color("LightGrey"))
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     
-                    Text(isPasswordValid ? "" : "Password must contains atleast 8 Characters")
+                    Text(isPasswordValid ? "" : "Password is invalid")
                         .font(.caption)
                         .foregroundStyle(.red)
 
@@ -106,7 +106,7 @@ struct LoginView: View {
         if(!isEmailValid(email)) {
             isEmailValid = false
         }
-        else if (password.count < 8){
+        else if (password.count < 8 || isEmailValid(email)){
             isPasswordValid = false
         }
         else {
@@ -123,6 +123,13 @@ struct LoginView: View {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@gmail\\.com"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
+    }
+    
+    func isPasswordValid(_ password: String) -> Bool {
+        if password.contains(" "){
+            return false
+        }
+        return true
     }
 }
 
