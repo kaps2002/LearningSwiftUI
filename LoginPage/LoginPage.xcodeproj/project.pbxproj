@@ -14,7 +14,6 @@
 		931FCFFE2BBBF73C0043792D /* LoginPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FCFFD2BBBF73C0043792D /* LoginPageTests.swift */; };
 		931FD0082BBBF73C0043792D /* LoginPageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FD0072BBBF73C0043792D /* LoginPageUITests.swift */; };
 		931FD00A2BBBF73C0043792D /* LoginPageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FD0092BBBF73C0043792D /* LoginPageUITestsLaunchTests.swift */; };
-		93B0B0092BBC07BA003B75DB /* practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0B0082BBC07BA003B75DB /* practice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,6 @@
 		931FD0032BBBF73C0043792D /* LoginPageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginPageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		931FD0072BBBF73C0043792D /* LoginPageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITests.swift; sourceTree = "<group>"; };
 		931FD0092BBBF73C0043792D /* LoginPageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		93B0B0082BBC07BA003B75DB /* practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 			children = (
 				931FCFEC2BBBF73A0043792D /* LoginPageApp.swift */,
 				931FCFEE2BBBF73A0043792D /* LoginView.swift */,
-				93B0B0082BBC07BA003B75DB /* practice.swift */,
 				931FCFF02BBBF73C0043792D /* Assets.xcassets */,
 				931FCFF22BBBF73C0043792D /* Preview Content */,
 			);
@@ -262,7 +259,6 @@
 			files = (
 				931FCFEF2BBBF73A0043792D /* LoginView.swift in Sources */,
 				931FCFED2BBBF73A0043792D /* LoginPageApp.swift in Sources */,
-				93B0B0092BBC07BA003B75DB /* practice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

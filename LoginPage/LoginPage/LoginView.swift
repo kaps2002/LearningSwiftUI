@@ -33,6 +33,7 @@ struct LoginView: View {
                     Text("Email")
                         .fontWeight(.semibold)
                     TextField("", text: $email)
+                        .padding(.horizontal, 15)
                         .frame(height: 45)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -63,9 +64,9 @@ struct LoginView: View {
                         }) {
                             Image(systemName: self.isSecured ? "eye.slash" : "eye")
                                 .accentColor(.gray)
-                                .padding()
                         }
                     }
+                    .padding(.horizontal, 15)
                     .border(isPasswordValid ? Color.clear : Color.red)
                     .frame(height: 45)
                     .background(Color("LightGrey"))
@@ -96,7 +97,6 @@ struct LoginView: View {
                         .font(.subheadline)
                 }
                 .padding(.top, 30)
-                
             }
         }
         .padding(.horizontal, 30)
