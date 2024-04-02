@@ -9,37 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image: Image?
-    @State private var inputImage: UIImage?
-
-    @State private var showingImage = false
+    @State private var filterIntensity = 0.5
     
     var body: some View {
-        VStack {
-            image?
-                .resizable()
-                .scaledToFit()
-            Button("Show Image") {
-                showingImage = true
+        NavigationView {
+            VStack {
+                ZStack{
+                    Rectangle()
+                        .fill(.secondary)
+                    
+                    Text("Select a Image")
+                        .foregroundStyle(.white)
+                    
+                    image?
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                }
+                .onTapGesture {
+                    //Select the Image
+                }
+                HStack{
+                    Text("Intensity")
+                    Slider(value: $filterIntensity)
+                }
+                
+                HStack {
+                    Button("Change Filter"){}
+                    Button("Save Photo"){}
+                }
             }
-            
-            Button("Save Image"){
-                guard let inputImage = inputImage else {return}
-                let imageSaver = ImageSaver()
-                imageSaver.writetoAlbum(image: inputImage)
-            }
-        }
-        .sheet(isPresented: $showingImage, content: {
-            ImagePicker(image: $inputImage)
-        })
-        .onChange(of: inputImage) { old, new in
-            loadImage()
+            .padding()
+            .navigationTitle("ImageFilter")
         }
     }
-    func loadImage() {
-        guard let inputImage = inputImage else {return}
-        image = Image(uiImage: inputImage)
-        
-    }
+    
 }
 
 #Preview {
