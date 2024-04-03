@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9343AFEE2BBD7B3A00CBEEEE /* AlamoProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343AFED2BBD7B3A00CBEEEE /* AlamoProjectApp.swift */; };
-		9343AFF02BBD7B3A00CBEEEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343AFEF2BBD7B3A00CBEEEE /* ContentView.swift */; };
+		9343AFF02BBD7B3A00CBEEEE /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343AFEF2BBD7B3A00CBEEEE /* PostView.swift */; };
 		9343AFF22BBD7B3C00CBEEEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9343AFF12BBD7B3C00CBEEEE /* Assets.xcassets */; };
 		9343AFF52BBD7B3C00CBEEEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9343AFF42BBD7B3C00CBEEEE /* Preview Assets.xcassets */; };
 		9343AFFF2BBD7B3C00CBEEEE /* AlamoProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343AFFE2BBD7B3C00CBEEEE /* AlamoProjectTests.swift */; };
 		9343B0092BBD7B3C00CBEEEE /* AlamoProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343B0082BBD7B3C00CBEEEE /* AlamoProjectUITests.swift */; };
 		9343B00B2BBD7B3C00CBEEEE /* AlamoProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343B00A2BBD7B3C00CBEEEE /* AlamoProjectUITestsLaunchTests.swift */; };
 		9343B0192BBD7EB300CBEEEE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9343B0182BBD7EB300CBEEEE /* Alamofire */; };
+		9343B01B2BBDB43400CBEEEE /* DogsFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343B01A2BBDB43400CBEEEE /* DogsFactsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		9343AFEA2BBD7B3A00CBEEEE /* AlamoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9343AFED2BBD7B3A00CBEEEE /* AlamoProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoProjectApp.swift; sourceTree = "<group>"; };
-		9343AFEF2BBD7B3A00CBEEEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9343AFEF2BBD7B3A00CBEEEE /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		9343AFF12BBD7B3C00CBEEEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9343AFF42BBD7B3C00CBEEEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9343AFFA2BBD7B3C00CBEEEE /* AlamoProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamoProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +46,7 @@
 		9343B0042BBD7B3C00CBEEEE /* AlamoProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamoProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9343B0082BBD7B3C00CBEEEE /* AlamoProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoProjectUITests.swift; sourceTree = "<group>"; };
 		9343B00A2BBD7B3C00CBEEEE /* AlamoProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9343B01A2BBDB43400CBEEEE /* DogsFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsFactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				9343AFED2BBD7B3A00CBEEEE /* AlamoProjectApp.swift */,
-				9343AFEF2BBD7B3A00CBEEEE /* ContentView.swift */,
+				9343AFEF2BBD7B3A00CBEEEE /* PostView.swift */,
+				9343B01A2BBDB43400CBEEEE /* DogsFactsView.swift */,
 				9343AFF12BBD7B3C00CBEEEE /* Assets.xcassets */,
 				9343AFF32BBD7B3C00CBEEEE /* Preview Content */,
 			);
@@ -265,7 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9343AFF02BBD7B3A00CBEEEE /* ContentView.swift in Sources */,
+				9343B01B2BBDB43400CBEEEE /* DogsFactsView.swift in Sources */,
+				9343AFF02BBD7B3A00CBEEEE /* PostView.swift in Sources */,
 				9343AFEE2BBD7B3A00CBEEEE /* AlamoProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

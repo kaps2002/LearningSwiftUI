@@ -9,9 +9,26 @@ import SwiftUI
 
 @main
 struct AlamoProjectApp: App {
+    @State private var selection = 0
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView(selection: $selection) {
+                PostView()
+                    .tabItem {
+                        Image(systemName: "envelope.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                    }
+                    .tag(0)
+                DogsFactsView()
+                    .tabItem {
+                        Image(systemName: "dog.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                    }
+                    .tag(1)
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ struct Post: Codable, Identifiable {
     let body: String
 }
 
-struct ContentView: View {
+struct PostView: View {
     @State private var posts: [Post] = []
     @State private var isLoading = false
     
@@ -55,5 +55,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    PostView()
 }
