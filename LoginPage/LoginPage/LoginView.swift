@@ -39,7 +39,10 @@ struct LoginView: View {
                         .disableAutocorrection(true)
                         .background(Color("LightGrey"))
                         .border(isEmailValid ? Color("LightGrey") : Color.red)
-                    
+                        .onChange(of: email) {
+                            isEmailValid = true
+                        }
+                        
                     Text(isEmailValid ? "" : "Please Enter the valid Email Address")
                         .font(.caption)
                         .foregroundStyle(.red)
@@ -67,18 +70,20 @@ struct LoginView: View {
                         }
                     }
                     .padding(.horizontal, 15)
-                    .border(isPasswordValid ? Color.clear : Color.red)
                     .frame(height: 45)
                     .background(Color("LightGrey"))
+                    .border(isPasswordValid ? Color("LightGrey") : Color.red)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                    
+                    .onChange(of: password) {
+                        isPasswordValid = true
+                    }
                     Text(isPasswordValid ? "" : "Password is invalid")
                         .font(.caption)
                         .foregroundStyle(.red)
 
                 }
-                
+
                 VStack(spacing: 20) {
                     Button("Login") {
                         login()
@@ -103,10 +108,13 @@ struct LoginView: View {
     }
     
     func login() {
-        if(!isEmailValid(email)) {
+        if(!EmailValidation(email)) {
             isEmailValid = false
         }
-        else if (password.count < 8 || isEmailValid(email)){
+        else if (password.count < 8){
+            isPasswordValid = false
+        }
+        else if (PasswordValidation(password) == false) {
             isPasswordValid = false
         }
         else {
@@ -116,16 +124,15 @@ struct LoginView: View {
             isEmailValid = true
             isPasswordValid = true
             isSecured = true
-
         }
     }
-    func isEmailValid (_ email: String) -> Bool {
+    func EmailValidation (_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@gmail\\.com"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
     }
     
-    func isPasswordValid(_ password: String) -> Bool {
+    func PasswordValidation(_ password: String) -> Bool {
         if password.contains(" "){
             return false
         }
