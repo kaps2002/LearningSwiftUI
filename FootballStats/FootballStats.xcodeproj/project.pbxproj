@@ -19,6 +19,7 @@
 		9306EF8B2BBE7C2E00B9F9D3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306EF8A2BBE7C2E00B9F9D3 /* APIManager.swift */; };
 		9306EF8D2BBE7E6200B9F9D3 /* FootballViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306EF8C2BBE7E6200B9F9D3 /* FootballViewModel.swift */; };
 		9306EF912BBEA4DF00B9F9D3 /* FootballStatsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306EF902BBEA4DF00B9F9D3 /* FootballStatsRowView.swift */; };
+		9306EF972BBEAB6C00B9F9D3 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9306EF8A2BBE7C2E00B9F9D3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9306EF8C2BBE7E6200B9F9D3 /* FootballViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballViewModel.swift; sourceTree = "<group>"; };
 		9306EF902BBEA4DF00B9F9D3 /* FootballStatsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsRowView.swift; sourceTree = "<group>"; };
+		9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				9306EF5D2BBE6F9400B9F9D3 /* FootballStatsView.swift */,
 				9306EF902BBEA4DF00B9F9D3 /* FootballStatsRowView.swift */,
+				9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				9306EF892BBE70D600B9F9D3 /* FootballModel.swift in Sources */,
 				9306EF912BBEA4DF00B9F9D3 /* FootballStatsRowView.swift in Sources */,
 				9306EF5C2BBE6F9400B9F9D3 /* FootballStatsApp.swift in Sources */,
+				9306EF972BBEAB6C00B9F9D3 /* AsyncImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

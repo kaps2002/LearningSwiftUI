@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct FootballModel: Codable {
+struct FootballModel: Codable, Identifiable {
+    var id = UUID()
     let status: Bool
     let data: LeagueData
     struct LeagueData: Codable {
@@ -17,10 +18,10 @@ struct FootballModel: Codable {
         let season: Int
         let standings: [TeamStanding]
         
-        struct TeamStanding: Codable {
+        struct TeamStanding: Codable{
             let team: Team
             
-            struct Team: Codable {
+            struct Team: Codable,Identifiable {
                 let id: String
                 let name: String
                 let logos: [TeamLogo]
@@ -41,7 +42,7 @@ struct FootballModel: Codable {
                 standings: [
                     LeagueData.TeamStanding(
                         team: LeagueData.TeamStanding.Team(
-                            id: "001",
+                            id: "382",
                             name: "ManCity",
                             logos: [
                                 LeagueData.TeamStanding.Team.TeamLogo(

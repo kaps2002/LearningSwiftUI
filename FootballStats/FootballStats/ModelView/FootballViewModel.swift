@@ -7,27 +7,19 @@
 
 import Foundation
 
-
-class FootballViewModel: ObservableObject {
+@Observable
+class FootballViewModel {
     
-    @Published var footballdata: FootballModel?
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String? = nil
+    var footballmodel = FootballModel.sample
 
     func fetchProducts() {
-        self.isLoading = true
-        self.errorMessage = nil
-        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2020&sort=asc") { [self] result in
-            self.isLoading = false
+        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2020&sort=asc") { result in
             switch result {
-                
             case .success(let leagueResponse):
-                self.footballdata = leagueResponse
-                print(footballdata ?? "")
+                self.footballmodel = leagueResponse
             case .failure(let error):
                 print(error)
             }
         }
-            
     }
 }
