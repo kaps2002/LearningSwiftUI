@@ -33,7 +33,13 @@ struct FootballModel: Codable {
                                     href: "https://a.espncdn.com/i/teamlogos/soccer/500/382.png"
                                 )
                             ]
-                        )
+                        ),
+                        stats: [
+                            TeamStats(displayName: "Games Played", display: "38", abbreviation: "GP"),
+                            TeamStats(displayName: "Loses", display: "2", abbreviation: "L"),
+                            TeamStats(displayName: "Wins", display: "17", abbreviation: "W"),
+                            TeamStats(displayName: "Draws", display: "4", abbreviation: "D")
+                        ]
                     )
                 ]
             )
@@ -47,9 +53,12 @@ struct Data: Codable {
     let season: Int
     let standings: [TeamStandings]
 }
+
 struct TeamStandings: Codable {
     let team: Team
+    let stats: [TeamStats]
 }
+
 struct Team: Codable,Identifiable {
     let id: String
     let uid: String
@@ -63,3 +72,8 @@ struct TeamLogo: Codable {
     let href: String
 }
 
+struct TeamStats: Codable {
+    let displayName: String
+    let display: String
+    let abbreviation: String
+}
