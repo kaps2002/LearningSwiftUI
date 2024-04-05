@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct FootballStatsRowView: View {
-    
-    let footballstats: FootballModel
+    @State private var viewModel = FootballViewModel()
+    @State var footballstats = FootballModel.sample.data.standings.first?.team
     var body: some View {
         HStack {
-            AsyncImageView(footballTeamImg: FootballModel.sample.data.standings.first?.team.logos.first?.href ?? "")
+            AsyncImageView(footballTeamImg: footballstats!.logos.first?.href ?? "")
                 .frame(width: 70, height: 70)
-            Spacer()
+            
             VStack(alignment: .leading) {
                 HStack {
-                    Text(FootballModel.sample.data.name)
+                    Text(footballstats!.name)
                         .fontWeight(.semibold)
-                    Spacer()
-                    Text(String(FootballModel.sample.data.seasonDisplay))
-                        .foregroundStyle(.secondary)
+                    Text("(\(footballstats!.abbreviation))")
+                        .font(.subheadline)
+
                 }
-                Text(FootballModel.sample.data.standings.first?.team.name ?? "")
+                Text("City: \(String(footballstats!.location.components(separatedBy: " ").first!))")
+                        .foregroundStyle(.secondary)
             }
         }
-        .padding()
-        
     }
 }
 
 #Preview {
-    FootballStatsRowView(footballstats: FootballModel.sample)
+    FootballStatsRowView()
 }

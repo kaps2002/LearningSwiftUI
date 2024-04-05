@@ -9,17 +9,21 @@ import SwiftUI
 
 struct FootballStatsView: View {
     @State private var viewModel = FootballViewModel()
-    
     var body: some View {
         NavigationView {
-            FootballStatsRowView(footballstats: FootballModel.sample)
+            List() {
+                ForEach(viewModel.footballmodel?.data.standings ?? [] , id: \.team.id) { teamstanding in
+                    FootballStatsRowView(footballstats: teamstanding.team)
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("Football Stats ⚽️")
         }
-        .onAppear {
+        .task {
             viewModel.fetchProducts()
         }
     }
 }
-
 
 #Preview {
     FootballStatsView()

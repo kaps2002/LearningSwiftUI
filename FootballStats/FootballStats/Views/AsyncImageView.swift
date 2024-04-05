@@ -17,7 +17,8 @@ struct AsyncImageView: View {
         }
         func footballTeamImage(_ url: URL) -> some View {
             AsyncImage(url: url) { image in
-                image.resizable()
+                image
+                    .resizable()
                     .scaledToFit()
             } placeholder: {
                 ProgressView()
