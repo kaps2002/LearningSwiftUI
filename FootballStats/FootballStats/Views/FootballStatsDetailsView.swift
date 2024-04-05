@@ -10,7 +10,6 @@ import SwiftUI
 struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     var footballstats = FootballModel.sample.data.standings.first?.team
-    var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -26,7 +25,17 @@ struct FootballStatsDetailsView: View {
                 }
                 Text(String(footballstats!.location.components(separatedBy: " ").first!))
                     .foregroundStyle(.secondary)
+                
             }
+            Spacer()
+            VStack {
+                Text(footballstats!.name + " Stats")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                FootballStatsTableView()
+                    
+            }
+            .padding(.top, 50)
             Spacer()
         }
     }

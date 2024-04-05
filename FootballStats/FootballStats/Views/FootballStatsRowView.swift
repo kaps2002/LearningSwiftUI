@@ -23,7 +23,7 @@ struct FootballStatsRowView: View {
                         .font(.subheadline)
 
                 }
-                Text("City: \(String(footballstats!.location.components(separatedBy: " ").first!))")
+                Text("Home: \(String(footballstats!.location.components(separatedBy: " ").first!))")
                         .foregroundStyle(.secondary)
             }
         }

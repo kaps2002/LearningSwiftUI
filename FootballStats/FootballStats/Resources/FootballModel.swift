@@ -38,7 +38,13 @@ struct FootballModel: Codable {
                             TeamStats(displayName: "Games Played", displayValue: "38", abbreviation: "GP"),
                             TeamStats(displayName: "Loses", displayValue: "2", abbreviation: "L"),
                             TeamStats(displayName: "Wins", displayValue: "17", abbreviation: "W"),
+                            TeamStats(displayName: "Draws", displayValue: "4", abbreviation: "D"),
+                            TeamStats(displayName: "Points", displayValue: "4", abbreviation: "P"),
+                            TeamStats(displayName: "Points-Per-Game", displayValue: "2.6", abbreviation: "PPG"),
+                            TeamStats(displayName: "Point Deductions", displayValue: "0", abbreviation: "PD"),
+                            TeamStats(displayName: "Rank", displayValue: "1", abbreviation: "R"),
                             TeamStats(displayName: "Draws", displayValue: "4", abbreviation: "D")
+
                         ]
                     )
                 ]
