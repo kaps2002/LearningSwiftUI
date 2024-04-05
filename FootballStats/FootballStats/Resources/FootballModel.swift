@@ -35,10 +35,10 @@ struct FootballModel: Codable {
                             ]
                         ),
                         stats: [
-                            TeamStats(displayName: "Games Played", display: "38", abbreviation: "GP"),
-                            TeamStats(displayName: "Loses", display: "2", abbreviation: "L"),
-                            TeamStats(displayName: "Wins", display: "17", abbreviation: "W"),
-                            TeamStats(displayName: "Draws", display: "4", abbreviation: "D")
+                            TeamStats(displayName: "Games Played", displayValue: "38", abbreviation: "GP"),
+                            TeamStats(displayName: "Loses", displayValue: "2", abbreviation: "L"),
+                            TeamStats(displayName: "Wins", displayValue: "17", abbreviation: "W"),
+                            TeamStats(displayName: "Draws", displayValue: "4", abbreviation: "D")
                         ]
                     )
                 ]
@@ -74,6 +74,6 @@ struct TeamLogo: Codable {
 
 struct TeamStats: Codable {
     let displayName: String
-    let display: String
+    let displayValue: String
     let abbreviation: String
 }

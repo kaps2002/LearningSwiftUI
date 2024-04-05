@@ -13,9 +13,15 @@ struct FootballStatsView: View {
         NavigationView {
             List() {
                 ForEach(viewModel.footballmodel?.data.standings ?? [] , id: \.team.id) { teamstanding in
-                    FootballStatsRowView(footballstats: teamstanding.team)
+                    NavigationLink {
+                        FootballStatsDetailsView()
+                            .padding(.top, -30)
+                    } label: {
+                        FootballStatsRowView(footballstats: teamstanding.team)
+                    }
                 }
             }
+            .padding(.top, 10)
             .listStyle(.plain)
             .navigationTitle("Football Stats ⚽️")
         }
