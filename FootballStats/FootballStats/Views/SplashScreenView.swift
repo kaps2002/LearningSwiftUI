@@ -36,7 +36,7 @@ struct SplashScreenView: View {
                 }
             }
             .onAppear {
-                withAnimation(.smooth(duration: 3.0).delay(2.8)) {
+                withAnimation(.snappy(duration: 2.0).delay(2.5)) {
                     self.isActive = false
                 }
             }
