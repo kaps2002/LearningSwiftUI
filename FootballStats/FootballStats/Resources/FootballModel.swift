@@ -35,15 +35,15 @@ struct FootballModel: Codable {
                             ]
                         ),
                         stats: [
-                            TeamStats(displayName: "Games Played", displayValue: "38", abbreviation: "GP"),
-                            TeamStats(displayName: "Loses", displayValue: "2", abbreviation: "L"),
-                            TeamStats(displayName: "Wins", displayValue: "17", abbreviation: "W"),
-                            TeamStats(displayName: "Draws", displayValue: "4", abbreviation: "D"),
-                            TeamStats(displayName: "Points", displayValue: "4", abbreviation: "P"),
-                            TeamStats(displayName: "Points-Per-Game", displayValue: "2.6", abbreviation: "PPG"),
-                            TeamStats(displayName: "Point Deductions", displayValue: "0", abbreviation: "PD"),
-                            TeamStats(displayName: "Rank", displayValue: "1", abbreviation: "R"),
-                            TeamStats(displayName: "Draws", displayValue: "4", abbreviation: "D")
+                            TeamStats(displayName: "Games Played", abbreviation: "GP", displayValue: "38"),
+                            TeamStats(displayName: "Loses", abbreviation: "L", displayValue: "2"),
+                            TeamStats(displayName: "Wins", abbreviation: "W", displayValue: "17"),
+                            TeamStats(displayName: "Draws", abbreviation: "D", displayValue: "4"),
+                            TeamStats(displayName: "Points", abbreviation: "P", displayValue: "4"),
+                            TeamStats(displayName: "Points-Per-Game", abbreviation: "PPG", displayValue: "2.6"),
+                            TeamStats(displayName: "Point Deductions", abbreviation: "PD", displayValue: ""),
+                            TeamStats(displayName: "Rank", abbreviation: "R", displayValue: "1"),
+                            TeamStats(displayName: "Draws", abbreviation: "D", displayValue: "4")
 
                         ]
                     )
@@ -80,6 +80,7 @@ struct TeamLogo: Codable {
 
 struct TeamStats: Codable {
     let displayName: String
-    let displayValue: String
     let abbreviation: String
+    let displayValue: String
+
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
-    var footballstats = FootballModel.sample.data.standings.first?.team
+    @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
+    @State var footballstats = FootballModel.sample.data.standings.first?.team
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -25,17 +26,16 @@ struct FootballStatsDetailsView: View {
                 }
                 Text(String(footballstats!.location.components(separatedBy: " ").first!))
                     .foregroundStyle(.secondary)
-                
             }
             Spacer()
             VStack {
-                Text(footballstats!.name + " Stats")
+                Text("Season Stats")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                FootballStatsTableView()
+                FootballStatsTableView(footballstatsdetails: footballstatsdetails!)
                     
             }
-            .padding(.top, 50)
+            .padding(.top, 20)
             Spacer()
         }
     }
@@ -43,5 +43,5 @@ struct FootballStatsDetailsView: View {
 
 
 #Preview {
-    FootballStatsDetailsView()
+    FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team)
 }

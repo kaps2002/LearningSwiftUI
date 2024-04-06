@@ -8,18 +8,26 @@
 import SwiftUI
 
 struct FootballStatsTableView: View {
-    @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
+    
+    @State var footballstatsdetails: [TeamStats]
 
     var body: some View {
         List {
-            ForEach(footballstatsdetails!, id: \.abbreviation) { teamStatsDetails in
+            ForEach(footballstatsdetails, id: \.abbreviation) { teamStatsDetail in
                 HStack {
-                    Text(teamStatsDetails.displayName)
-                    Text("(\(teamStatsDetails.abbreviation))")
+                    Text(teamStatsDetail.displayName)
+                    Text("(\(teamStatsDetail.abbreviation))")
                     Spacer()
-                    Text(teamStatsDetails.displayValue)
+                    Group {
+                        if teamStatsDetail.displayValue == "" {
+                            Text("0")
+
+                        } else {
+                            Text(teamStatsDetail.displayValue)
+                        }
+                    }
                 }
-                
+                .font(.title3)
             }
         }
         .listStyle(.plain)
@@ -27,5 +35,5 @@ struct FootballStatsTableView: View {
 }
 
 #Preview {
-    FootballStatsTableView()
+    FootballStatsTableView(footballstatsdetails: FootballModel.sample.data.standings.first?.stats ?? [])
 }
