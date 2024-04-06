@@ -82,5 +82,4 @@ struct TeamStats: Codable {
     let displayName: String
     let abbreviation: String
     let displayValue: String
-
 }

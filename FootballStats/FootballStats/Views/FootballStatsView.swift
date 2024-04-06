@@ -11,7 +11,7 @@ struct FootballStatsView: View {
     @State private var viewModel = FootballViewModel()
     var body: some View {
         NavigationView {
-            List() {
+            List {
                 ForEach(viewModel.footballmodel?.data.standings ?? [] , id: \.team.id) { teamstanding in
                     NavigationLink {
                         FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
@@ -24,10 +24,11 @@ struct FootballStatsView: View {
             .padding(.top, 10)
             .listStyle(.plain)
             .navigationTitle("Football Stats ⚽️")
+            .task {
+                viewModel.fetchProducts()
+            }
         }
-        .task {
-            viewModel.fetchProducts()
-        }
+        
     }
 }
 

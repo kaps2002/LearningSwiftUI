@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashScreenView: View {
     @State private var isActive = true
-    @State private var size = 0.5
+    @State private var size = 0.7
     @State private var opacity = 0.8
     @State private var isShow = false
     
@@ -29,22 +29,20 @@ struct SplashScreenView: View {
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 2.0)) {
+                    withAnimation(.easeIn(duration: 1.5)) {
                         self.size = 1.2
                         self.opacity = 1.0
                     }
                 }
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                withAnimation(.smooth(duration: 3.0).delay(2.8)) {
                     self.isActive = false
                 }
             }
         }
         else {
             FootballStatsView()
-                .animation(.linear(duration: 1.2))
-               
         }
     }
 }
