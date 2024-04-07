@@ -51,6 +51,10 @@ struct FootballModel: Codable {
             )
         )
     }
+    
+    static var sampledesc: Description {
+        return Description (abb: "MNC", desc: "Manchester City Football Club is a professional football club based in Manchester, England, that competes in the Premier League, the top flight of English football. Founded in 1880 as St. Mark's, they became Ardwick Association Football Club in 1887 and Manchester City in 1894.")
+    }
 }
 
 struct Data: Codable {

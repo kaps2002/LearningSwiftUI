@@ -19,7 +19,7 @@ struct SplashScreenView: View {
                 VStack(spacing: 10) {
                     Image("logo")
                         .resizable()
-                        .frame(width: 180, height: 100)
+                        .frame(width: 100, height: 100)
                     Text("Football Stats")
                         .font(.system(size: 30))
                         .foregroundStyle(Color("DarkBlue"))

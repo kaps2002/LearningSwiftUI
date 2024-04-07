@@ -28,7 +28,7 @@ struct FootballStatsView: View {
                 viewModel.fetchProducts()
             }
         }
-        
+    
     }
 }
 

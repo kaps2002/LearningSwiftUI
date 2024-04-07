@@ -12,6 +12,7 @@ struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     @State var footballstats = FootballModel.sample.data.standings.first?.team
+    @State private var description = FootballModel.sampledesc
     
     var body: some View {
         VStack {
@@ -43,9 +44,8 @@ struct FootballStatsDetailsView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     
-                    Text("Manchester City Football Club is a professional football club based in Manchester, England, that competes in the Premier League, the top flight of English football. Founded in 1880 as St. Mark's, they became Ardwick Association Football Club in 1887 and Manchester City in 1894.")
-                        .fontDesign(.rounded)
-                        .font(.headline)
+                    
+                    FootballStatsDescription(description: FootballModel.sampledesc)
                 }
                 .padding(.horizontal, 20)
                 Spacer()
