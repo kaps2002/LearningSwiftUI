@@ -78,5 +78,57 @@
   {
     "abb": "SHU",
     "desc": "Sheffield United Football Club is a professional football club in Sheffield, South Yorkshire, England, that competes in the Premier League, following their promotion from the 2022–23 EFL Championship. They are nicknamed the Blades due to Sheffield's history of cutlery production."
+  },
+  {
+    "abb": "SWA",
+    "desc": "Swansea City Association Football Club is a Welsh professional football club based in Swansea, Wales. It competes in the Championship, the second tier of English football."
+  },
+  {
+    "abb": "STK",
+    "desc": "Stoke City Football Club is a professional association football club based in Stoke-on-Trent, Staffordshire, England. The team competes in the EFL Championship, the second level of the English football league system."
+  },
+  {
+    "abb": "WAT",
+    "desc": "Watford Football Club is an English professional football club based in Watford, Hertfordshire. They play in the EFL Championship, the second tier of the English football league system."
+  },
+  {
+    "abb": "BOU",
+    "desc": "AFC Bournemouth is a professional association football club based in Kings Park, Boscombe, a suburb of Bournemouth, Dorset, England. The club competes in the Premier League, the highest division of English club football. Formed in 1899 as Boscombe, the club adopted their current name in 1971."
+  },
+  {
+    "abb": "SUN",
+    "desc": "Sunderland Association Football Club is an English professional football club based in the city of Sunderland, Tyne and Wear. The team compete in the Championship, the second level of the English football league system."
+  },
+  {
+    "abb": "NOR",
+    "desc": "Norwich City Football Club is an English professional football club based in Norwich, Norfolk. Norwich compete in the EFL Championship, the second tier of the English football league system. The club was founded in 1902."
+  },
+  {
+    "abb": "HUL",
+    "desc": "Hull City Association Football Club is a professional association football club based in Kingston upon Hull, East Riding of Yorkshire, England. They compete in the EFL Championship, the second level of the English football league system."
+  },
+  {
+    "abb": "MID",
+    "desc": "Middlesbrough Football Club is a professional association football club based in Middlesbrough, North Yorkshire, England. The team competes in the EFL Championship, the second level of the English football league system."
+  },
+  {
+      "abb": "HUD",
+      "desc": "Huddersfield Town Association Football Club is a professional association football club based in Huddersfield, West Yorkshire, England. The team competes in the EFL Championship, the second level of the English football league system. Huddersfield Town were founded in 1908."
+  },
+  {
+      "abb": "CAR",
+      "desc": "Cardiff City Football Club is a professional association football club based in Cardiff, Wales. It competes in the Championship, the second tier of the English football league system."
+  },
+  {
+      "abb": "BRE",
+      "desc": "Brentford Football Club is a professional association football club in Brentford, West London, England. The team compete in the Premier League, the first level of the English football league system."
+  },
+  {
+      "abb": "NOT",
+      "desc": "Nottingham Forest Football Club is a professional association football club based in West Bridgford, Nottingham, England. The team compete in the Premier League, the first level of the English football league system. Founded in 1865, Forest have played their home games at the City Ground since 1898."
+  },
+  {
+      "abb": "LTN",
+      "desc": "Luton Town Football Club is a professional football club based in Luton, Bedfordshire, England, that competes in the Premier League, the top level of the English football league system."
   }
 ]

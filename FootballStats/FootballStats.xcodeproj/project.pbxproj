@@ -156,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				9306EF8A2BBE7C2E00B9F9D3 /* APIManager.swift */,
-				93F8CE9A2BC1AF8300D6AD34 /* Description.json */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 		9306EF942BBEA8DE00B9F9D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93F8CE9A2BC1AF8300D6AD34 /* Description.json */,
 				9306EF882BBE70D600B9F9D3 /* FootballModel.swift */,
 			);
 			path = Resources;
