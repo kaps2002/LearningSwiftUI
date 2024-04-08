@@ -55,11 +55,12 @@ struct FootballStatsDetailsView: View {
                         .fontWeight(.bold)
                     FootballStatsTableView(footballstatsdetails: footballstatsdetails!)
                         .padding(.top, -20)
-                        
+                    
                 }
             }
         }
     }
+    
     func compare(_ description: [Description], _ footballstats: Team) -> String {
         for desc in viewModel.descArray {
             if(desc.abb == footballstats.abbreviation) {
@@ -68,9 +69,7 @@ struct FootballStatsDetailsView: View {
         }
         return ""
     }
-    
 }
-
 
 #Preview {
     FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team)

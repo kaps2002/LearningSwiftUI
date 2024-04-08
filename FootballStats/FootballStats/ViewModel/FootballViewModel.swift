@@ -14,12 +14,12 @@ class FootballViewModel {
     var descArray = [Description]()
     
     init(){
-        fetchProducts()
         load()
     }
     
-    func fetchProducts() {
-        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2020") { [self] result in
+    func fetchProducts(season: String) {
+        print(season)
+        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=\(season)") { [self] result in
             switch result {
             case .success(let leagueResponse):
                 self.footballmodel = leagueResponse
