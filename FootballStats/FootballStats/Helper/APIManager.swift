@@ -17,9 +17,7 @@ final class APIManager {
             case .success(let data):
                 do {
                     let leagueData = try JSONDecoder().decode(FootballModel.self, from: data)
-                    
                     completion(.success(leagueData))
-                    print(leagueData)
                 } catch {
                     completion(.failure(error))
                 }

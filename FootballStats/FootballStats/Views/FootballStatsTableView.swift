@@ -27,7 +27,7 @@ struct FootballStatsTableView: View {
                         }
                     }
                 }
-                .font(.headline)
+                .font(.system(size: 17))
             }
         }
         .listStyle(.plain)

@@ -26,6 +26,7 @@ struct FootballStatsView: View {
             .navigationTitle("Football Stats ⚽️")
             .task {
                 viewModel.fetchProducts()
+                
             }
         }
     

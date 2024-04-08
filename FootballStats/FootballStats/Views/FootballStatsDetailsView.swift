@@ -12,8 +12,6 @@ struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     @State var footballstats = FootballModel.sample.data.standings.first?.team
-    @State private var description = FootballModel.sampledesc
-    
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -38,33 +36,39 @@ struct FootballStatsDetailsView: View {
                         Text("Description")
                         Image(systemName: "note.text")
                             .resizable()
-                            .frame(width: 25, height: 25)
+                            .frame(width: 22, height: 22)
                     }
-                    .padding(.bottom, 10)
-                    .font(.largeTitle)
+                    .font(.title)
                     .fontWeight(.bold)
                     
+                    Text(compare(viewModel.descArray, footballstats!))
+                        .font(.system(size: 17))
                     
-                    FootballStatsDescription(description: FootballModel.sampledesc)
                 }
                 .padding(.horizontal, 20)
-                Spacer()
+                .padding(.bottom, 5)
                 
                 VStack(alignment: .leading) {
                     Text("Season Stats")
                         .padding(.horizontal, 20)
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
                     FootballStatsTableView(footballstatsdetails: footballstatsdetails!)
+                        .padding(.top, -20)
                         
                 }
-                
-                .padding(.top, 20)
             }
-            .padding(.top, 20)
-            Spacer()
         }
     }
+    func compare(_ description: [Description], _ footballstats: Team) -> String {
+        for desc in viewModel.descArray {
+            if(desc.abb == footballstats.abbreviation) {
+                return desc.desc
+            }
+        }
+        return ""
+    }
+    
 }
 
 

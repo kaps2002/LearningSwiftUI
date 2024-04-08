@@ -11,12 +11,12 @@ import SwiftUI
 struct FootballModel: Codable {
     
     let status: Bool
-    let data: Data
+    let data: FootballData
     
     static var sample: FootballModel {
         return FootballModel(
             status: true,
-            data: Data(
+            data: FootballData(
                 name: "English Premier League",
                 seasonDisplay: "2020-2021",
                 season: 2021,
@@ -44,7 +44,7 @@ struct FootballModel: Codable {
                             TeamStats(displayName: "Point Deductions", abbreviation: "PD", displayValue: ""),
                             TeamStats(displayName: "Rank", abbreviation: "R", displayValue: "1"),
                             TeamStats(displayName: "Draws", abbreviation: "D", displayValue: "4")
-
+                            
                         ]
                     )
                 ]
@@ -57,7 +57,7 @@ struct FootballModel: Codable {
     }
 }
 
-struct Data: Codable {
+struct FootballData: Codable {
     let name: String
     let seasonDisplay: String
     let season: Int
@@ -88,7 +88,7 @@ struct TeamStats: Codable {
     let displayValue: String
 }
 
-struct Description {
+struct Description: Codable {
     let abb: String
     let desc: String
 }

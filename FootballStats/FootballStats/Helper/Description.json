@@ -1,82 +1,82 @@
 [
   {
-    "abbreviation": "MNC",
+    "abb": "MNC",
     "desc": "Manchester City Football Club is a professional football club based in Manchester, England, that competes in the Premier League, the top flight of English football. Founded in 1880 as St. Mark's, they became Ardwick Association Football Club in 1887 and Manchester City in 1894"
   },
   {
-    "abbreviation": "MAN",
+    "abb": "MAN",
     "desc": "Manchester United Football Club, commonly referred to as Man United, or simply United, is a professional football club based in Old Trafford, Greater Manchester, England. The club competes in the Premier League, the top division in the English football league system."
   },
   {
-    "abbreviation": "LIV",
+    "abb": "LIV",
     "desc": "Liverpool Football Club is a professional football club based in Liverpool, England. The club competes in the Premier League, the top tier of English football. Founded in 1892, the club joined the Football League the following year and has played its home games at Anfield since its formation."
   },
   {
-    "abbreviation": "CHE",
+    "abb": "CHE",
     "desc": "Chelsea Football Club is an English professional football club based in Fulham, West London. Founded in 1905, the team play their home games at Stamford Bridge. The club competes in the Premier League, the top division of English football. It won its first major honour, the League championship, in 1955."
   },
   {
-    "abbreviation": "LEI",
+    "abb": "LEI",
     "desc": "Leicester City Football Club is a professional association football club based in Leicester, East Midlands of England. They compete in the EFL Championship, the second level of the English football league system. The club was founded in 1884 as Leicester Fosse F.C, and became known as Leicester City in 1919."
   },
   {
-    "abbreviation": "WHU",
+    "abb": "WHU",
     "desc": "West Ham United Football Club is an English professional football club that plays its home matches in Stratford, East London. The club competes in the Premier League, the top tier of English football. The club plays at the London Stadium, having moved from their former home, the Boleyn Ground, in 2016."
   },
   {
-    "abbreviation": "TOT",
+    "abb": "TOT",
     "desc": "Tottenham Hotspur Football Club, commonly referred to as simply Tottenham or Spurs, is a professional football club based in Tottenham, London, England. It competes in the Premier League, the top flight of English football."
   },
   {
-    "abbreviation": "ARS",
+    "abb": "ARS",
     "desc": "The Arsenal Football Club, commonly known as Arsenal, is an English professional football club based in Holloway, North London. Arsenal compete in the Premier League, the top flight of English football."
   },
   {
-    "abbreviation": "LEE",
+    "abb": "LEE",
     "desc": "Leeds United Football Club is a professional football club based in Leeds, West Yorkshire in England. The club play their home matches at Elland Road and compete in the Championship, the second level of the English football league system."
   },
   {
-    "abbreviation": "EVE",
+    "abb": "EVE",
     "desc": "Everton Football Club is an English professional association football club based in Liverpool that competes in the Premier League, the top tier of English football."
   },
   {
-    "abbreviation": "AVL",
+    "abb": "AVL",
     "desc": "Aston Villa Football Club, commonly referred to as Villa, is a professional football club based in Aston, Birmingham, England. The club, founded in 1874, competes in the Premier League, the top tier of the English football league system. The team have played at their home ground Villa Park since 1897."
   },
   {
-    "abbreviation": "NEW",
+    "abb": "NEW",
     "desc": "Newcastle United Football Club is a professional association football club based in Newcastle upon Tyne, Tyne and Wear, England. The team compete in the Premier League, the first level of the English football league system, as of the 2023–24 season."
   },
   {
-    "abbreviation": "WOL",
+    "abb": "WOL",
     "desc": "Wolverhampton Wanderers Football Club, commonly referred to as Wolves, is a professional football club based in Wolverhampton, England, which competes in the Premier League. The club has played at Molineux Stadium since moving from Dudley Road in 1889."
   },
   {
-    "abbreviation": "CRY",
+    "abb": "CRY",
     "desc": "Crystal Palace Football Club, commonly referred to as Palace, is a professional football club based in Selhurst in the Borough of Croydon, South London, England, which competes in the Premier League, the highest level of English football."
   },
   {
-    "abbreviation": "SOU",
+    "abb": "SOU",
     "desc": "Southampton Football Club is an English professional football club based in Southampton, Hampshire, that competes in the EFL Championship, the second tier of English football. Its home ground since 2001 has been St Mary's Stadium, before which it was based at The Dell. The team play in red and white shirts. "
   },
   {
-    "abbreviation": "BHA",
+    "abb": "BHA",
     "desc": "Brighton & Hove Albion Football Club, commonly referred to simply as Brighton, is an English professional football club based in the city of Brighton and Hove. They compete in the Premier League, the top tier of the English football league system."
   },
   {
-    "abbreviation": "BUR",
+    "abb": "BUR",
     "desc": "Burnley Football Club is an English association football club based in Burnley, Lancashire, that competes in the Premier League, the first tier of English football."
   },
   {
-    "abbreviation": "FUL",
+    "abb": "FUL",
     "desc": "Fulham Football Club is a professional football club based in Fulham, Greater London, England. The team competes in the Premier League, the top level of the English football league system."
   },
   {
-    "abbreviation": "WBA",
+    "abb": "WBA",
     "desc": "West Bromwich Albion Football Club is a professional association football club based in West Bromwich, West Midlands, England. It competes in the EFL Championship, the second level of the English football league system. The club was formed in 1878 and has played at its home ground, The Hawthorns, since 1900."
   },
   {
-    "abbreviation": "SHU",
+    "abb": "SHU",
     "desc": "Sheffield United Football Club is a professional football club in Sheffield, South Yorkshire, England, that competes in the Premier League, following their promotion from the 2022–23 EFL Championship. They are nicknamed the Blades due to Sheffield's history of cutlery production."
   }
 ]
