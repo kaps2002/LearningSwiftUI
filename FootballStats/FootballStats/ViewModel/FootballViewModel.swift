@@ -19,7 +19,7 @@ class FootballViewModel {
     
     func fetchProducts(season: String) {
         print(season)
-        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=\(season)") { [self] result in
+        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=\(season)&sort=asc") { [self] result in
             switch result {
             case .success(let leagueResponse):
                 self.footballmodel = leagueResponse
@@ -41,28 +41,3 @@ class FootballViewModel {
         self.descArray = descArray!
     }
 }
-
-//func load<T: Decodable> (_ filename: String) -> T {
-//
-//    let data: Data
-//
-//    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-//
-//    else {
-//        fatalError("Could not read the file \(filename)")
-//    }
-//
-//    do {
-//        data = try Data(contentsOf: file)
-//    } catch {
-//        fatalError("could not load the data of of file \(filename)")
-//    }
-//
-//    do {
-//        let decoder = JSONDecoder()
-//        return try decoder.decode(T.self, from: data)
-//    } catch {
-//        fatalError("Could not parse the \(filename)")
-//    }
-//
-//}

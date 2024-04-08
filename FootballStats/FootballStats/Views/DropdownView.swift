@@ -25,7 +25,8 @@ struct DropdownView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text(selection ?? hint)
-                        .foregroundStyle(selection == nil ? .gray : .primary)
+                        .foregroundStyle(selection == nil ? .gray : .blue)
+                        .fontWeight(.semibold)
                     
                     Spacer(minLength: 0)
                     Image(systemName: "chevron.down")
@@ -37,7 +38,7 @@ struct DropdownView: View {
                 .frame(width: size.width, height: size.height, alignment: .center)
                 .contentShape(.rect)
                 .onTapGesture {
-                    withAnimation(.snappy) {
+                    withAnimation(.snappy(duration: 0.5)) {
                         showOptions.toggle()
                     }
                 }
@@ -55,7 +56,6 @@ struct DropdownView: View {
     @ViewBuilder
     func OptionsView() -> some View {
         VStack(spacing: 10) {
-            
             ForEach(options, id: \.self) { option in
                 HStack(spacing: 0) {
                     Text(option)
@@ -65,9 +65,10 @@ struct DropdownView: View {
                     Image(systemName: "checkmark")
                         .opacity(selection == option ? 1: 0)
                 }
-                .foregroundStyle(selection == option ? Color.primary : .gray)
-                .animation(.none, value: selection)
-                .frame(height: 50)
+                .padding(5)
+                .foregroundStyle(selection == option ? .blue : .gray)
+                .fontWeight(.semibold)
+                .frame(height: 15)
                 .contentShape(.rect)
                 .onTapGesture {
                     withAnimation(.snappy) {
@@ -75,6 +76,7 @@ struct DropdownView: View {
                         showOptions = false
                     }
                 }
+                
             }
         }
         .padding(.horizontal, 10)
