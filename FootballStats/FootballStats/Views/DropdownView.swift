@@ -25,7 +25,7 @@ struct DropdownView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text(selection ?? hint)
-                        .foregroundStyle(selection == nil ? .gray : .blue)
+                        .foregroundStyle(selection == "Select" ? .gray : .blue)
                         .fontWeight(.semibold)
                     
                     Spacer(minLength: 0)

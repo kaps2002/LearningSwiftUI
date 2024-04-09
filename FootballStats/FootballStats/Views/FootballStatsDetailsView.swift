@@ -12,6 +12,7 @@ struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     @State var footballstats = FootballModel.sample.data.standings.first?.team
+    
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -55,7 +56,6 @@ struct FootballStatsDetailsView: View {
                         .fontWeight(.bold)
                     FootballStatsTableView(footballstatsdetails: footballstatsdetails!)
                         .padding(.top, -20)
-                    
                 }
             }
         }
@@ -69,6 +69,8 @@ struct FootballStatsDetailsView: View {
         }
         return ""
     }
+    
+    
 }
 
 #Preview {
