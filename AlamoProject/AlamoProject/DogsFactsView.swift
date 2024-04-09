@@ -35,7 +35,7 @@ struct DogsFactsView: View {
         .padding()
     }
     
-    func loadData () {
+    func loadData() {
         AF.request("https://dog-api.kinduff.com/api/facts")
             .validate()
             .responseDecodable(of: DogFactsModel.self) { response in
