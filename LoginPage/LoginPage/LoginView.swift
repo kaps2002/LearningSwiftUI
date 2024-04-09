@@ -32,7 +32,7 @@ struct LoginView: View {
                 VStack(alignment: .leading, spacing: 10){
                     Text("Email")
                         .fontWeight(.semibold)
-                    TextField("", text: $email)
+                    TextField(email, text: $email)
                         .padding(.horizontal, 15)
                         .frame(height: 45)
                         .autocapitalization(.none)
