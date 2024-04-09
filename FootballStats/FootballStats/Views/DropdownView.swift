@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DropdownView: View {
+    
     var hint: String
     var options: [String]
     var anchor: Anchor = .bottom
-    var maxWidth: CGFloat = 120
+    var maxWidth: CGFloat = 130
     var cornerRadius: CGFloat = 15
     @Binding var selection: String?
     @State private var showOptions: Bool = false
