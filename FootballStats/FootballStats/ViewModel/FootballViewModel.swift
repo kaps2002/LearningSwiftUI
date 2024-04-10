@@ -43,7 +43,7 @@ class FootballViewModel {
         }
     }
     
-    func load()  {
+    func load() {
         guard let file = Bundle.main.url(forResource: "Description", withExtension: "json")
         else {
             print("Json file not found")
@@ -52,5 +52,24 @@ class FootballViewModel {
         let data = try? Data(contentsOf: file)
         let descArray = try? JSONDecoder().decode([Description].self, from: data!)
         self.descArray = descArray!
+    }
+    
+    func filterTeams(searchTerm: String, teamStandings: [TeamStandings]) -> [TeamStandings] {
+        teamStandings.filter {
+            $0.team.name.localizedStandardContains(filterSearchTerm(searchTerm))
+        }
+    }
+    
+    func filterSearchTerm(_ searchTerm: String) -> String {
+        let searchArray = searchTerm.split(separator: " ")
+        var newSearchTerm = ""
+        for index in 0..<searchArray.count {
+            if (index != searchArray.count - 1) { newSearchTerm += searchArray[index] + " " }
+            else {
+                newSearchTerm += searchArray[index]
+            }
+
+        }
+        return newSearchTerm
     }
 }

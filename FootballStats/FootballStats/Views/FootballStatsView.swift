@@ -20,9 +20,7 @@ struct FootballStatsView: View {
     
     var filteredTeams: [TeamStandings] {
         guard  !searchTerm.isEmpty else { return viewModel.footballmodel?.data.standings ?? [] }
-        return (viewModel.footballmodel?.data.standings.filter {
-            $0.team.name.localizedCaseInsensitiveContains(searchTerm)
-        })!
+        return viewModel.filterTeams(searchTerm: searchTerm, teamStandings: (viewModel.footballmodel?.data.standings)!)
     }
     
     var body: some View {
@@ -62,7 +60,8 @@ struct FootballStatsView: View {
             .task {
                 viewModel.fetchSeason(forSeason: lastSelection ?? "2023")
             }
-            .searchable(text: $searchTerm, placement: .automatic, prompt: "Search Teams")
+            .searchable(text: $searchTerm, prompt: "Search your team")
+            
         }
     }
 }
