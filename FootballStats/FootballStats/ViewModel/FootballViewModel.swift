@@ -49,7 +49,6 @@ class FootballViewModel {
             print("Json file not found")
             return
         }
-        
         let data = try? Data(contentsOf: file)
         let descArray = try? JSONDecoder().decode([Description].self, from: data!)
         self.descArray = descArray!

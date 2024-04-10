@@ -12,23 +12,24 @@ struct FootballStatsView: View {
     @State var footballmodel: FootballModel?
     @State private var viewModel = FootballViewModel()
     @State private var selection: String?
-    
     private var options: [String] = ["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"]
     
     @State private var lastSelection = UserDefaults.standard.string(forKey: "season")
+    @State private var searchTerm = ""
+    
+    
+    var filteredTeams: [TeamStandings] {
+        guard  !searchTerm.isEmpty else { return viewModel.footballmodel?.data.standings ?? [] }
+        return (viewModel.footballmodel?.data.standings.filter {
+            $0.team.name.localizedCaseInsensitiveContains(searchTerm)
+        })!
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(viewModel.footballmodel?.data.standings ?? [] , id: \.team.id) { teamstanding in
-                        NavigationLink {
-                            FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
-                                .padding(.top, -30)
-                        } label: {
-                            FootballStatsRowView(footballstats: teamstanding.team)
-                        }
-                    }
-                    ForEach(footballmodel?.data.standings ?? [] , id: \.team.id) { teamstanding in
+                    ForEach(filteredTeams , id: \.team.id) { teamstanding in
                         NavigationLink {
                             FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
                                 .padding(.top, -30)
@@ -61,6 +62,7 @@ struct FootballStatsView: View {
             .task {
                 viewModel.fetchSeason(forSeason: lastSelection ?? "2023")
             }
+            .searchable(text: $searchTerm, placement: .automatic, prompt: "Search Teams")
         }
     }
 }
