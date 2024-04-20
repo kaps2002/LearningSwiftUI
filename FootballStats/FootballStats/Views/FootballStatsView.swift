@@ -58,7 +58,7 @@ struct FootballStatsView: View {
             .navigationTitle("Football Stats ⚽️")
             .padding(.top, 10)
             .task {
-                viewModel.fetchSeason(forSeason: lastSelection ?? "2023")
+                viewModel.fetchSeason(forSeason: (selection ?? lastSelection)!)
             }
             .searchable(text: $searchTerm, prompt: "Search your team")
             

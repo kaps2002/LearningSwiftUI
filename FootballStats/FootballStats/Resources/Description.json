@@ -130,5 +130,36 @@
   {
       "abb": "LTN",
       "desc": "Luton Town Football Club is a professional football club based in Luton, Bedfordshire, England, that competes in the Premier League, the top level of the English football league system."
+  },
+  {
+      "abb": "BLK",
+      "desc": "Blackburn Rovers Football Club is a professional football club, based in Blackburn, Lancashire, England, which competes in the EFL Championship, the second level of the English football league system. They have played home matches at Ewood Park since 1890."
+  },{
+      "abb": "CHA",
+      "desc": "Charlton Athletic Football Club is a professional association football club based in Charlton, south-east London, England. The team compete in EFL League One, the third level of the English football league system. Their home ground is The Valley, where the club have played since 1919."
+  },{
+      "abb": "BIR",
+      "desc": "Birmingham City Football Club is a professional football club based in Birmingham, England. Formed in 1875 as Small Heath Alliance, it was renamed Small Heath in 1888, Birmingham in 1905, and Birmingham City in 1943. Since 2011, the first team have competed in the EFL Championship, the second tier of English football."
+  },{
+      "abb": "BOL",
+      "desc": "Bolton Wanderers Football Club is a professional association football club based in Horwich, Greater Manchester, England. The team competes in League One, the third level of the English football league system."
+  },{
+      "abb": "POR",
+      "desc": "Portsmouth Football Club is a professional association football club based in Portsmouth, Hampshire, England. The team currently competes in the EFL League One, the third level of the English football league system, but will play in the EFL Championship in the 2024–25 season after winning the 2023-24 EFL League One title."
+  },{
+      "abb": "WGA",
+      "desc": "Wigan Athletic Football Club is an English professional association football club based in Wigan, Greater Manchester, England. The team competes in the EFL League One, the third level of the English football league system."
+  },
+  {
+      "abb": "REA",
+      "desc": "Reading Football Club is a professional football club based in Reading, Berkshire, England. They compete in EFL League One, the third level of the English football league system. They play their home matches at the Madejski Stadium."
+  },
+  {
+      "abb": "DER",
+      "desc": "Derby County Football Club (/ˈdɑːrbi/) is a professional association football club in Derby, England. The team competes in League One, the third level of the English football league system. Notable for being one of the 12 founder members of the Football League in 1888, Derby County is one of only 10 clubs to have competed in every season of the English football league system, with all but six of those being in the top two divisions."
+  },
+  {
+      "abb": "QPR",
+      "desc": "Queens Park Rangers Football Club, commonly abbreviated to QPR, is a professional association football club based in Shepherd's Bush, West London, England. The team compete in the EFL Championship, the second level of the English football league system."
   }
 ]
