@@ -13,14 +13,14 @@ class UserDefaultsManager {
     
     private init() {}
     
-    func saveSeasonData(_ data: FootballModel, forSeason season: String) {
+    func saveSeasonData(_ data: FootballModel, forSeason season: String, _ uniqueId: String) {
         if let encodedData = try? JSONEncoder().encode(data) {
-            UserDefaults.standard.set(encodedData, forKey: "seasonData_\(season)")
+            UserDefaults.standard.set(encodedData, forKey: "seasonData_\(season + uniqueId)")
         }
     }
     
-    func getSeasonData(forSeason season: String) -> FootballModel? {
-        if let savedData = UserDefaults.standard.data(forKey: "seasonData_\(season)") {
+    func getSeasonData(forSeason season: String, _ uniqueId: String) -> FootballModel? {
+        if let savedData = UserDefaults.standard.data(forKey: "seasonData_\(season + uniqueId)") {
             if let decodedData = try? JSONDecoder().decode(FootballModel.self, from: savedData) {
                 return decodedData
             }

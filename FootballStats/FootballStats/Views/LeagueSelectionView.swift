@@ -15,7 +15,8 @@ struct LeagueSelectionView: View {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 20) {
                     ForEach(viewModel.leagueData?.data ?? [], id: \.id) { league in
                         NavigationLink {
-                            FootballStatsView()
+                            FootballStatsView(uniqueId: league.id)
+                                .navigationBarBackButtonHidden(true)
                         } label: {
                             LeagueSelectedView(selectedLeague: league)
                         }

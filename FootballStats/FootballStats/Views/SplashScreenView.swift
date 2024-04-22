@@ -42,7 +42,7 @@ struct SplashScreenView: View {
             }
         }
         else {
-            FootballStatsView()
+            LeagueSelectionView()
         }
     }
 }

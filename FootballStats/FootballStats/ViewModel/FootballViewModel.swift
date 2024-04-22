@@ -18,14 +18,14 @@ class FootballViewModel {
         load()
     }
     
-    func fetchSeason(forSeason season: String) {
+    func fetchSeason(forSeason season: String, _ uniqueId: String) {
         if(season == "2023") {
-            fetchProducts(season: season)
+            fetchProducts(season: season, uniqueId)
         }
-        else if let savedSeasonData = UserDefaultsManager.shared.getSeasonData(forSeason: season) {
+        else if let savedSeasonData = UserDefaultsManager.shared.getSeasonData(forSeason: season, uniqueId) {
             self.footballmodel = savedSeasonData
         } else {
-            fetchProducts(season: season)
+            fetchProducts(season: season, uniqueId)
         }
     }
     
@@ -34,20 +34,19 @@ class FootballViewModel {
             switch result {
             case .success(let leagueData):
                 self.leagueData = leagueData
-                print(leagueData)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    func fetchProducts(season: String) {
-        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=\(season)&sort=asc") { [self] result in
+    func fetchProducts(season: String, _ uniqueId: String) {
+        APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/\(uniqueId)/standings?season=\(season)&sort=asc") { [self] result in
             switch result {
             case .success(let leagueResponse):
                 self.footballmodel = leagueResponse
                 if (season != "2023") {
-                    UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season)
+                    UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season, uniqueId)
                 }
                 UserDefaults.standard.set(season, forKey: "season")
             case .failure(let error):
