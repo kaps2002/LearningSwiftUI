@@ -22,7 +22,6 @@ class UserDefaultsManager {
     func getSeasonData(forSeason season: String) -> FootballModel? {
         if let savedData = UserDefaults.standard.data(forKey: "seasonData_\(season)") {
             if let decodedData = try? JSONDecoder().decode(FootballModel.self, from: savedData) {
-                print("UserDefaults is called")
                 return decodedData
             }
         }

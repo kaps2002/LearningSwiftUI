@@ -93,3 +93,17 @@ struct Description: Codable {
     let desc: String
 }
 
+struct League: Codable {
+    let status: Bool
+    let data: [LeagueData]
+}
+
+struct LeagueData: Codable {
+    let id: String
+    let name: String
+    let logos: LeagueLogos
+}
+
+struct LeagueLogos: Codable {
+    let light: String
+}

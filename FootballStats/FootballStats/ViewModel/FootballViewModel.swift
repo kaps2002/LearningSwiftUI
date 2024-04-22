@@ -12,6 +12,7 @@ class FootballViewModel {
     
     var footballmodel: FootballModel?
     var descArray = [Description]()
+    var leagueData: League?
     
     init(){
         load()
@@ -25,6 +26,18 @@ class FootballViewModel {
             self.footballmodel = savedSeasonData
         } else {
             fetchProducts(season: season)
+        }
+    }
+    
+    func fetchLeagues() {
+        APIManager.shared.requestLeagues(from: "https://api-football-standings.azharimm.dev/leagues") { [self] result in
+            switch result {
+            case .success(let leagueData):
+                self.leagueData = leagueData
+                print(leagueData)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

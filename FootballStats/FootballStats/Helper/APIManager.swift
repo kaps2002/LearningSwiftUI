@@ -19,7 +19,22 @@ final class APIManager {
             case .success(let data):
                 do {
                     let leagueData = try JSONDecoder().decode(FootballModel.self, from: data)
-                    print("API IS CALLED")
+                    completion(.success(leagueData))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    func requestLeagues(from url: String, completion: @escaping (Result<League, Error>) -> Void) {
+        AF.request(url).responseData{ response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let leagueData = try JSONDecoder().decode(League.self, from: data)
+                    print("api is called")
                     completion(.success(leagueData))
                 } catch {
                     completion(.failure(error))
