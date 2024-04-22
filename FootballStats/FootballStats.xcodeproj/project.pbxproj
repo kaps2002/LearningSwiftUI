@@ -25,6 +25,7 @@
 		937CBC362BBFA68200A57145 /* FootballStatsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */; };
 		937CBC382BBFBAD100A57145 /* FootballStatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */; };
 		93A72E4C2BC3D00B0053F0B1 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */; };
+		93F452192BD67AAD009599CE /* LeagueSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F452182BD67AAD009599CE /* LeagueSelectedView.swift */; };
 		93F8CE992BC1258000D6AD34 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */; };
 		93F8CE9B2BC1AF8300D6AD34 /* Description.json in Resources */ = {isa = PBXBuildFile; fileRef = 93F8CE9A2BC1AF8300D6AD34 /* Description.json */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsDetailsView.swift; sourceTree = "<group>"; };
 		937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsTableView.swift; sourceTree = "<group>"; };
 		93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		93F452182BD67AAD009599CE /* LeagueSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSelectedView.swift; sourceTree = "<group>"; };
 		93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		93F8CE9A2BC1AF8300D6AD34 /* Description.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Description.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 			children = (
 				93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */,
 				93197DB02BD62715006A927A /* LeagueSelectionView.swift */,
+				93F452182BD67AAD009599CE /* LeagueSelectedView.swift */,
 				9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */,
 				9306EF5D2BBE6F9400B9F9D3 /* FootballStatsView.swift */,
 				93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */,
@@ -336,6 +339,7 @@
 			files = (
 				93F8CE992BC1258000D6AD34 /* SplashScreenView.swift in Sources */,
 				9306EF8D2BBE7E6200B9F9D3 /* FootballViewModel.swift in Sources */,
+				93F452192BD67AAD009599CE /* LeagueSelectedView.swift in Sources */,
 				934BE5572BC5382700AEB4BB /* UserDefaultsManager.swift in Sources */,
 				9306EF8B2BBE7C2E00B9F9D3 /* APIManager.swift in Sources */,
 				9306EF5E2BBE6F9400B9F9D3 /* FootballStatsView.swift in Sources */,

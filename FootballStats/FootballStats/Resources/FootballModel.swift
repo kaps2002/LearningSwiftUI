@@ -44,7 +44,6 @@ struct FootballModel: Codable {
                             TeamStats(displayName: "Point Deductions", abbreviation: "PD", displayValue: ""),
                             TeamStats(displayName: "Rank", abbreviation: "R", displayValue: "1"),
                             TeamStats(displayName: "Draws", abbreviation: "D", displayValue: "4")
-                            
                         ]
                     )
                 ]
@@ -96,6 +95,17 @@ struct Description: Codable {
 struct League: Codable {
     let status: Bool
     let data: [LeagueData]
+    
+    static var sampleLeague: League {
+        return League(
+            status: true, 
+            data: [
+                LeagueData(
+                    id: "eng.1", name: "Premier League", logos: LeagueLogos(light: "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png")
+                )
+            ]
+        )
+    }
 }
 
 struct LeagueData: Codable {
