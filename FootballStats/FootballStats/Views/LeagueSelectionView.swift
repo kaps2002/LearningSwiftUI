@@ -12,13 +12,17 @@ struct LeagueSelectionView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
+                LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 20) {
                     ForEach(viewModel.leagueData?.data ?? [], id: \.id) { league in
-                        LeagueSelectedView(selectedLeague: league)
+                        NavigationLink {
+                            FootballStatsView()
+                        } label: {
+                            LeagueSelectedView(selectedLeague: league)
+                        }
                     }
                 }
             }
-            .padding()
+            .padding(10)
             .navigationTitle("Select your League")
             .task {
                 viewModel.fetchLeagues()

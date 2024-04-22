@@ -14,8 +14,9 @@ struct LeagueSelectedView: View {
             AsyncImageView(footballTeamImg: selectedLeague?.logos.light ?? "")
                 .frame(width: 100, height: 100)
             Text(selectedLeague?.name ?? "")
-                .font(.system(size: 16))
+                .font(.system(size: 14))
                 .fontWeight(.bold)
+                .foregroundStyle(.black)
         }
 
     }
