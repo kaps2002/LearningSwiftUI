@@ -27,5 +27,5 @@ struct AsyncImageView: View {
 }
 
 #Preview {
-    AsyncImageView(footballTeamImg: FootballModel.sample.data.standings.first?.team.logos.first?.href ?? "")
+    AsyncImageView(footballTeamImg: FootballModel.sample.data.standings.first?.team.logos?.first?.href ?? "")
 }

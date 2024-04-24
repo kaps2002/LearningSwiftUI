@@ -12,7 +12,7 @@ struct FootballStatsRowView: View {
     @State var footballstats = FootballModel.sample.data.standings.first?.team
     var body: some View {
         HStack {
-            AsyncImageView(footballTeamImg: footballstats!.logos.first?.href ?? "")
+            AsyncImageView(footballTeamImg: footballstats!.logos?.first?.href ?? "https://secure.espncdn.com/combiner/i?img=/i/teamlogos/default-team-logo-500.png&h=72&w=72")
                 .frame(width: 70, height: 70)
             
             VStack(alignment: .leading) {

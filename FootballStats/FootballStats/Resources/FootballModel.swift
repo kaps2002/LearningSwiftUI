@@ -74,7 +74,7 @@ struct Team: Codable,Identifiable {
     let name: String
     let location: String
     let abbreviation: String
-    let logos: [TeamLogo]
+    let logos: [TeamLogo]?
 }
 
 struct TeamLogo: Codable {

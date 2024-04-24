@@ -17,7 +17,7 @@ struct FootballStatsView: View {
     @State private var lastSelection = UserDefaults.standard.string(forKey: "season")
     @State private var searchTerm = ""
 
-    let uniqueId: String
+    var uniqueId: String
     
     init(uniqueId: String) {
         self.uniqueId = uniqueId
@@ -52,7 +52,7 @@ struct FootballStatsView: View {
                         Spacer()
                         DropdownView(hint: lastSelection ?? "Select", options: options, selection: $selection)
                             .onChange(of: selection) {
-                                viewModel.fetchSeason(forSeason: selection!, uniqueId)
+                                viewModel.fetchProducts(season: selection!, uniqueId)
                                 UserDefaults.standard.setValue(selection!, forKey: "season")
                             }
                     }
@@ -63,7 +63,7 @@ struct FootballStatsView: View {
             .navigationTitle("Football Stats ⚽️")
             .padding(.top, 10)
             .task {
-                viewModel.fetchSeason(forSeason: (selection ?? lastSelection)!, uniqueId)
+                viewModel.fetchProducts(season: (selection ?? lastSelection)!, uniqueId)
             }
             .searchable(text: $searchTerm, prompt: "Search your team")
             

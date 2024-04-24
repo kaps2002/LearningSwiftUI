@@ -16,7 +16,7 @@ struct FootballStatsDetailsView: View {
     var body: some View {
         VStack {
             VStack(alignment: .center) {
-                AsyncImageView(footballTeamImg: footballstats!.logos.first?.href ?? "")
+                AsyncImageView(footballTeamImg: footballstats!.logos?.first?.href ?? "")
                     .frame(width: 150, height: 150)
                 HStack {
                     Text(footballstats!.name)
