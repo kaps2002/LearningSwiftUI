@@ -13,6 +13,7 @@ class FootballViewModel {
     var footballmodel: FootballModel?
     var descArray = [Description]()
     var leagueData: League?
+    var leagueSeason: LeagueSeasons?
     
     init(){
         load()
@@ -51,6 +52,17 @@ class FootballViewModel {
 //                    UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season, uniqueId)
 //                }
                 UserDefaults.standard.set(season, forKey: "season")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchTotalSeasons(_ uniqueId: String) {
+        APIManager.shared.requestSeasons(from: "https://api-football-standings.azharimm.dev/leagues/\(uniqueId)/seasons") { [self] result in
+            switch result {
+            case .success(let seasonResponse):
+                self.leagueSeason = seasonResponse
             case .failure(let error):
                 print(error)
             }

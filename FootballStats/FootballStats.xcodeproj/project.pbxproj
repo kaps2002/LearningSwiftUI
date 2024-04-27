@@ -170,15 +170,8 @@
 		9306EF932BBEA8BB00B9F9D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */,
-				93197DB02BD62715006A927A /* LeagueSelectionView.swift */,
-				93F452182BD67AAD009599CE /* LeagueSelectedView.swift */,
-				9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */,
-				9306EF5D2BBE6F9400B9F9D3 /* FootballStatsView.swift */,
-				93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */,
-				9306EF902BBEA4DF00B9F9D3 /* FootballStatsRowView.swift */,
-				937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */,
-				937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */,
+				93A9A0412BDCCC7A0017E7D2 /* MainUI */,
+				93A9A0422BDCCCAA0017E7D2 /* HelperUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +191,29 @@
 				9306EF8C2BBE7E6200B9F9D3 /* FootballViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93A9A0412BDCCC7A0017E7D2 /* MainUI */ = {
+			isa = PBXGroup;
+			children = (
+				93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */,
+				93197DB02BD62715006A927A /* LeagueSelectionView.swift */,
+				9306EF5D2BBE6F9400B9F9D3 /* FootballStatsView.swift */,
+				937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */,
+			);
+			path = MainUI;
+			sourceTree = "<group>";
+		};
+		93A9A0422BDCCCAA0017E7D2 /* HelperUI */ = {
+			isa = PBXGroup;
+			children = (
+				93F452182BD67AAD009599CE /* LeagueSelectedView.swift */,
+				9306EF962BBEAB6C00B9F9D3 /* AsyncImageView.swift */,
+				93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */,
+				9306EF902BBEA4DF00B9F9D3 /* FootballStatsRowView.swift */,
+				937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */,
+			);
+			path = HelperUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

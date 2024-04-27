@@ -10,7 +10,7 @@ import SwiftUI
 struct DropdownView: View {
     
     var hint: String
-    var options: [String]
+    var options: [Seasons]
     var anchor: Anchor = .bottom
     var maxWidth: CGFloat = 130
     var cornerRadius: CGFloat = 15
@@ -57,23 +57,23 @@ struct DropdownView: View {
     @ViewBuilder
     func OptionsView() -> some View {
         VStack(spacing: 10) {
-            ForEach(options, id: \.self) { option in
+            ForEach(options, id: \.year) { option in
                 HStack(spacing: 0) {
-                    Text(option)
+                    Text(String(option.year))
                         .lineLimit(1)
                     Spacer(minLength: 0)
                     
                     Image(systemName: "checkmark")
-                        .opacity(selection == option ? 1: 0)
+                        .opacity(selection == String(option.year) ? 1: 0)
                 }
                 .padding(5)
-                .foregroundStyle(selection == option ? .blue : .gray)
+                .foregroundStyle(selection == String(option.year) ? .blue : .gray)
                 .fontWeight(.semibold)
                 .frame(height: 15)
                 .contentShape(.rect)
                 .onTapGesture {
                     withAnimation(.snappy) {
-                        selection = option
+                        selection = String(option.year)
                         showOptions = false
                     }
                 }
@@ -90,5 +90,5 @@ struct DropdownView: View {
 }
 
 #Preview {
-    DropdownView(hint: "Select", options: ["2015","2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"], selection: .constant(nil))
+    DropdownView(hint: "Select", options: [], selection: .constant(nil))
 }

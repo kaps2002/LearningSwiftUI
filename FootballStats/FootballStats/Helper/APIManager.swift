@@ -17,7 +17,6 @@ final class APIManager {
         AF.request(url).responseData { response in
             switch response.result {
             case .success(let data):
-                print(data)
                 do {
                     let leagueTeams = try JSONDecoder().decode(FootballModel.self, from: data)
                     print(leagueTeams)
@@ -53,6 +52,7 @@ final class APIManager {
             }
         }
     }
+    
     func requestLeagues(from url: String, completion: @escaping (Result<League, Error>) -> Void) {
         AF.request(url).responseData { response in
             switch response.result {
@@ -60,6 +60,24 @@ final class APIManager {
                 do {
                     let leagueData = try JSONDecoder().decode(League.self, from: data)
                     completion(.success(leagueData))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func requestSeasons(from url: String, completion: @escaping (Result<LeagueSeasons, Error>) -> Void) {
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let seasonData = try JSONDecoder().decode(LeagueSeasons.self, from: data)
+                    print(1)
+                    print(seasonData)
+                    completion(.success(seasonData))
                 } catch {
                     completion(.failure(error))
                 }

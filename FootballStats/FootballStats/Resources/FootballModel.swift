@@ -117,3 +117,17 @@ struct LeagueData: Codable {
 struct LeagueLogos: Codable {
     let light: String
 }
+
+struct LeagueSeasons: Codable {
+    let status: Bool
+    let data: LeagueSeasonsData
+}
+
+struct LeagueSeasonsData: Codable {
+    let name: String
+    let seasons: [Seasons]
+}
+
+struct Seasons: Codable {
+    let year: Int
+}
