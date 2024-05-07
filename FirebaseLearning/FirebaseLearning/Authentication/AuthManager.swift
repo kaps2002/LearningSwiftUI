@@ -32,6 +32,14 @@ final class AuthManager {
         return AuthDataResultModel(user: user)
     }
     
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+}
+
+// Mark: Sign In Email
+extension AuthManager  {
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
@@ -41,8 +49,19 @@ final class AuthManager {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
+}
+
+//Mark: Sign In SSO
+extension AuthManager {
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInViewModel) async throws -> AuthDataResultModel {
+        let credentials = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await signIn(credentials: credentials)
+    }
     
-    func signOut() throws{
-        try Auth.auth().signOut()
+    func signIn(credentials: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: credentials)
+        return AuthDataResultModel(user: authDataResult.user)
     }
 }
+
