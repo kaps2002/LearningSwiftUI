@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class SettingsViewModel: ObservableObject {
-    
-    func logout() throws {
-        try AuthManager.shared.signOut()
-    }
-}
-
 struct SettingsView: View {
     
     @StateObject private var settingsViewModel = SettingsViewModel()
@@ -32,6 +24,28 @@ struct SettingsView: View {
                     }
                 }
             }
+            
+            Button("Reset Password") {
+                Task {
+                    do {
+                        try await settingsViewModel.resetPassword()
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            Button("Delete Account", role: .destructive) {
+                Task {
+                    do {
+                        try await settingsViewModel.delete()
+                        
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+
         }
         .navigationTitle("Settings")
     }

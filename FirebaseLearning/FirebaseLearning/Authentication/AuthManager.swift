@@ -32,8 +32,17 @@ final class AuthManager {
         return AuthDataResultModel(user: user)
     }
     
+    
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    func delete() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        
+        try await user.delete()
     }
     
 }
@@ -49,12 +58,16 @@ extension AuthManager  {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
+    
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
 }
 
 //Mark: Sign In SSO
 extension AuthManager {
     @discardableResult
-    func signInWithGoogle(tokens: GoogleSignInViewModel) async throws -> AuthDataResultModel {
+    func signInWithGoogle(tokens: GoogleSignInModel) async throws -> AuthDataResultModel {
         let credentials = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
         return try await signIn(credentials: credentials)
     }
