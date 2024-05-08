@@ -16,7 +16,9 @@ final class SignInEmailViewModel: ObservableObject {
             print("No email and password")
             return
         }
-        let _ = try await AuthManager.shared.createUser(email: email, password: password)
+        let authDataResult = try await AuthManager.shared.createUser(email: email, password: password)
+        try await UserManager.shared.createNewUser(auth: authDataResult)
+
     }
     
     func signIn() async throws {
@@ -24,6 +26,7 @@ final class SignInEmailViewModel: ObservableObject {
             print("No email and password")
             return
         }
-        let _ = try await AuthManager.shared.signInUser(email: email, password: password)
+        let authDataResult = try await AuthManager.shared.signInUser(email: email, password: password)
+        try await UserManager.shared.createNewUser(auth: authDataResult)
     }
 }

@@ -18,7 +18,6 @@ struct AuthDataResultModel {
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
     }
-    
 }
 
 final class AuthManager {
@@ -31,7 +30,6 @@ final class AuthManager {
         }
         return AuthDataResultModel(user: user)
     }
-    
     
     func signOut() throws {
         try Auth.auth().signOut()

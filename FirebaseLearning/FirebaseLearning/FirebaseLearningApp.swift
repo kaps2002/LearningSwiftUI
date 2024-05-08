@@ -7,12 +7,13 @@
 
 import SwiftUI
 import Firebase
+
 @main
 struct FirebaseLearningApp: App {
     
     init() {
         FirebaseApp.configure()
-        print("Configured the firebase")
+        print("firebase configured!!!")
     }
     
     var body: some Scene {
