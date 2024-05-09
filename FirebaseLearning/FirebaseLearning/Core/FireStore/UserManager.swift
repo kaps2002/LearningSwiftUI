@@ -13,12 +13,25 @@ struct DBUser: Codable {
     let userId: String
     let dateCreated: Date?
     let email: String?
+    let isPremium: Bool?
+    let preferences:  [String]?
     
     init(auth: AuthDataResultModel) {
         self.userId = auth.uid
         self.dateCreated = Date()
         self.email = auth.email
+        self.isPremium = false
+        self.preferences = nil
     }
+    
+    init(userId: String, dateCreated: Date?, email: String?, isPremium: Bool?, preferences: [String]?) {
+        self.userId = userId
+        self.dateCreated = Date()
+        self.email = email
+        self.isPremium = isPremium
+        self.preferences = preferences
+    }
+    
 }
 
 final class UserManager {
@@ -72,6 +85,20 @@ final class UserManager {
 //        
 //        return DBUser(userId: userId, dateCreated: dateCreated, email: email)
 //    }
+    
+    func updateUser(user: DBUser, isPremium: Bool) async throws {
+        let data: [String: Any] = [
+            "is_premium" : isPremium
+        ]
+        try await userDocument(userId: user.userId).updateData(data)
+    }
+    
+    func addUserPreferences(user: DBUser, preference: String) async throws {
+        let data: [String: Any] = [
+            "preferences": FieldValue.arrayUnion([preference])
+        ]
+        try await userDocument(userId: user.userId).updateData(data)
+    }
     
     func deleteUser(userId: String) async throws {
         try await userDocument(userId: userId).delete()
