@@ -39,7 +39,7 @@ final class AuthManager {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badURL)
         }
-        
+        try await UserManager.shared.deleteUser(userId: user.uid)
         try await user.delete()
     }
     

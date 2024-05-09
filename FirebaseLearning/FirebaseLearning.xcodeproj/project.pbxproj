@@ -139,8 +139,8 @@
 		93B0C53C2BEA447200523587 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				931A243F2BEA57F200141A6E /* FireStore */,
 				93B0C5292BE8F4D700523587 /* RootView.swift */,
+				931A243F2BEA57F200141A6E /* FireStore */,
 				931A243C2BEA498300141A6E /* Profile */,
 				931A24362BEA470C00141A6E /* AuthenticationViews */,
 				931A24332BEA469500141A6E /* Settings */,
