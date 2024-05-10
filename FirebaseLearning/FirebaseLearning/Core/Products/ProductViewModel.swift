@@ -11,6 +11,13 @@ import Foundation
 final class ProductViewModel: ObservableObject {
     
     @Published private(set) var products: [Product] = []
+    @Published var selectedFilter: FilterOption? = nil
+    
+    enum FilterOption: String, CaseIterable {
+        case priceHigh
+        case priceLow
+        case none
+    }
     
     func downloadProductsAndUploadtoFirebase() {
         guard let url = URL(string: "https://dummyjson.com/products") else {
@@ -35,5 +42,19 @@ final class ProductViewModel: ObservableObject {
     
     func getAllProducts() async throws {
         self.products = try await ProductManager.shared.getAllProducts()
+    }
+    
+    func getFilterSelected(option: FilterOption) async throws {
+        switch option {
+        case .priceLow: 
+            self.products = try await ProductManager.shared.getAllProductsSortedbyPrice(descending: false)
+        case .priceHigh:
+            self.products = try await ProductManager.shared.getAllProductsSortedbyPrice(descending: true)
+        case .none:
+            self.products = try await ProductManager.shared.getAllProducts()
+        }
+        
+        self.selectedFilter = option
+
     }
 }

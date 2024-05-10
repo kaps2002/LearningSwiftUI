@@ -42,7 +42,19 @@ struct ProductView: View {
             try? await productViewModel.getAllProducts()
         }
         .navigationTitle("Products")
-        
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Menu("Filter: \(productViewModel.selectedFilter?.rawValue ?? "None ter")") {
+                    ForEach(ProductViewModel.FilterOption.allCases, id: \.self) { filterOption in
+                        Button(filterOption.rawValue) {
+                            Task{
+                                try await productViewModel.getFilterSelected(option: filterOption)
+                            }
+                        }
+                    }
+                }
+            }
+        })
     }
 }
 
