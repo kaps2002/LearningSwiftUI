@@ -18,8 +18,20 @@ struct FirebaseLearningApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                RootView()
+            TabView {
+                NavigationStack {
+                    ProductView()
+                }
+                .tabItem {
+                    Label("Products", systemImage: "menucard")
+                }
+
+                NavigationStack {
+                    RootView()
+                }
+                .tabItem {
+                    Label("Profile", systemImage: "person")
+                }
             }
         }
     }

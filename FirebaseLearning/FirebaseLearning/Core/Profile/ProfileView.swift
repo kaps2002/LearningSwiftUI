@@ -45,56 +45,59 @@ struct ProfileView: View {
     @StateObject private var profileViewModel = ProfileViewModel()
     
     var body: some View {
-        List {
-            if let user = profileViewModel.user {
-                
-                Text("UserId: \(user.userId)")
-                
-                Text("Date: \(user.dateCreated ?? Date())")
-                
-                Text("Email: \(user.email ?? "hello")")
-                
-                Button(action: {
-                    profileViewModel.premiumStatus()
-                }, label: {
-                    Text("User Premium: \(user.isPremium ?? false)")
-                })
-                
-                VStack {
-                    HStack {
-                        Button("Sports") {
-                            profileViewModel.addUserPreference(text: "Sports")
+        VStack{
+            List {
+                if let user = profileViewModel.user {
+                    
+                    Text("UserId: \(user.userId)")
+                    
+                    Text("Date: \(user.dateCreated ?? Date())")
+                    
+                    Text("Email: \(user.email ?? "hello")")
+                    
+                    Button(action: {
+                        profileViewModel.premiumStatus()
+                    }, label: {
+                        Text("User Premium: \(user.isPremium ?? false)")
+                    })
+                    
+                    VStack {
+                        HStack {
+                            Button("Sports") {
+                                profileViewModel.addUserPreference(text: "Sports")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
+                            Button("Movies") {
+                                profileViewModel.addUserPreference(text: "Movies")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
+                            Button("Books") {
+                                profileViewModel.addUserPreference(text: "Books")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
                         }
-                        .buttonStyle(.borderedProminent)
                         
-                        Button("Movies") {
-                            profileViewModel.addUserPreference(text: "Movies")
-                        }
-                        .buttonStyle(.borderedProminent)
-
-                        Button("Books") {
-                            profileViewModel.addUserPreference(text: "Books")
-                        }
-                        .buttonStyle(.borderedProminent)
-
+                        Text("User Preferences: \((user.preferences ?? ["heelo"]).joined(separator: ", "))")
+                        
                     }
                     
-                    Text("User Preferences: \((user.preferences ?? ["heelo"]).joined(separator: ", "))")
-                    
                 }
-                
             }
-        }
-        .task {
-            try? await profileViewModel.loadCurrentUser()
-        }
-        .navigationTitle("Profile")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: SettingsView(showSignInView: $showSignInView), label: {
-                    Image(systemName: "gearshape.fill")
-                        .foregroundColor(.black)
-                })
+            .listStyle(.plain)
+            .task {
+                try? await profileViewModel.loadCurrentUser()
+            }
+            .navigationTitle("Profile")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingsView(showSignInView: $showSignInView), label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.black)
+                    })
+                }
             }
         }
     }
