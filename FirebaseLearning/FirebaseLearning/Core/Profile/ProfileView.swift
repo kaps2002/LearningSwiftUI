@@ -61,28 +61,28 @@ struct ProfileView: View {
                         Text("User Premium: \(user.isPremium ?? false)")
                     })
                     
-                    VStack {
-                        HStack {
-                            Button("Sports") {
-                                profileViewModel.addUserPreference(text: "Sports")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            
-                            Button("Movies") {
-                                profileViewModel.addUserPreference(text: "Movies")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            
-                            Button("Books") {
-                                profileViewModel.addUserPreference(text: "Books")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            
-                        }
-                        
-                        Text("User Preferences: \((user.preferences ?? ["heelo"]).joined(separator: ", "))")
-                        
-                    }
+//                    VStack {
+//                        HStack {
+//                            Button("Sports") {
+//                                profileViewModel.addUserPreference(text: "Sports")
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            
+//                            Button("Movies") {
+//                                profileViewModel.addUserPreference(text: "Movies")
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            
+//                            Button("Books") {
+//                                profileViewModel.addUserPreference(text: "Books")
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            
+//                        }
+//                        
+//                        Text("User Preferences: \((user.preferences ?? ["heelo"]).joined(separator: ", "))")
+//                        
+//                    }
                     
                 }
             }

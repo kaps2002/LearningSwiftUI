@@ -30,21 +30,22 @@ struct ProductView: View {
                             Text(product.title?.capitalized ?? "")
                             Text("$" + String(product.price ?? 10))
                             Text(product.category?.capitalized ?? "")
+                            HStack(spacing: 3) {
+                                Text("Rating: ")
+                                StarView(rating: product.rating ?? 5.0)
+                            }
                         }
                         Spacer()
-                        Text(String(product.rating ?? 1.0) +  " ⭐️")
+                        
                     }
                 }
             }
         }
         .listStyle(.plain)
-        .task {
-            try? await productViewModel.getAllProducts()
-        }
         .navigationTitle("Products")
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading) {
-                Menu("Filter: \(productViewModel.selectedFilter?.rawValue ?? "None ter")") {
+                Menu("Filter: \(productViewModel.selectedFilter?.rawValue ?? "None")") {
                     ForEach(ProductViewModel.FilterOption.allCases, id: \.self) { filterOption in
                         Button(filterOption.rawValue) {
                             Task{
@@ -54,7 +55,23 @@ struct ProductView: View {
                     }
                 }
             }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu("Category: \(productViewModel.selectedCategory?.rawValue.capitalized ?? "None")") {
+                    ForEach(ProductViewModel.CategoryOption.allCases, id: \.self) { categoryOption in
+                        Button(categoryOption.rawValue.capitalized) {
+                            Task{
+                                try await productViewModel.getCategorySelected(option: categoryOption)
+                            }
+                        }
+                    }
+                }
+            }
+
         })
+        .task {
+            productViewModel.getProducts()
+        }
     }
 }
 

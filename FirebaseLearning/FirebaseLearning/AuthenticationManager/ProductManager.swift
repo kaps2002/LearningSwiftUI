@@ -24,7 +24,7 @@ final class ProductManager {
         try productDocument(productId: String(product.id)).setData(from: product, merge: false)
     }
     
-    func getAllProducts() async throws -> [Product] {
+    private func getAllProducts() async throws -> [Product] {
         let snapshot = try await productsCollection.getDocuments()
         
         var products: [Product] = []
@@ -37,8 +37,32 @@ final class ProductManager {
         return products
     }
     
-    func getAllProductsSortedbyPrice(descending: Bool) async throws -> [Product] {
+    private func getAllProductsSortedbyPrice(descending: Bool) async throws -> [Product] {
         try await productsCollection.order(by: "price", descending: descending).getDocuments(as: Product.self)
+    }
+    
+    private func getAllProductsByCategory(category: String) async throws -> [Product] {
+        try await productsCollection.whereField("category", isEqualTo: category).getDocuments(as: Product.self)
+    }
+    
+    private func getAllProductsByCategoryAndSort(descending: Bool, category: String) async throws -> [Product] {
+        try await productsCollection
+            .whereField("category", isEqualTo: category)
+            .order(by: "price", descending: descending)
+            .getDocuments(as: Product.self)
+    }
+    
+    func getAllProductsByCategoryAndSort(descending: Bool?, category: String?) async throws -> [Product] {
+        if let descending, let category {
+            return try await getAllProductsByCategoryAndSort(descending: descending, category: category)
+        } else if let descending {
+            return try await getAllProductsSortedbyPrice(descending: descending)
+        } else if let category {
+            return try await getAllProductsByCategory(category: category)
+        }
+        
+        return try await getAllProducts()
+        
     }
 }
 
