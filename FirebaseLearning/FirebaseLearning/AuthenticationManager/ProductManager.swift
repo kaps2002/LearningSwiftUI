@@ -24,7 +24,7 @@ final class ProductManager {
         try productDocument(productId: String(product.id)).setData(from: product, merge: false)
     }
     
-    private func getAllProducts() async throws -> [Product] {
+    func getAllProducts() async throws -> [Product] {
         let snapshot = try await productsCollection.getDocuments()
         
         var products: [Product] = []

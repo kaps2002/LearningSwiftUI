@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ProductView: View {
-    @StateObject private var productViewModel = ProductViewModel()
     
+    @StateObject private var productViewModel = ProductViewModel()
+    @State private var defaultImg: String = "https://secure.espncdn.com/combiner/i?img=/i/teamlogos/default-team-logo-500.png"
     var body: some View {
         List {
             ForEach(productViewModel.products) { product in
                 HStack(spacing: 20) {
-                    AsyncImage(url: URL(string: product.thumbnail ?? "")) { image in
+                    AsyncImage(url: URL(string: product.thumbnail ?? defaultImg)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -45,27 +46,12 @@ struct ProductView: View {
         .navigationTitle("Products")
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading) {
-                Menu("Filter: \(productViewModel.selectedFilter?.rawValue ?? "None")") {
-                    ForEach(ProductViewModel.FilterOption.allCases, id: \.self) { filterOption in
-                        Button(filterOption.rawValue) {
-                            Task{
-                                try await productViewModel.getFilterSelected(option: filterOption)
-                            }
-                        }
-                    }
-                }
+                FilterMenuView(productViewModel: productViewModel)
+
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Menu("Category: \(productViewModel.selectedCategory?.rawValue.capitalized ?? "None")") {
-                    ForEach(ProductViewModel.CategoryOption.allCases, id: \.self) { categoryOption in
-                        Button(categoryOption.rawValue.capitalized) {
-                            Task{
-                                try await productViewModel.getCategorySelected(option: categoryOption)
-                            }
-                        }
-                    }
-                }
+                CategoryMenuView(productViewModel: productViewModel)
             }
 
         })

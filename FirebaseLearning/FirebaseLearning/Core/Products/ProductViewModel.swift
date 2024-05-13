@@ -75,7 +75,7 @@ final class ProductViewModel: ObservableObject {
         self.selectedFilter = option
         self.getProducts()
 //        switch option {
-//        case .priceLow: 
+//        case .priceLow:
 //            self.products = try await ProductManager.shared.getAllProductsSortedbyPrice(descending: false)
 //        case .priceHigh:
 //            self.products = try await ProductManager.shared.getAllProductsSortedbyPrice(descending: true)

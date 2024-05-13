@@ -18,21 +18,22 @@ struct FirebaseLearningApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                NavigationStack {
-                    ProductView()
-                }
-                .tabItem {
-                    Label("Products", systemImage: "menucard")
-                }
-
-                NavigationStack {
-                    RootView()
-                }
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
-            }
+            CrashView()
+//            TabView {
+//                NavigationStack {
+//                    ProductView()
+//                }
+//                .tabItem {
+//                    Label("Products", systemImage: "menucard")
+//                }
+//
+//                NavigationStack {
+//                    RootView()
+//                }
+//                .tabItem {
+//                    Label("Profile", systemImage: "person")
+//                }
+//            }
         }
     }
 }
