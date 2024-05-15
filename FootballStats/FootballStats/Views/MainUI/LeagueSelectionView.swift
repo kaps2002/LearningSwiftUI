@@ -23,6 +23,7 @@ struct LeagueSelectionView: View {
                     }
                 }
             }
+            .scrollIndicators(.never)
             .padding(10)
             .navigationTitle("Select your League")
             .task {

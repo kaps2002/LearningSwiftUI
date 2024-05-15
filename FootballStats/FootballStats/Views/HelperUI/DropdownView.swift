@@ -46,7 +46,6 @@ struct DropdownView: View {
                 
                 if showOptions {
                     OptionsView()
-                    
                 }
             }
             .background((scheme == .dark ? Color.black : Color.white).shadow(.drop(color: .primary, radius: 4)), in: .rect(cornerRadius: cornerRadius))

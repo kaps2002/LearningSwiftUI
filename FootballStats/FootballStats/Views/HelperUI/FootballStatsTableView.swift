@@ -30,6 +30,7 @@ struct FootballStatsTableView: View {
                 .font(.system(size: 17))
             }
         }
+        .scrollIndicators(.never)
         .listStyle(.plain)
     }
 }

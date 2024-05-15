@@ -39,6 +39,7 @@ struct FootballStatsView: View {
                         }
                     }
                 }
+                .scrollIndicators(.never)
                 .padding(.top, 50)
                 .listStyle(.plain)
                 
@@ -62,10 +63,31 @@ struct FootballStatsView: View {
             .padding(.top, 10)
             .task {
                 viewModel.fetchTotalSeasons(uniqueId)
-                viewModel.fetchProducts(season: (selection ?? lastSelection)!, uniqueId)
+                viewModel.fetchProducts(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
             }
             .searchable(text: $searchTerm, prompt: "Search your team")
-            
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button("Settings") {
+                            
+                        }
+                        Button("Logout") {
+                            
+                        }
+                        Button("Delete", role: .destructive) {
+                            
+                        }
+                    } label: {
+                        Image(systemName: "person.circle")
+                            .foregroundColor(.black)
+                            .font(.title)
+                            .imageScale(.medium)
+                    }
+                    .menuStyle(DefaultMenuStyle())
+                    
+                }
+            })
         }
     }
 }
