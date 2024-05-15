@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductView: View {
     
     @StateObject private var productViewModel = ProductViewModel()
+    
     @State private var defaultImg: String = "https://secure.espncdn.com/combiner/i?img=/i/teamlogos/default-team-logo-500.png"
     var body: some View {
         List {
@@ -32,7 +33,7 @@ struct ProductView: View {
                             Text("$" + String(product.price ?? 10))
                             Text(product.category?.capitalized ?? "")
                             HStack(spacing: 3) {
-                                Text("Rating: ")
+                                Text(TextStrings.rating.localized())
                                 StarView(rating: product.rating ?? 5.0)
                             }
                         }
@@ -43,7 +44,7 @@ struct ProductView: View {
             }
         }
         .listStyle(.plain)
-        .navigationTitle("Products")
+        .navigationTitle(TextStrings.products.localized())
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading) {
                 FilterMenuView(productViewModel: productViewModel)

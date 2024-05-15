@@ -1,0 +1,14 @@
+"text.products" = "Produkt";
+"text.profile" = "Profil";
+"text.filter" = "Filter";
+"text.category" = "Kategorie";
+"text.hightolow" = "Absteigend";
+"text.lowtohigh" = "niedrig bis hoch";
+"text.none" = "keiner";
+"text.logout" = "Ausloggen";
+"text.resetPassword" = "Passwort zurücksetzen";
+"text.deleteAccount" = "Konto löschen";
+"text.settings" = "Einstellungen";
+"text.rating" = "Bewertung";
+"text.userId" = "Benutzer-ID";
+"text.userPremium" = "Benutzerprämie";

@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
-    
+
     @Published private(set) var user: DBUser? = nil
     
     func loadCurrentUser() async throws {
@@ -40,7 +40,8 @@ final class ProfileViewModel: ObservableObject {
 }
 
 struct ProfileView: View {
-    
+    @StateObject private var languageManager = LanguageManager()
+
     @Binding var showSignInView: Bool
     @StateObject private var profileViewModel = ProfileViewModel()
     
@@ -49,40 +50,17 @@ struct ProfileView: View {
             List {
                 if let user = profileViewModel.user {
                     
-                    Text("UserId: \(user.userId)")
+                    Text(TextStrings.userId.localized() + ": \(user.userId)")
                     
-                    Text("Date: \(user.dateCreated ?? Date())")
+//                    Text("Date: \(user.dateCreated ?? Date())")
                     
                     Text("Email: \(user.email ?? "hello")")
                     
                     Button(action: {
                         profileViewModel.premiumStatus()
                     }, label: {
-                        Text("User Premium: \(user.isPremium ?? false)")
+                        Text(TextStrings.userPremium.localized() + ": \(user.isPremium ?? false)")
                     })
-                    
-//                    VStack {
-//                        HStack {
-//                            Button("Sports") {
-//                                profileViewModel.addUserPreference(text: "Sports")
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                            
-//                            Button("Movies") {
-//                                profileViewModel.addUserPreference(text: "Movies")
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                            
-//                            Button("Books") {
-//                                profileViewModel.addUserPreference(text: "Books")
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                            
-//                        }
-//                        
-//                        Text("User Preferences: \((user.preferences ?? ["heelo"]).joined(separator: ", "))")
-//                        
-//                    }
                     
                 }
             }
@@ -90,7 +68,7 @@ struct ProfileView: View {
             .task {
                 try? await profileViewModel.loadCurrentUser()
             }
-            .navigationTitle("Profile")
+            .navigationTitle(TextStrings.profile.localized())
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: SettingsView(showSignInView: $showSignInView), label: {
@@ -99,7 +77,25 @@ struct ProfileView: View {
                     })
                 }
             }
+            HStack {
+                Button(action: {
+                    languageManager.switchLanguage(to: "de")
+                }) {
+                    Text("German")
+                }
+                Button(action: {
+                    languageManager.switchLanguage(to: "hi")
+                }) {
+                    Text("Hindi")
+                }
+                Button(action: {
+                    languageManager.switchLanguage(to: "en")
+                }) {
+                    Text("English")
+                }
+            }
         }
+        .environment(\.locale, .init(identifier: languageManager.currentLanguage))
     }
 }
 

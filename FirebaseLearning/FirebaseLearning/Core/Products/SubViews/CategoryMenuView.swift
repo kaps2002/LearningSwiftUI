@@ -11,7 +11,7 @@ struct CategoryMenuView: View {
     @ObservedObject var productViewModel: ProductViewModel
         
         var body: some View {
-            Menu("Category: \(productViewModel.selectedCategory?.rawValue.capitalized ?? "None")") {
+            Menu(TextStrings.category.localized() + ": \(productViewModel.selectedCategory?.rawValue.capitalized ?? "None")") {
                 ForEach(ProductViewModel.CategoryOption.allCases, id: \.self) { categoryOption in
                     Button(categoryOption.rawValue.capitalized) {
                         Task {

@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct FirebaseLearningApp: App {
+    @StateObject private var languageManager = LanguageManager()
     
     init() {
         FirebaseApp.configure()
@@ -17,23 +18,12 @@ struct FirebaseLearningApp: App {
     }
     
     var body: some Scene {
+        //CrashView()
         WindowGroup {
-            CrashView()
-//            TabView {
-//                NavigationStack {
-//                    ProductView()
-//                }
-//                .tabItem {
-//                    Label("Products", systemImage: "menucard")
-//                }
-//
-//                NavigationStack {
-//                    RootView()
-//                }
-//                .tabItem {
-//                    Label("Profile", systemImage: "person")
-//                }
-//            }
+            ContentView()
+                .environmentObject(languageManager)
         }
+        //ContentView()
+        
     }
 }

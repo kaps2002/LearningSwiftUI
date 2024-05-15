@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 @MainActor
 final class ProductViewModel: ObservableObject {
     
@@ -14,7 +14,6 @@ final class ProductViewModel: ObservableObject {
     @Published var selectedFilter: FilterOption? = nil
     @Published var selectedCategory: CategoryOption? = nil
 
-    
     enum FilterOption: String, CaseIterable {
         case priceHigh = "High to Low"
         case priceLow = "Low to High"
@@ -22,9 +21,16 @@ final class ProductViewModel: ObservableObject {
         
         var priceOption: Bool? {
             switch self {
-            case .priceLow: return false
-            case .priceHigh: return true
-            case .none: return nil
+                case .priceLow: return false
+                case .priceHigh: return true
+                case .none: return nil
+            }
+        }
+        var localizedString: String {
+            switch self {
+            case .priceHigh: return TextStrings.HightoLow.localized()
+            case .priceLow: return TextStrings.LowtoHigh.localized()
+            case .none: return TextStrings.none.localized()
             }
         }
     }

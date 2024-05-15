@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct FilterMenuView: View {
-    
+
     @ObservedObject var productViewModel: ProductViewModel
         
         var body: some View {
-            Menu("Filter: \(productViewModel.selectedFilter?.rawValue ?? "None")") {
+            Menu(TextStrings.filter.localized() + ": \(productViewModel.selectedFilter?.localizedString ?? "None")") {
                 ForEach(ProductViewModel.FilterOption.allCases, id: \.self) { filterOption in
-                    Button(filterOption.rawValue) {
+                    Button(filterOption.localizedString) {
                         Task {
                             try await productViewModel.getFilterSelected(option: filterOption)
                         }

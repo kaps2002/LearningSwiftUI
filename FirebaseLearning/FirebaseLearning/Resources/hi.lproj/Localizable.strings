@@ -1,0 +1,15 @@
+"text.products" = "प्रोडक्ट";
+"text.profile" = "प्रोफ़ाइल";
+"text.filter" = "फ़िल्टर";
+"text.category" = "वर्ग";
+"text.hightolow" = "उच्चे से नीचा";
+"text.lowtohigh" = "नीचे से उच्चा";
+"text.none" = "नहीं";
+"text.logout" = "लॉगआउट";
+"text.resetPassword" = "पासवर्ड रीसेट";
+"text.deleteAccount" = "खाता हटा दो";
+"text.settings" = "सेटिंग";
+"text.rating" = "रेटिंग";
+"text.userId" = "उपयोगकर्ता";
+"text.userPremium" = "अधिमूल्य";
+

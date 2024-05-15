@@ -14,7 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            Button("Log Out") {
+            Button(TextStrings.logout.localized()) {
                 Task {
                     do {
                         try settingsViewModel.logout()
@@ -25,7 +25,7 @@ struct SettingsView: View {
                 }
             }
             
-            Button("Reset Password") {
+            Button(TextStrings.resetPassword.localized()) {
                 Task {
                     do {
                         try await settingsViewModel.resetPassword()
@@ -35,7 +35,7 @@ struct SettingsView: View {
                 }
             }
             
-            Button("Delete Account", role: .destructive) {
+            Button(TextStrings.deleteAccount.localized(), role: .destructive) {
                 Task {
                     do {
                         try await settingsViewModel.delete()
@@ -47,7 +47,7 @@ struct SettingsView: View {
             }
 
         }
-        .navigationTitle("Settings")
+        .navigationTitle(TextStrings.settings.localized())
     }
 }
 
