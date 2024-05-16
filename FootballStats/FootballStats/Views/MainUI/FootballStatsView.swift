@@ -14,13 +14,14 @@ struct FootballStatsView: View {
     @State private var selection: String?
     @State private var lastSelection = UserDefaults.standard.string(forKey: "season")
     @State private var searchTerm = ""
-
-    var uniqueId: String
+    @State var selectedLeague: String?
+    @State var uniqueId: String
     
-    init(uniqueId: String) {
+    init(uniqueId: String, selectedLeague: String?) {
         self.uniqueId = uniqueId
+        self.selectedLeague = selectedLeague
     }
-
+    
     var filteredTeams: [TeamStandings] {
         guard  !searchTerm.isEmpty else { return viewModel.footballmodel?.data.standings ?? [] }
         return viewModel.filterTeams(searchTerm: searchTerm, teamStandings: (viewModel.footballmodel?.data.standings)!)
@@ -61,12 +62,11 @@ struct FootballStatsView: View {
             }
             .navigationTitle("Football Stats ⚽️")
             .padding(.top, 10)
-            .task {
-                viewModel.fetchTotalSeasons(uniqueId)
-                viewModel.fetchProducts(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
-            }
             .searchable(text: $searchTerm, prompt: "Search your team")
             .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    LeagueChangeView(viewModel: $viewModel, uniqueId: $uniqueId, selectedLeague: $selectedLeague, selection: $selection, lastSelection: $lastSelection)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button("Settings") {
@@ -88,10 +88,15 @@ struct FootballStatsView: View {
                     
                 }
             })
+        
+            .task {
+                viewModel.fetchTotalSeasons(uniqueId)
+                viewModel.fetchProducts(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
+            }
         }
     }
 }
 
 #Preview {
-    FootballStatsView(uniqueId: "eng.1")
+    FootballStatsView(uniqueId: "eng.1", selectedLeague: "")
 }
