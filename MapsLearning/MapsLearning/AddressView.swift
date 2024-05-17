@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreLocation
+import MapKit
 
 struct AddressView: View {
     @Binding var addressSheet: Bool
@@ -14,10 +16,32 @@ struct AddressView: View {
     @Binding var state: String
     @Binding var country: String
     @Binding var zip: String
+    @Binding var type: String
+    let options = ["Home", "Work", "Other"]
+    
+    @Binding var coordinate: MKCoordinateRegion
+    
+    @State private var addressTotal: String = ""
 
     var body: some View {
         
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
+            Picker("Select an option", selection: $type) {
+                ForEach(options, id: \.self) { option in
+                    Button(action: {
+                        type = option
+                    }) {
+                        Text(option)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(type == option ? Color.blue : Color.gray.opacity(0.2))
+                            .foregroundColor(type == option ? .white : .black)
+                            .cornerRadius(8)
+                    }
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+                    
             TextField("Address", text: $address)
                 .padding(.horizontal, 15)
                 .frame(height: 45)
@@ -65,7 +89,10 @@ struct AddressView: View {
                 )
             Spacer()
             Button {
+                addressTotal = address + city + state + country + zip
+                saveAddress(addressTotal: addressTotal)
                 addressSheet = false
+                
             } label: {
                 Text("Save")
                     .padding()
@@ -87,15 +114,27 @@ struct AddressView: View {
                         .foregroundColor(.secondary)
                 }
                 .padding(.horizontal, 10)
-
             }
         })
+    }
+    
+    private func saveAddress(addressTotal: String) {
+        // Geocode the address to get coordinates
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressTotal) { placemarks, error in
+            if let placemarks = placemarks, let location = placemarks.first?.location {
+                coordinate.center = location.coordinate
+            }
+        }
     }
     
 }
 
 #Preview {
     NavigationStack {
-        AddressView(addressSheet: .constant(true), address: .constant(""), city: .constant(""), state: .constant(""), country: .constant(""), zip: .constant(""))
+        AddressView(addressSheet: .constant(true), address: .constant(""), city: .constant(""), state: .constant(""), country: .constant(""), zip: .constant(""), type: .constant(""), coordinate: .constant(MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Default location
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )))
     }
 }
