@@ -27,22 +27,22 @@ struct ContentView: View {
         
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Default location
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
     @State private var pinLocation = Location(coordinate: CLLocationCoordinate2D(latitude: 37.334900, longitude: -122.009020))
+
 
     var body: some View {
         VStack {
             ZStack {
                 Map(coordinateRegion: $region, annotationItems: [pinLocation]) { location in
-                    MapMarker(coordinate: pinLocation.coordinate)
-                        
+                    MapMarker(coordinate: location.coordinate)
                 }
-                .onChange(of: region.center) { _ in
-                    updateAddress(from: region.center)
+                .onChange(of: region.center) { _, newCenter in
+                    updateAddress(from: newCenter)
+                    updatePinLocation(to: newCenter)
                 }
                 .edgesIgnoringSafeArea(.all)
-                            
                 VStack {
                     Spacer()
                     Button("Use Precise Location") {
@@ -83,7 +83,7 @@ struct ContentView: View {
                     .padding(.horizontal, 15)
                     
                     Button {
-                        
+                        getDirections(to: address + state + city + country + zip)
                     } label: {
                         Text("Get Directions")
                             .padding()
@@ -106,10 +106,15 @@ struct ContentView: View {
         .onAppear {
             updateAddress(from: region.center)
         }
+        .onChange(of: locationManager.authorizationStatus) { status in
+            if status == .authorizedWhenInUse || status == .authorizedAlways {
+                locationManager.requestLocation()
+            }
+        }
     }
-    private func convertPointToCoordinate(point: CGPoint, in region: MKCoordinateRegion) -> CLLocationCoordinate2D {
-        let mapPoint = MKMapPoint(x: Double(point.x), y: Double(point.y))
-        return mapPoint.coordinate
+    
+    private func updatePinLocation(to newCenter: CLLocationCoordinate2D) {
+        pinLocation = Location(coordinate: newCenter)
     }
     private func updateAddress(from coordinate: CLLocationCoordinate2D) {
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
@@ -150,6 +155,29 @@ struct ContentView: View {
             break
         }
     }
+    
+    func getDirections(to address: String) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { placemarks, error in
+            if let error = error {
+                print("Geocoding error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let placemark = placemarks?.first, let location = placemark.location else {
+                print("No matching location found")
+                return
+            }
+            
+            let destinationCoordinates = location.coordinate
+            let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinates)
+            let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+            destinationMapItem.name = address // Optional: Name for the destination
+            
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            destinationMapItem.openInMaps(launchOptions: launchOptions)
+        }
+    }
 }
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -176,17 +204,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func requestLocation() {
         locationManager.requestLocation()
     }
-
-    // CLLocationManagerDelegate method
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             DispatchQueue.main.async {
-                self.region = MKCoordinateRegion(
-                    center: location.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-                )
+                self.region.center = location.coordinate
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed with error: \(error.localizedDescription)")
     }
 }
 
@@ -195,7 +223,6 @@ extension CLLocationCoordinate2D: Equatable {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
-
 
 #Preview {
     ContentView()
