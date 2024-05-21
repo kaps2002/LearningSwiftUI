@@ -26,6 +26,7 @@ struct ContentView: View {
                 Label(TextStrings.profile.localized(), systemImage: "person")
             }
         }
+        .environment(\.locale, .init(identifier: languageManager.currentLanguage))
         .onAppear {
             let language = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String ?? "en"
             languageManager.switchLanguage(to: language)

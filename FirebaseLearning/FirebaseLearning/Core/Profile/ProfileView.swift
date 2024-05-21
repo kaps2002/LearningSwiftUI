@@ -36,7 +36,6 @@ final class ProfileViewModel: ObservableObject {
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
-    
 }
 
 struct ProfileView: View {
@@ -46,56 +45,66 @@ struct ProfileView: View {
     @StateObject private var profileViewModel = ProfileViewModel()
     
     var body: some View {
-        VStack{
+        VStack {
             List {
                 if let user = profileViewModel.user {
-                    
                     Text(TextStrings.userId.localized() + ": \(user.userId)")
                     
 //                    Text("Date: \(user.dateCreated ?? Date())")
                     
                     Text("Email: \(user.email ?? "hello")")
-                    
                     Button(action: {
                         profileViewModel.premiumStatus()
                     }, label: {
                         Text(TextStrings.userPremium.localized() + ": \(user.isPremium ?? false)")
                     })
-                    
                 }
             }
             .listStyle(.plain)
-            .task {
-                try? await profileViewModel.loadCurrentUser()
-            }
-            .navigationTitle(TextStrings.profile.localized())
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: SettingsView(showSignInView: $showSignInView), label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.black)
-                    })
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(TextStrings.chooseLang.localized())
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                
+                HStack(spacing: 15) {
+                    Button(action: {
+                        languageManager.switchLanguage(to: "de")
+                    }) {
+                        Text("German🇩🇪")
+                    }
+                    
+                    Button(action: {
+                        languageManager.switchLanguage(to: "hi")
+                    }) {
+                        Text("Hindi🇮🇳")
+                    }
+                    Button(action: {
+                        languageManager.switchLanguage(to: "en")
+                    }) {
+                        Text("English 🏴󠁧󠁢󠁥󠁮󠁧󠁿")
+                    }
+                    Button(action: {
+                        languageManager.switchLanguage(to: "it")
+                    }) {
+                        Text("Italian 🇮🇹")
+                    }
                 }
             }
-            HStack {
-                Button(action: {
-                    languageManager.switchLanguage(to: "de")
-                }) {
-                    Text("German")
-                }
-                Button(action: {
-                    languageManager.switchLanguage(to: "hi")
-                }) {
-                    Text("Hindi")
-                }
-                Button(action: {
-                    languageManager.switchLanguage(to: "en")
-                }) {
-                    Text("English")
-                }
+            .padding(.bottom, 30)
+        }
+        .navigationTitle(TextStrings.profile.localized())
+        .task {
+            try? await profileViewModel.loadCurrentUser()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: SettingsView(showSignInView: $showSignInView), label: {
+                    Image(systemName: "gearshape.fill")
+                        .foregroundColor(.black)
+                })
             }
         }
-        .environment(\.locale, .init(identifier: languageManager.currentLanguage))
     }
 }
 

@@ -23,6 +23,7 @@ enum TextStrings: String, CaseIterable {
     case rating = "text.rating"
     case userId = "text.userId"
     case userPremium = "text.userPremium"
+    case chooseLang = "text.chooseLang"
 
     func localized() -> String {
         return NSLocalizedString(self.rawValue, tableName: "Localizable", bundle: .main, comment: rawValue)
