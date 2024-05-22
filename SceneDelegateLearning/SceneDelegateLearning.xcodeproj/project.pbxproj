@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9340B0BA2BFDD55F0022848B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0B92BFDD55F0022848B /* ToastView.swift */; };
+		9340B0BC2BFDD77E0022848B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0BB2BFDD77E0022848B /* Toast.swift */; };
+		9340B0C02BFE03580022848B /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0BF2BFE03580022848B /* CustomProgressView.swift */; };
+		9340B0C22BFE06DE0022848B /* CustomProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0C12BFE06DE0022848B /* CustomProgress.swift */; };
 		93883BF92BFCAD1600F3310A /* SceneDelegateLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93883BF82BFCAD1600F3310A /* SceneDelegateLearningApp.swift */; };
 		93883BFB2BFCAD1600F3310A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93883BFA2BFCAD1600F3310A /* ContentView.swift */; };
 		93883BFD2BFCAD1800F3310A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93883BFC2BFCAD1800F3310A /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9340B0B92BFDD55F0022848B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		9340B0BB2BFDD77E0022848B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		9340B0BF2BFE03580022848B /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		9340B0C12BFE06DE0022848B /* CustomProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgress.swift; sourceTree = "<group>"; };
 		93883BF52BFCAD1600F3310A /* SceneDelegateLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SceneDelegateLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93883BF82BFCAD1600F3310A /* SceneDelegateLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateLearningApp.swift; sourceTree = "<group>"; };
 		93883BFA2BFCAD1600F3310A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9340B0BD2BFE02AF0022848B /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				9340B0B92BFDD55F0022848B /* ToastView.swift */,
+				9340B0BB2BFDD77E0022848B /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		9340B0BE2BFE03240022848B /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				9340B0BF2BFE03580022848B /* CustomProgressView.swift */,
+				9340B0C12BFE06DE0022848B /* CustomProgress.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		93883BEC2BFCAD1600F3310A = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +87,8 @@
 				93883C0C2BFD0E9A00F3310A /* Info.plist */,
 				93883BF82BFCAD1600F3310A /* SceneDelegateLearningApp.swift */,
 				93883BFA2BFCAD1600F3310A /* ContentView.swift */,
+				9340B0BD2BFE02AF0022848B /* Toast */,
+				9340B0BE2BFE03240022848B /* Progress */,
 				93883C082BFCAE0400F3310A /* AlertView.swift */,
 				93883C062BFCADD600F3310A /* SceneDelegate.swift */,
 				93883C0A2BFCD69500F3310A /* AppDelegate.swift */,
@@ -150,9 +178,13 @@
 			files = (
 				93883BFB2BFCAD1600F3310A /* ContentView.swift in Sources */,
 				93883C092BFCAE0400F3310A /* AlertView.swift in Sources */,
+				9340B0C02BFE03580022848B /* CustomProgressView.swift in Sources */,
+				9340B0C22BFE06DE0022848B /* CustomProgress.swift in Sources */,
 				93883BF92BFCAD1600F3310A /* SceneDelegateLearningApp.swift in Sources */,
 				93883C0B2BFCD69500F3310A /* AppDelegate.swift in Sources */,
+				9340B0BA2BFDD55F0022848B /* ToastView.swift in Sources */,
 				93883C072BFCADD600F3310A /* SceneDelegate.swift in Sources */,
+				9340B0BC2BFDD77E0022848B /* Toast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

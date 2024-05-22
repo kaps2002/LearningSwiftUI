@@ -9,64 +9,21 @@ struct ContentView: View {
         ZStack {
             VStack {
                 Button("Show Toast") {
-                    withAnimation {
-                        showToast.toggle()
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        withAnimation {
-                            showToast = false
-                        }
-                    }
+                    ToastView.show(message: "Coming Soon...")
                 }
 
                 Button("Show Progress") {
-                    showProgress.toggle()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        showProgress = false
-                    }
+                    CustomProgressView.show(message: "Loading...")
                 }
 
-                Button("Show Alert") {
-                    showAlert.toggle()
-                }
-            }
-            
-            if showToast {
-                VStack {
-                    Spacer()
-                    ToastView(message: "This is a toast message")
-                        .transition(.move(edge: .bottom))
-                }
-            }
-            
-            if showProgress {
-                CustomProgressView()
+//                Button("Show Alert") {
+//                    showAlert.toggle()
+//                }
             }
         }
         .alertView(isPresented: $showAlert, title: "Alert", message: "This is an alert message")
     }
 }
 
-struct ToastView: View {
-    var message: String
 
-    var body: some View {
-        Text(message)
-            .foregroundColor(.black)
-            .padding()
-            .background(Color.gray.opacity(0.4))
-            .cornerRadius(10)
-            .padding(.bottom, 20)
-    }
-}
-
-struct CustomProgressView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            ProgressView("Loading...")
-                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-        }
-    }
-}
 

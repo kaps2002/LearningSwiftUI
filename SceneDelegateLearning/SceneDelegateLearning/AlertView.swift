@@ -17,4 +17,6 @@ extension View {
     func alertView(isPresented: Binding<Bool>, title: String, message: String) -> some View {
         self.modifier(AlertViewModifier(isPresented: isPresented, title: title, message: message))
     }
+    
+    
 }
