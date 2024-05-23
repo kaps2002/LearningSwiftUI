@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932757362BFF08F800517DF1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932757352BFF08F800517DF1 /* Alert.swift */; };
 		9340B0BA2BFDD55F0022848B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0B92BFDD55F0022848B /* ToastView.swift */; };
 		9340B0BC2BFDD77E0022848B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0BB2BFDD77E0022848B /* Toast.swift */; };
 		9340B0C02BFE03580022848B /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340B0BF2BFE03580022848B /* CustomProgressView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932757352BFF08F800517DF1 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9340B0B92BFDD55F0022848B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		9340B0BB2BFDD77E0022848B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		9340B0BF2BFE03580022848B /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		932757342BFF080E00517DF1 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				93883C082BFCAE0400F3310A /* AlertView.swift */,
+				932757352BFF08F800517DF1 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		9340B0BD2BFE02AF0022848B /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +100,7 @@
 				93883BFA2BFCAD1600F3310A /* ContentView.swift */,
 				9340B0BD2BFE02AF0022848B /* Toast */,
 				9340B0BE2BFE03240022848B /* Progress */,
-				93883C082BFCAE0400F3310A /* AlertView.swift */,
+				932757342BFF080E00517DF1 /* Alert */,
 				93883C062BFCADD600F3310A /* SceneDelegate.swift */,
 				93883C0A2BFCD69500F3310A /* AppDelegate.swift */,
 				93883BFC2BFCAD1800F3310A /* Assets.xcassets */,
@@ -184,6 +195,7 @@
 				93883C0B2BFCD69500F3310A /* AppDelegate.swift in Sources */,
 				9340B0BA2BFDD55F0022848B /* ToastView.swift in Sources */,
 				93883C072BFCADD600F3310A /* SceneDelegate.swift in Sources */,
+				932757362BFF08F800517DF1 /* Alert.swift in Sources */,
 				9340B0BC2BFDD77E0022848B /* Toast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

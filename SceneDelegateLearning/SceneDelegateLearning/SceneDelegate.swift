@@ -13,6 +13,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
     var window: UIWindow?
     var toastViewWindow: UIWindow?
     var progressViewWindow: UIWindow?
+    var alertViewWindow: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         print("Scene delegate")
@@ -26,6 +27,8 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
             setUpProgressViewWindow(in: windowScene)
             setUpToastViewWindow(in: windowScene)
+            setUpAlertViewWindow(in: windowScene)
+
         }
     }
     
@@ -51,6 +54,18 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         progressViewWindow.rootViewController = progressViewController
         progressViewWindow.isHidden = false
         self.progressViewWindow = progressViewWindow
+    }
+    
+    func setUpAlertViewWindow(in scene: UIWindowScene) {
+        let alertViewWindow = PassThroughWindow(windowScene: scene)
+        alertViewWindow.windowLevel = UIWindow.Level.alert
+        let alertViewController = HostingController(
+            rootView: AlertView()
+        )
+        alertViewController.view.backgroundColor = .clear
+        alertViewWindow.rootViewController = alertViewController
+        alertViewWindow.isHidden = false
+        self.alertViewWindow = alertViewWindow
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -91,9 +106,14 @@ enum NotificationData: String {
     case toastDuration
     case progressMessage
     case progressDuration
+    case alertMessage
+    case alertDesc
+
 }
 
 extension Notification.Name {
     static let showToast = Notification.Name("showToast")
     static let showProgress = Notification.Name("showProgress")
+    static let showAlert = Notification.Name("showAlert")
+
 }

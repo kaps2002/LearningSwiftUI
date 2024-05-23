@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showToast = false
-    @State private var showProgress = false
     @State private var showAlert = false
 
     var body: some View {
@@ -16,12 +14,11 @@ struct ContentView: View {
                     CustomProgressView.show(message: "Loading...")
                 }
 
-//                Button("Show Alert") {
-//                    showAlert.toggle()
-//                }
+                Button("Show Alert") {
+                    AlertView.show(message: "Alert Message", description: "This is a alert")
+                }
             }
         }
-        .alertView(isPresented: $showAlert, title: "Alert", message: "This is an alert message")
     }
 }
 
