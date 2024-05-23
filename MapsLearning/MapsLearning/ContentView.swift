@@ -46,7 +46,17 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     Button("Use Precise Location") {
-                        handleLocationRequest()
+                        if locationManager.authorizationStatus == .notDetermined {
+                            locationManager.requestWhenInUseAuthorization()
+                        }
+                        if let location = locationManager.location {
+                            region = MKCoordinateRegion(
+                                center: location.coordinate,
+                                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                            )
+                        } else {
+                            locationManager.startUpdatingLocation()
+                        }
                     }
                     .padding(10)
                     .background(.white)
@@ -106,16 +116,11 @@ struct ContentView: View {
         .onAppear {
             updateAddress(from: region.center)
         }
-        .onChange(of: locationManager.authorizationStatus) { status in
-            if status == .authorizedWhenInUse || status == .authorizedAlways {
-                locationManager.requestLocation()
-            }
-        }
     }
-    
     private func updatePinLocation(to newCenter: CLLocationCoordinate2D) {
         pinLocation = Location(coordinate: newCenter)
     }
+
     private func updateAddress(from coordinate: CLLocationCoordinate2D) {
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         let geocoder = CLGeocoder()
@@ -137,25 +142,7 @@ struct ContentView: View {
             }
         }
     }
-    
-    func requestUserLocation() {
-        locationManager.requestLocation()
-    }
-    
-    func handleLocationRequest() {
-        switch locationManager.authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
-            requestUserLocation()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .denied, .restricted:
-            // Show alert or prompt user to enable location services in settings
-            print("Location services denied or restricted.")
-        @unknown default:
-            break
-        }
-    }
-    
+
     func getDirections(to address: String) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { placemarks, error in
@@ -172,49 +159,11 @@ struct ContentView: View {
             let destinationCoordinates = location.coordinate
             let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinates)
             let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-            destinationMapItem.name = address // Optional: Name for the destination
+            destinationMapItem.name = address
             
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             destinationMapItem.openInMaps(launchOptions: launchOptions)
         }
-    }
-}
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-
-    @Published var authorizationStatus: CLAuthorizationStatus
-    @Binding var region: MKCoordinateRegion
-
-    init(region: Binding<MKCoordinateRegion>) {
-        self._region = region
-        self.authorizationStatus = CLLocationManager.authorizationStatus()
-        super.init()
-        locationManager.delegate = self
-    }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorizationStatus = manager.authorizationStatus
-    }
-
-    func requestWhenInUseAuthorization() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-
-    func requestLocation() {
-        locationManager.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            DispatchQueue.main.async {
-                self.region.center = location.coordinate
-            }
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location manager failed with error: \(error.localizedDescription)")
     }
 }
 

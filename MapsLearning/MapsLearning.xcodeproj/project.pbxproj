@@ -12,6 +12,7 @@
 		931F97842BF5FF690030FA43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931F97832BF5FF690030FA43 /* Assets.xcassets */; };
 		931F97872BF5FF690030FA43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931F97862BF5FF690030FA43 /* Preview Assets.xcassets */; };
 		931F97902BF61CDC0030FA43 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F978F2BF61CDC0030FA43 /* AddressView.swift */; };
+		93AE89202BFF47AA007D1D8A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AE891F2BFF47AA007D1D8A /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		931F97832BF5FF690030FA43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931F97862BF5FF690030FA43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		931F978F2BF61CDC0030FA43 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		93AE891F2BFF47AA007D1D8A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				931F977F2BF5FF670030FA43 /* MapsLearningApp.swift */,
 				931F97812BF5FF670030FA43 /* ContentView.swift */,
+				93AE891F2BFF47AA007D1D8A /* LocationManager.swift */,
 				931F978F2BF61CDC0030FA43 /* AddressView.swift */,
 				931F97832BF5FF690030FA43 /* Assets.xcassets */,
 				931F97852BF5FF690030FA43 /* Preview Content */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AE89202BFF47AA007D1D8A /* LocationManager.swift in Sources */,
 				931F97822BF5FF670030FA43 /* ContentView.swift in Sources */,
 				931F97802BF5FF670030FA43 /* MapsLearningApp.swift in Sources */,
 				931F97902BF61CDC0030FA43 /* AddressView.swift in Sources */,
