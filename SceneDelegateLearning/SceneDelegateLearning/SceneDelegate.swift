@@ -115,5 +115,4 @@ extension Notification.Name {
     static let showToast = Notification.Name("showToast")
     static let showProgress = Notification.Name("showProgress")
     static let showAlert = Notification.Name("showAlert")
-
 }

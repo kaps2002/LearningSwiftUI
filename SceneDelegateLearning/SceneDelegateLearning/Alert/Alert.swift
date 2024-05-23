@@ -26,7 +26,7 @@ struct CustomAlert: ViewModifier {
             if isShowing {
                 VStack {}
                     .alert(isPresented: $isShowing) {
-                        Alert(title: Text(message), message: Text(desc), dismissButton: .default(Text("OK")))
+                        Alert(title: Text(message), message: Text(desc), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel())
                     }
             }
         }
