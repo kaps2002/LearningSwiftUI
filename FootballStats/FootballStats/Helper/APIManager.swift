@@ -22,30 +22,7 @@ final class APIManager {
                     print(leagueTeams)
                     completion(.success(leagueTeams))
                 } catch {
-                    if let decodingError = error as? DecodingError {
-                        switch decodingError {
-                        case .keyNotFound(let key, let context):
-                            print("Key not found: \(key.stringValue)")
-                            print("Context: \(context.debugDescription)")
-                            // Handle the key not found error
-                        case .typeMismatch(let type, let context):
-                            print("Type mismatch: \(type)")
-                            print("Context: \(context.debugDescription)")
-                            // Handle the type mismatch error
-                        case .valueNotFound(let type, let context):
-                            print("Value not found for type: \(type)")
-                            print("Context: \(context.debugDescription)")
-                            // Handle the value not found error
-                        case .dataCorrupted(let context):
-                            print("Data corrupted")
-                            print("Context: \(context.debugDescription)")
-                            // Handle the data corrupted error
-                        @unknown default:
-                            print("Unknown decoding error")
-                            // Handle unknown decoding errors
-                        }
-                        completion(.failure(error))
-                    }
+                    completion(.failure(error))
                 }
             case .failure(let error):
                 completion(.failure(error))

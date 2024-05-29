@@ -43,6 +43,7 @@ struct ContentView: View {
                     updatePinLocation(to: newCenter)
                 }
                 .edgesIgnoringSafeArea(.all)
+                
                 VStack {
                     Spacer()
                     Button("Use Precise Location") {

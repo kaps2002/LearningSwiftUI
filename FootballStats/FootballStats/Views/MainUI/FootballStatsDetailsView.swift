@@ -12,18 +12,26 @@ struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     @State var footballstats = FootballModel.sample.data.standings.first?.team
+    @Binding var isStarClick: Bool
     
     var body: some View {
         VStack {
             VStack(alignment: .center) {
                 AsyncImageView(footballTeamImg: footballstats!.logos?.first?.href ?? "")
                     .frame(width: 150, height: 150)
-                HStack {
+                HStack(spacing: 5) {
                     Text(footballstats!.name)
                         .fontWeight(.semibold)
                         .font(.title2)
                     Text("(\(footballstats!.abbreviation))")
                         .font(.headline)
+                    
+                    Button {
+                        isStarClick.toggle()
+                    } label: {
+                        Image(systemName: isStarClick ? "star.fill" : "star")
+                            .accentColor(.yellow)
+                    }
                     
                 }
                 Text(String(footballstats!.location.components(separatedBy: " ").first!))
@@ -37,7 +45,7 @@ struct FootballStatsDetailsView: View {
                         Text("Description")
                         Image(systemName: "note.text")
                             .resizable()
-                            .frame(width: 22, height: 22)
+                            .frame(width: 17, height: 17)
                     }
                     .font(.title)
                     .fontWeight(.bold)
@@ -58,6 +66,7 @@ struct FootballStatsDetailsView: View {
                         .padding(.top, -20)
                 }
             }
+            .padding(.top, 10)
         }
     }
     
@@ -70,9 +79,8 @@ struct FootballStatsDetailsView: View {
         return ""
     }
     
-    
 }
 
 #Preview {
-    FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team)
+    FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team, isStarClick: .constant(false))
 }

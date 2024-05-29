@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showAlert = false
-
     var body: some View {
         ZStack {
             VStack {
@@ -13,7 +11,7 @@ struct ContentView: View {
                 Button("Show Progress") {
                     CustomProgressView.show(message: "Loading...")
                 }
-
+                
                 Button("Show Alert") {
                     AlertView.show(message: "Alert Message", description: "This is a alert")
                 }
@@ -22,5 +20,6 @@ struct ContentView: View {
     }
 }
 
-
-
+#Preview {
+    ContentView()
+}

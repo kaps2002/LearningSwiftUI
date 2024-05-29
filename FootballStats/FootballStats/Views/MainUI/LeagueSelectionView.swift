@@ -31,7 +31,6 @@ struct LeagueSelectionView: View {
                 viewModel.fetchLeagues()
             }
         }
-        
     }
 }
 

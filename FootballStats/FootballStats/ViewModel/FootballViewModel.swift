@@ -19,9 +19,9 @@ class FootballViewModel {
         load()
     }
     
-    func fetchSeason(forSeason season: String, _ uniqueId: String) {
+    func fetchSeason(season: String, _ uniqueId: String) {
         if(season == "2023") {
-            fetchProducts(season: season, uniqueId)
+            fetchProducts(season: season, uniqueId) 
         }
         else if let savedSeasonData = UserDefaultsManager.shared.getSeasonData(forSeason: season, uniqueId) {
             self.footballmodel = savedSeasonData
@@ -48,9 +48,9 @@ class FootballViewModel {
             case .success(let leagueResponse):
                 self.footballmodel = leagueResponse
                 print(leagueResponse)
-//                if (season != "2023") {
-//                    UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season, uniqueId)
-//                }
+                if (season != "2023") {
+                    UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season, uniqueId)
+                }
                 UserDefaults.standard.set(season, forKey: "season")
             case .failure(let error):
                 print(error)

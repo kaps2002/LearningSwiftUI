@@ -14,6 +14,7 @@ struct FootballStatsView: View {
     @State private var selection: String?
     @State private var lastSelection = UserDefaults.standard.string(forKey: "season")
     @State private var searchTerm = ""
+    @State private var isStarClick = false
     @State var selectedLeague: String?
     @State var uniqueId: String
     
@@ -33,10 +34,10 @@ struct FootballStatsView: View {
                 List {
                     ForEach(filteredTeams , id: \.team.id) { teamstanding in
                         NavigationLink {
-                            FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
+                            FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team, isStarClick: $isStarClick)
                                 .padding(.top, -30)
                         } label: {
-                            FootballStatsRowView(footballstats: teamstanding.team)
+                            FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
                         }
                     }
                 }
@@ -91,7 +92,7 @@ struct FootballStatsView: View {
         
             .task {
                 viewModel.fetchTotalSeasons(uniqueId)
-                viewModel.fetchProducts(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
+                viewModel.fetchSeason(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
             }
         }
     }

@@ -13,6 +13,7 @@ struct CustomAlert: ViewModifier {
     let message: String
     let desc: String
     @Binding var isShowing: Bool
+    @Binding var isLogOut: Bool
     
     func body(content: Content) -> some View {
         ZStack {
@@ -26,7 +27,13 @@ struct CustomAlert: ViewModifier {
             if isShowing {
                 VStack {}
                     .alert(isPresented: $isShowing) {
-                        Alert(title: Text(message), message: Text(desc), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel())
+                        Alert(
+                            title: Text(message),
+                            message: Text(desc),
+                            primaryButton: .destructive(Text("Log Out")) {
+                                isLogOut = true
+                            },
+                            secondaryButton: .cancel())
                     }
             }
         }

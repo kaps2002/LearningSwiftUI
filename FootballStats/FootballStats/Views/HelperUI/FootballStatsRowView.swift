@@ -10,6 +10,8 @@ import SwiftUI
 struct FootballStatsRowView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstats = FootballModel.sample.data.standings.first?.team
+    @Binding var isStarClick: Bool
+    
     var body: some View {
         HStack {
             AsyncImageView(footballTeamImg: footballstats!.logos?.first?.href ?? "https://secure.espncdn.com/combiner/i?img=/i/teamlogos/default-team-logo-500.png&h=72&w=72")
@@ -21,15 +23,23 @@ struct FootballStatsRowView: View {
                         .fontWeight(.semibold)
                     Text("(\(footballstats!.abbreviation))")
                         .font(.subheadline)
-
+                    
                 }
                 Text("Home: \(String(footballstats!.location.components(separatedBy: " ").first!))")
                         .foregroundStyle(.secondary)
+            }
+            
+            Spacer()
+            
+            if isStarClick {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+                    .padding(.horizontal, 20)
             }
         }
     }
 }
 
 #Preview {
-    FootballStatsRowView()
+    FootballStatsRowView(isStarClick: .constant(false))
 }
