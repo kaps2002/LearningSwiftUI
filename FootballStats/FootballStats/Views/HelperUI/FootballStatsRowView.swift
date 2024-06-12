@@ -31,7 +31,7 @@ struct FootballStatsRowView: View {
             
             Spacer()
             
-            if isStarClick {
+            if footballstats?.isFavorite ?? false {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
                     .padding(.horizontal, 20)

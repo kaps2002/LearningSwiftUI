@@ -13,6 +13,7 @@ struct LeagueChangeView: View {
     @Binding var selectedLeague: String?
     @Binding var selection: String?
     @Binding var lastSelection: String?
+    @Binding var isSeasonAvail: Bool
 
     var body: some View {
         Menu {
@@ -21,9 +22,17 @@ struct LeagueChangeView: View {
                     Task {
                         uniqueId = league.id
                         selectedLeague = league.name
-                        print(selectedLeague ?? "")
                         viewModel.fetchTotalSeasons(uniqueId)
-                        viewModel.fetchProducts(season: (selection ?? lastSelection) ?? "2023", uniqueId)
+                        viewModel.isLoading = true
+                        viewModel.fetchProducts(season: (selection ?? lastSelection) ?? "2023", uniqueId) { response in
+                            if response {
+                                isSeasonAvail = true
+                            } else {
+                                isSeasonAvail = false
+                            }
+                            viewModel.isLoading = false
+
+                        }
                     }
                 } label: {
                     HStack {
@@ -36,7 +45,7 @@ struct LeagueChangeView: View {
                 }
             }
         } label: {
-            Text("Choose Leagues" + "")
+            Text("Choose Leagues")
                 .font(.headline)
         }
         .task {
@@ -46,5 +55,5 @@ struct LeagueChangeView: View {
 }
 
 #Preview {
-    LeagueChangeView(viewModel: .constant(FootballViewModel()), uniqueId: .constant(""), selectedLeague: .constant(""), selection: .constant(""), lastSelection: .constant("2023"))
+    LeagueChangeView(viewModel: .constant(FootballViewModel()), uniqueId: .constant(""), selectedLeague: .constant(""), selection: .constant(""), lastSelection: .constant("2023"), isSeasonAvail: .constant(true))
 }

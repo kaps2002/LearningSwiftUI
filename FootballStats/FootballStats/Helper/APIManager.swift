@@ -19,7 +19,6 @@ final class APIManager {
             case .success(let data):
                 do {
                     let leagueTeams = try JSONDecoder().decode(FootballModel.self, from: data)
-                    print(leagueTeams)
                     completion(.success(leagueTeams))
                 } catch {
                     completion(.failure(error))
@@ -52,8 +51,6 @@ final class APIManager {
             case .success(let data):
                 do {
                     let seasonData = try JSONDecoder().decode(LeagueSeasons.self, from: data)
-                    print(1)
-                    print(seasonData)
                     completion(.success(seasonData))
                 } catch {
                     completion(.failure(error))

@@ -15,6 +15,7 @@ struct FootballStatsView: View {
     @State private var lastSelection = UserDefaults.standard.string(forKey: "season")
     @State private var searchTerm = ""
     @State private var isStarClick = false
+    @State private var isSeasonAvail = true
     @State var selectedLeague: String?
     @State var uniqueId: String
     
@@ -31,20 +32,27 @@ struct FootballStatsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List {
-                    ForEach(filteredTeams , id: \.team.id) { teamstanding in
-                        NavigationLink {
-                            FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team, isStarClick: $isStarClick)
-                                .padding(.top, -30)
-                        } label: {
-                            FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
+                    if isSeasonAvail {
+                        List {
+                            ForEach(filteredTeams , id: \.team.id) { teamstanding in
+                                NavigationLink {
+                                    FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
+                                        .padding(.top, -30)
+                                } label: {
+                                    FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
+                                }
+                            }
                         }
+                        .scrollIndicators(.never)
+                        .padding(.top, 50)
+                        .listStyle(.plain)
+                    } else {
+                        NoSeasonView()
                     }
                 }
-                .scrollIndicators(.never)
-                .padding(.top, 50)
-                .listStyle(.plain)
-                
                 VStack(alignment: .center) {
                     HStack {
                         Text("Choose a Season")
@@ -53,7 +61,15 @@ struct FootballStatsView: View {
                         Spacer()
                         DropdownView(hint: lastSelection ?? "Select", options: viewModel.leagueSeason?.data.seasons.reversed() ?? [], selection: $selection)
                             .onChange(of: selection) {
-                                viewModel.fetchProducts(season: selection!, uniqueId)
+                                viewModel.isLoading = true
+                                viewModel.fetchProducts(season: selection!, uniqueId) { response in
+                                    if response {
+                                        isSeasonAvail = true
+                                    } else {
+                                        isSeasonAvail = false
+                                    }
+                                    viewModel.isLoading = false
+                                }
                                 UserDefaults.standard.setValue(selection!, forKey: "season")
                             }
                     }
@@ -66,7 +82,7 @@ struct FootballStatsView: View {
             .searchable(text: $searchTerm, prompt: "Search your team")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    LeagueChangeView(viewModel: $viewModel, uniqueId: $uniqueId, selectedLeague: $selectedLeague, selection: $selection, lastSelection: $lastSelection)
+                    LeagueChangeView(viewModel: $viewModel, uniqueId: $uniqueId, selectedLeague: $selectedLeague, selection: $selection, lastSelection: $lastSelection, isSeasonAvail: $isSeasonAvail)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
@@ -89,10 +105,16 @@ struct FootballStatsView: View {
                     
                 }
             })
-        
             .task {
                 viewModel.fetchTotalSeasons(uniqueId)
-                viewModel.fetchSeason(season: ((selection ?? lastSelection) ?? "2023"), uniqueId)
+                viewModel.fetchSeason(season: ((selection ?? lastSelection) ?? "2023"), uniqueId) { response in
+                    viewModel.isLoading = false
+                    if response {
+                        isSeasonAvail = true
+                    } else {
+                        isSeasonAvail = false
+                    }
+                }
             }
         }
     }

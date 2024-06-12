@@ -14,19 +14,34 @@ class FootballViewModel {
     var descArray = [Description]()
     var leagueData: League?
     var leagueSeason: LeagueSeasons?
+    var isLoading = true
     
     init(){
         load()
     }
     
-    func fetchSeason(season: String, _ uniqueId: String) {
+    func fetchSeason(season: String, _ uniqueId: String, completion: @escaping (Bool) -> Void) {
         if(season == "2023") {
-            fetchProducts(season: season, uniqueId) 
+            fetchProducts(season: season, uniqueId) { response in
+                if response {
+                    completion(true)
+                } else {
+                    completion(false)
+
+                }
+            }
         }
         else if let savedSeasonData = UserDefaultsManager.shared.getSeasonData(forSeason: season, uniqueId) {
             self.footballmodel = savedSeasonData
         } else {
-            fetchProducts(season: season, uniqueId)
+            fetchProducts(season: season, uniqueId) { response in
+                if response {
+                    completion(true)
+                } else {
+                    completion(false)
+
+                }
+            }
         }
     }
     
@@ -41,19 +56,18 @@ class FootballViewModel {
         }
     }
     
-    func fetchProducts(season: String, _ uniqueId: String) {
-        print(uniqueId, season)
+    func fetchProducts(season: String, _ uniqueId: String, completion: @escaping (Bool) -> Void) {
         APIManager.shared.request(from: "https://api-football-standings.azharimm.dev/leagues/\(uniqueId)/standings?season=\(season)&sort=asc") { [self] result in
             switch result {
             case .success(let leagueResponse):
                 self.footballmodel = leagueResponse
-                print(leagueResponse)
                 if (season != "2023") {
                     UserDefaultsManager.shared.saveSeasonData(footballmodel!, forSeason: season, uniqueId)
                 }
                 UserDefaults.standard.set(season, forKey: "season")
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
