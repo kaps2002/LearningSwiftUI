@@ -12,7 +12,7 @@ struct FootballStatsDetailsView: View {
     @State private var viewModel = FootballViewModel()
     @State var footballstatsdetails = FootballModel.sample.data.standings.first?.stats
     @State var footballstats = FootballModel.sample.data.standings.first?.team
-    
+    @Binding var isStarClick: Bool
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -26,12 +26,9 @@ struct FootballStatsDetailsView: View {
                         .font(.headline)
                     
                     Button {
-                        footballstats?.isFavorite?.toggle()
+                        isStarClick.toggle()
                     } label: {
-                        if let isFavorite = footballstats?.isFavorite {
-                            Image(systemName: isFavorite ? "star.fill" : "star")
-                                .foregroundColor(.yellow)
-                        }
+                        Image(systemName: isStarClick ? "star.fill" : "star")
                     }
                     
                 }
@@ -83,5 +80,5 @@ struct FootballStatsDetailsView: View {
 }
 
 #Preview {
-    FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team)
+    FootballStatsDetailsView(footballstats: FootballModel.sample.data.standings.first!.team, isStarClick: .constant(false))
 }

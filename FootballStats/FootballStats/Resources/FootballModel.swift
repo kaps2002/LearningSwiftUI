@@ -32,7 +32,7 @@ struct FootballModel: Codable {
                                 TeamLogo(
                                     href: "https://a.espncdn.com/i/teamlogos/soccer/500/382.png"
                                 )
-                            ], isFavorite: false
+                            ]
                         ),
                         stats: [
                             TeamStats(displayName: "Games Played", abbreviation: "GP", displayValue: "38"),
@@ -75,7 +75,6 @@ struct Team: Codable,Identifiable {
     let location: String
     let abbreviation: String
     let logos: [TeamLogo]?
-    var isFavorite: Bool?
 }
 
 struct TeamLogo: Codable {

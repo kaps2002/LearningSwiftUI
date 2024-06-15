@@ -26,8 +26,13 @@
 		936A6AF02BF5C38500EDE1C5 /* LeagueChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A6AEF2BF5C38500EDE1C5 /* LeagueChangeView.swift */; };
 		937CBC362BBFA68200A57145 /* FootballStatsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */; };
 		937CBC382BBFBAD100A57145 /* FootballStatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */; };
+		939DC6CE2C1D7F710013E0F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DC6CD2C1D7F710013E0F6 /* LoginViewModel.swift */; };
+		939DC6D02C1D80170013E0F6 /* EmailFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DC6CF2C1D80170013E0F6 /* EmailFieldView.swift */; };
+		939DC6D22C1D80A90013E0F6 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DC6D12C1D80A90013E0F6 /* PasswordFieldView.swift */; };
+		939DC6D42C1D96060013E0F6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DC6D32C1D96060013E0F6 /* SignUpView.swift */; };
 		93A72E4C2BC3D00B0053F0B1 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */; };
 		93C5F5462C19BE4D0091C50C /* NoSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5F5452C19BE4D0091C50C /* NoSeasonView.swift */; };
+		93E442DC2C1A20C90090E975 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E442DB2C1A20C90090E975 /* SignInView.swift */; };
 		93F452192BD67AAD009599CE /* LeagueSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F452182BD67AAD009599CE /* LeagueSelectedView.swift */; };
 		93F8CE992BC1258000D6AD34 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */; };
 		93F8CE9B2BC1AF8300D6AD34 /* Description.json in Resources */ = {isa = PBXBuildFile; fileRef = 93F8CE9A2BC1AF8300D6AD34 /* Description.json */; };
@@ -72,8 +77,13 @@
 		936A6AEF2BF5C38500EDE1C5 /* LeagueChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueChangeView.swift; sourceTree = "<group>"; };
 		937CBC352BBFA68200A57145 /* FootballStatsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsDetailsView.swift; sourceTree = "<group>"; };
 		937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballStatsTableView.swift; sourceTree = "<group>"; };
+		939DC6CD2C1D7F710013E0F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		939DC6CF2C1D80170013E0F6 /* EmailFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFieldView.swift; sourceTree = "<group>"; };
+		939DC6D12C1D80A90013E0F6 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
+		939DC6D32C1D96060013E0F6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		93A72E4B2BC3D00B0053F0B1 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		93C5F5452C19BE4D0091C50C /* NoSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSeasonView.swift; sourceTree = "<group>"; };
+		93E442DB2C1A20C90090E975 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		93F452182BD67AAD009599CE /* LeagueSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSelectedView.swift; sourceTree = "<group>"; };
 		93F8CE982BC1258000D6AD34 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		93F8CE9A2BC1AF8300D6AD34 /* Description.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Description.json; sourceTree = "<group>"; };
@@ -176,6 +186,7 @@
 		9306EF932BBEA8BB00B9F9D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93E442DA2C1A209A0090E975 /* AuthUI */,
 				934B95012BF4E011006E3FD5 /* ProfileUI */,
 				93A9A0412BDCCC7A0017E7D2 /* MainUI */,
 				93A9A0422BDCCCAA0017E7D2 /* HelperUI */,
@@ -196,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				9306EF8C2BBE7E6200B9F9D3 /* FootballViewModel.swift */,
+				939DC6CD2C1D7F710013E0F6 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -229,8 +241,19 @@
 				937CBC372BBFBAD100A57145 /* FootballStatsTableView.swift */,
 				936A6AEF2BF5C38500EDE1C5 /* LeagueChangeView.swift */,
 				93C5F5452C19BE4D0091C50C /* NoSeasonView.swift */,
+				939DC6CF2C1D80170013E0F6 /* EmailFieldView.swift */,
+				939DC6D12C1D80A90013E0F6 /* PasswordFieldView.swift */,
 			);
 			path = HelperUI;
+			sourceTree = "<group>";
+		};
+		93E442DA2C1A209A0090E975 /* AuthUI */ = {
+			isa = PBXGroup;
+			children = (
+				93E442DB2C1A20C90090E975 /* SignInView.swift */,
+				939DC6D32C1D96060013E0F6 /* SignUpView.swift */,
+			);
+			path = AuthUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,16 +399,21 @@
 				934BE5572BC5382700AEB4BB /* UserDefaultsManager.swift in Sources */,
 				9306EF8B2BBE7C2E00B9F9D3 /* APIManager.swift in Sources */,
 				936A6AF02BF5C38500EDE1C5 /* LeagueChangeView.swift in Sources */,
+				93E442DC2C1A20C90090E975 /* SignInView.swift in Sources */,
 				9306EF5E2BBE6F9400B9F9D3 /* FootballStatsView.swift in Sources */,
+				939DC6D22C1D80A90013E0F6 /* PasswordFieldView.swift in Sources */,
 				9306EF892BBE70D600B9F9D3 /* FootballModel.swift in Sources */,
 				934B95032BF4E04D006E3FD5 /* ProfileView.swift in Sources */,
+				939DC6D02C1D80170013E0F6 /* EmailFieldView.swift in Sources */,
 				93A72E4C2BC3D00B0053F0B1 /* DropdownView.swift in Sources */,
 				937CBC362BBFA68200A57145 /* FootballStatsDetailsView.swift in Sources */,
 				93C5F5462C19BE4D0091C50C /* NoSeasonView.swift in Sources */,
 				9306EF912BBEA4DF00B9F9D3 /* FootballStatsRowView.swift in Sources */,
+				939DC6D42C1D96060013E0F6 /* SignUpView.swift in Sources */,
 				937CBC382BBFBAD100A57145 /* FootballStatsTableView.swift in Sources */,
 				9306EF5C2BBE6F9400B9F9D3 /* FootballStatsApp.swift in Sources */,
 				93197DB12BD62715006A927A /* LeagueSelectionView.swift in Sources */,
+				939DC6CE2C1D7F710013E0F6 /* LoginViewModel.swift in Sources */,
 				9306EF972BBEAB6C00B9F9D3 /* AsyncImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

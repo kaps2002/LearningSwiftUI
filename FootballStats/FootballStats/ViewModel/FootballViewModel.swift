@@ -14,7 +14,7 @@ class FootballViewModel {
     var descArray = [Description]()
     var leagueData: League?
     var leagueSeason: LeagueSeasons?
-    var isLoading = true
+    var isLoading = false
     
     init(){
         load()

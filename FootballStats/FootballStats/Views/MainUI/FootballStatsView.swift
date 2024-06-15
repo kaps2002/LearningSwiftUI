@@ -39,7 +39,7 @@ struct FootballStatsView: View {
                         List {
                             ForEach(filteredTeams , id: \.team.id) { teamstanding in
                                 NavigationLink {
-                                    FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team)
+                                    FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team, isStarClick: $isStarClick)
                                         .padding(.top, -30)
                                 } label: {
                                     FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
