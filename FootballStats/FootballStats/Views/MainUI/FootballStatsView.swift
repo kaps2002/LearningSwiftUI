@@ -32,77 +32,105 @@ struct FootballStatsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if viewModel.isLoading {
-                    ProgressView()
+                if viewModel.isDark {
+                    Color.black
+                        .ignoresSafeArea()
                 } else {
-                    if isSeasonAvail {
-                        List {
-                            ForEach(filteredTeams , id: \.team.id) { teamstanding in
-                                NavigationLink {
-                                    FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team, isStarClick: $isStarClick)
-                                        .padding(.top, -30)
-                                } label: {
-                                    FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
-                                }
-                            }
-                        }
-                        .scrollIndicators(.never)
-                        .padding(.top, 50)
-                        .listStyle(.plain)
-                    } else {
-                        NoSeasonView()
-                    }
+                    Color.white
+                        .ignoresSafeArea()
                 }
-                VStack(alignment: .center) {
-                    HStack {
-                        Text("Choose a Season")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        Spacer()
-                        DropdownView(hint: lastSelection ?? "Select", options: viewModel.leagueSeason?.data.seasons.reversed() ?? [], selection: $selection)
-                            .onChange(of: selection) {
-                                viewModel.isLoading = true
-                                viewModel.fetchProducts(season: selection!, uniqueId) { response in
-                                    if response {
-                                        isSeasonAvail = true
-                                    } else {
-                                        isSeasonAvail = false
+                
+                ZStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        if isSeasonAvail {
+                            ScrollView {
+                                ForEach(filteredTeams , id: \.team.id) { teamstanding in
+                                    NavigationLink {
+                                        FootballStatsDetailsView(footballstatsdetails: teamstanding.stats, footballstats: teamstanding.team, isStarClick: $isStarClick)
+                                            .padding(.top, -30)
+                                            .foregroundColor(viewModel.isDark ? .white : .black)
+                                            .background(viewModel.isDark ? .black : .white)
+                                        
+                                    } label: {
+                                        FootballStatsRowView(footballstats: teamstanding.team, isStarClick: $isStarClick)
+                                            .foregroundColor(viewModel.isDark ? .white : .black)
                                     }
-                                    viewModel.isLoading = false
                                 }
-                                UserDefaults.standard.setValue(selection!, forKey: "season")
                             }
+                            .listStyle(.plain)
+                            .scrollIndicators(.never)
+                            .padding(.top, 50)
+                            .padding(.horizontal, 15)
+                            
+                        } else {
+                            NoSeasonView()
+                        }
                     }
-                    .padding(.horizontal, 15)
-                    Spacer()
+                    VStack(alignment: .center) {
+                        HStack {
+                            Text("Choose a Season")
+                                .foregroundColor(viewModel.isDark ? .white : .black)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                            Spacer()
+                            DropdownView(hint: lastSelection ?? "Select", options: viewModel.leagueSeason?.data.seasons.reversed() ?? [], selection: $selection)
+                                .onChange(of: selection) {
+                                    viewModel.isLoading = true
+                                    viewModel.fetchProducts(season: selection!, uniqueId) { response in
+                                        if response {
+                                            isSeasonAvail = true
+                                        } else {
+                                            isSeasonAvail = false
+                                        }
+                                        viewModel.isLoading = false
+                                    }
+                                    UserDefaults.standard.setValue(selection!, forKey: "season")
+                                }
+                        }
+                        .padding(.horizontal, 15)
+                        Spacer()
+                    }
                 }
             }
             .navigationTitle("Football Stats ⚽️")
-            .padding(.top, 10)
+            .navigationBarTitleColor(viewModel.isDark)
+//            .background(NavigationConfigurator { navController in
+//                let appearance = UINavigationBarAppearance()
+//                appearance.configureWithOpaqueBackground()
+//                appearance.titleTextAttributes = [.foregroundColor: viewModel.isDark ? UIColor.red : UIColor.red]
+//                navController.navigationBar.standardAppearance = appearance
+//            })
+
             .searchable(text: $searchTerm, prompt: "Search your team")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
                     LeagueChangeView(viewModel: $viewModel, uniqueId: $uniqueId, selectedLeague: $selectedLeague, selection: $selection, lastSelection: $lastSelection, isSeasonAvail: $isSeasonAvail)
+                        .foregroundColor(.blue)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("Settings") {
+                        Button("Profile") {
                             
                         }
+
+                        Toggle(isOn: $viewModel.isDark) {
+                            Label(viewModel.isDark ? "Dark Mode" : "Light Mode", systemImage: viewModel.isDark ? "moon.fill" : "sun.max.fill")
+                                .fontWeight(.semibold)
+                        }
+                        
                         Button("Logout") {
                             
                         }
-                        Button("Delete", role: .destructive) {
-                            
-                        }
+                        
                     } label: {
                         Image(systemName: "person.circle")
-                            .foregroundColor(.black)
+                            .foregroundColor(viewModel.isDark ? .white : .darkBlue)
                             .font(.title)
                             .imageScale(.medium)
                     }
                     .menuStyle(DefaultMenuStyle())
-                    
                 }
             })
             .task {
@@ -120,6 +148,32 @@ struct FootballStatsView: View {
     }
 }
 
+struct NavigationBarTitleColor: ViewModifier {
+    var titleColor: UIColor
+
+    init(titleColor: UIColor) {
+        self.titleColor = titleColor
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: titleColor]
+        appearance.largeTitleTextAttributes = [.foregroundColor: titleColor]
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
+
+    func body(content: Content) -> some View {
+        content
+    }
+}
+
+extension View {
+    func navigationBarTitleColor(_ isDark: Bool) -> some View {
+        if isDark {
+            self.modifier(NavigationBarTitleColor(titleColor: UIColor.white))
+        } else {
+            self.modifier(NavigationBarTitleColor(titleColor: UIColor.black))
+        }
+    }
+}
 #Preview {
     FootballStatsView(uniqueId: "eng.1", selectedLeague: "")
 }

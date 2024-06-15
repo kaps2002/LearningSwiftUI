@@ -32,7 +32,6 @@ struct SignInView: View {
                 
                 EmailFieldView(email: $loginViewModel.email, isEmailValid: $loginViewModel.isEmailValid)
                 PasswordFieldView(password: $loginViewModel.password, isPasswordValid: $loginViewModel.isPasswordValid, isSecured: $loginViewModel.isSecured, placeholder: "Your Password")
-                
             }
             
             VStack(spacing: 15) {

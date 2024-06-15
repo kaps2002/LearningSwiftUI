@@ -12,26 +12,28 @@ struct FootballStatsTableView: View {
     @State var footballstatsdetails: [TeamStats]
 
     var body: some View {
-        List {
+        ScrollView {
+            VStack(spacing: 15) {
             ForEach(footballstatsdetails, id: \.abbreviation) { teamStatsDetail in
-                HStack {
-                    Text(teamStatsDetail.displayName)
-                    Text("(\(teamStatsDetail.abbreviation))")
-                    Spacer()
-                    Group {
-                        if teamStatsDetail.displayValue == "" {
-                            Text("0")
+                    HStack {
+                        Text(teamStatsDetail.displayName)
+                        Text("(\(teamStatsDetail.abbreviation))")
+                        Spacer()
+                        Group {
+                            if teamStatsDetail.displayValue == "" {
+                                Text("0")
 
-                        } else {
-                            Text(teamStatsDetail.displayValue)
+                            } else {
+                                Text(teamStatsDetail.displayValue)
+                            }
                         }
                     }
+                    .padding(.horizontal, 20)
+                    .font(.system(size: 17))
                 }
-                .font(.system(size: 17))
             }
         }
         .scrollIndicators(.never)
-        .listStyle(.plain)
     }
 }
 

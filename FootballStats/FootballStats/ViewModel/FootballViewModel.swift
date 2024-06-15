@@ -15,6 +15,7 @@ class FootballViewModel {
     var leagueData: League?
     var leagueSeason: LeagueSeasons?
     var isLoading = false
+    var isDark: Bool = false
     
     init(){
         load()
@@ -66,7 +67,7 @@ class FootballViewModel {
                 }
                 UserDefaults.standard.set(season, forKey: "season")
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }

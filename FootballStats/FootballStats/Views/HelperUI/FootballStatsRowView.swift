@@ -31,11 +31,9 @@ struct FootballStatsRowView: View {
             
             Spacer()
             
-            if isStarClick {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-                    .padding(.horizontal, 20)
-            }
+            Image(systemName: "chevron.forward")
+                .imageScale(.small)
+                .padding(.horizontal, 15)
         }
     }
 }
