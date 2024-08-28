@@ -58,13 +58,12 @@ struct SignUpView: View {
                 
                 EmailFieldView(email: $loginViewModel.email, isEmailValid: $loginViewModel.isEmailValid)
                 PasswordFieldView(password: $loginViewModel.password, isPasswordValid: $loginViewModel.isPasswordValid, isSecured: $loginViewModel.isSecured, placeholder: "Your Password")
-                
             }
             
             Spacer()
             
             VStack(spacing: 15) {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {}, label: {
                     Text("Sign Up")
                         .font(.title3)
                         .foregroundColor(.white)

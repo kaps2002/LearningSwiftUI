@@ -95,6 +95,7 @@ class FootballViewModel {
         self.descArray = descArray!
     }
     
+    
     func filterTeams(searchTerm: String, teamStandings: [TeamStandings]) -> [TeamStandings] {
         teamStandings.filter {
             $0.team.name.localizedStandardContains(filterSearchTerm(searchTerm))

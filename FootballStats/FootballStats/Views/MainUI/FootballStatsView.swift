@@ -18,14 +18,18 @@ struct FootballStatsView: View {
     @State private var isSeasonAvail = true
     @State var selectedLeague: String?
     @State var uniqueId: String
-    
+    @State private var selectedFilter = ""
+
     init(uniqueId: String, selectedLeague: String?) {
         self.uniqueId = uniqueId
         self.selectedLeague = selectedLeague
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.white
+        UISearchTextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search", attributes: [.foregroundColor: UIColor.gray])
     }
     
     var filteredTeams: [TeamStandings] {
         guard  !searchTerm.isEmpty else { return viewModel.footballmodel?.data.standings ?? [] }
+        
         return viewModel.filterTeams(searchTerm: searchTerm, teamStandings: (viewModel.footballmodel?.data.standings)!)
     }
     
@@ -66,6 +70,7 @@ struct FootballStatsView: View {
                             
                         } else {
                             NoSeasonView()
+                                .foregroundColor(viewModel.isDark ? .white : .gray)
                         }
                     }
                     VStack(alignment: .center) {
@@ -95,14 +100,6 @@ struct FootballStatsView: View {
                 }
             }
             .navigationTitle("Football Stats ⚽️")
-            .navigationBarTitleColor(viewModel.isDark)
-//            .background(NavigationConfigurator { navController in
-//                let appearance = UINavigationBarAppearance()
-//                appearance.configureWithOpaqueBackground()
-//                appearance.titleTextAttributes = [.foregroundColor: viewModel.isDark ? UIColor.red : UIColor.red]
-//                navController.navigationBar.standardAppearance = appearance
-//            })
-
             .searchable(text: $searchTerm, prompt: "Search your team")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -121,7 +118,6 @@ struct FootballStatsView: View {
                         }
                         
                         Button("Logout") {
-                            
                         }
                         
                     } label: {
@@ -132,6 +128,12 @@ struct FootballStatsView: View {
                     }
                     .menuStyle(DefaultMenuStyle())
                 }
+            })
+            .background(NavigationConfigurator { navController in
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.largeTitleTextAttributes = [.foregroundColor: viewModel.isDark ? UIColor.white : UIColor.black]
+                navController.navigationBar.standardAppearance = appearance
             })
             .task {
                 viewModel.fetchTotalSeasons(uniqueId)
@@ -148,32 +150,20 @@ struct FootballStatsView: View {
     }
 }
 
-struct NavigationBarTitleColor: ViewModifier {
-    var titleColor: UIColor
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void
 
-    init(titleColor: UIColor) {
-        self.titleColor = titleColor
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.titleTextAttributes = [.foregroundColor: titleColor]
-        appearance.largeTitleTextAttributes = [.foregroundColor: titleColor]
-        UINavigationBar.appearance().standardAppearance = appearance
+    func makeUIViewController(context: Context) -> UIViewController {
+        UIViewController()
     }
 
-    func body(content: Content) -> some View {
-        content
-    }
-}
-
-extension View {
-    func navigationBarTitleColor(_ isDark: Bool) -> some View {
-        if isDark {
-            self.modifier(NavigationBarTitleColor(titleColor: UIColor.white))
-        } else {
-            self.modifier(NavigationBarTitleColor(titleColor: UIColor.black))
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        if let navigationController = uiViewController.navigationController {
+            self.configure(navigationController)
         }
     }
 }
+
 #Preview {
     FootballStatsView(uniqueId: "eng.1", selectedLeague: "")
 }

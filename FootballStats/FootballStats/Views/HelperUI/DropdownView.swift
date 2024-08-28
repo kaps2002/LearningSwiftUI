@@ -36,7 +36,7 @@ struct DropdownView: View {
                         .rotationEffect(.init(degrees: showOptions ? -90 : 0))
                 }
                 .padding(.horizontal, 15)
-                .frame(width: size.width, height: size.height, alignment: .center)
+//                .frame(width: size.width, height: size.height, alignment: .center)
                 .contentShape(.rect)
                 .onTapGesture {
                     withAnimation(.snappy(duration: 0.5)) {
@@ -56,6 +56,7 @@ struct DropdownView: View {
     
     @ViewBuilder
     func OptionsView() -> some View {
+        Text("Hello")
         VStack(spacing: 10) {
             ForEach(options, id: \.year) { option in
                 HStack(spacing: 0) {
